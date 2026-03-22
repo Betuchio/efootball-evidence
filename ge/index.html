@@ -66,7 +66,63 @@ section{scroll-margin-top:60px}
 .hm{color:#ff3333;font-weight:bold;background:rgba(255,50,50,.12)}
 .am{color:#ff3333;font-weight:bold;background:rgba(255,50,50,.15)}
 .ap{color:#559955}
-.more{color:#555;font-style:italic;padding:5px 12px;font-size:.8em}</style></head><body>
+.more{color:#555;font-style:italic;padding:5px 12px;font-size:.8em}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+.hero{padding:40px 18px}
+.hero h1{font-size:1.5em}
+.hero .sub{font-size:.9em}
+.hero .method{padding:10px 14px;font-size:.75em;text-align:left;display:block}
+nav{padding:10px 12px;gap:5px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+nav a{padding:6px 10px;font-size:.72em;white-space:nowrap;flex-shrink:0}
+.container{padding:18px 10px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+.stat-item{padding:14px 8px}
+.stat-item .number{font-size:1.5em}
+.stat-item .label{font-size:.75em}
+.ev{margin-bottom:25px;border-radius:8px}
+.ev-hdr{padding:16px 14px}
+.ev-hdr h2{font-size:1.1em;line-height:1.4}
+.sev-c,.sev-h{display:block;margin:8px 0 0 0;width:fit-content;font-size:.65em}
+.ev-body{padding:16px 12px}
+.code-block{padding:12px 10px;font-size:.72em;line-height:1.5;-webkit-overflow-scrolling:touch}
+.expl{padding:14px 12px;margin:14px 0}
+.expl h3{font-size:.95em}
+.expl p{font-size:.88em}
+.warn{padding:14px 12px}
+.warn h3{font-size:.95em}
+table.cmp th,table.cmp td{padding:8px 6px;font-size:.82em}
+.flow{padding:18px 12px}
+.fs{margin:6px 0}
+.fn{width:28px;height:28px;font-size:.75em}
+.ft{margin-left:10px;font-size:.88em}
+.fc{font-size:.72em}
+.fa{font-size:1.1em;margin:2px 0}
+.verdict{padding:25px 16px;margin:25px 0}
+.verdict h2{font-size:1.4em}
+.verdict p{font-size:.88em;line-height:1.6}
+.footer{padding:25px 14px;font-size:.8em}
+/* hex proof mobile */
+.proof-title{font-size:.9em}
+.sp-hdr{padding:8px 10px;flex-direction:column;align-items:flex-start;gap:5px}
+.ss{font-size:.78em;word-break:break-all}
+.bf,.bnf{font-size:.68em}
+.hx-box{margin:4px}
+.hx-hdr{padding:4px 8px;font-size:.68em;flex-direction:column;gap:2px}
+.hx{padding:8px 6px;font-size:.58em;line-height:1.4;-webkit-overflow-scrolling:touch}
+.more{font-size:.72em;padding:4px 8px}
+}
+
+@media(max-width:400px){
+.hero h1{font-size:1.25em}
+.stats-grid{grid-template-columns:1fr 1fr;gap:6px}
+.stat-item .number{font-size:1.3em}
+.ev-hdr h2{font-size:1em}
+.code-block{font-size:.65em;padding:10px 8px}
+.hx{font-size:.52em}
+nav a{padding:5px 8px;font-size:.65em}
+}</style></head><body>
 <div class="hero"><h1>eFootball 2026 — მონაცემთა მანიპულაციის მტკიცებულებები</h1><p class="sub">eFootball.exe-ის ბინარული ანალიზი hex dump მტკიცებულებებით ყოველი ბრალდებისთვის</p>
 <div class="method"><strong>ფაილი:</strong> <code>eFootball.exe</code> (374 MB) | <strong>სტრინგები:</strong> <code>4,670,623</code> | <strong>პროექტი:</strong> <code>PES22HC / eFBDev-530</code></div></div>
 <nav><a href="#e1">სტატების თაღლითობა</a><a href="#e2">სიჩქარის მანიპულაცია</a><a href="#e3">გათანაბრება</a><a href="#e4">სერვერის კონტროლი</a><a href="#e5">წინასწარ განსაზღვრული დარტყმა</a><a href="#e6">მეკარის დაგვიანება</a><a href="#e7">ჯარიმის მანიპულაცია</a><a href="#e8">ფარული სირთულე</a><a href="#e9">ფარული სტატები</a><a href="#e10">სერიების ტრეკინგი</a><a href="#e11">მონეტიზაცია</a><a href="#e12">ტელემეტრია</a><a href="#verdict">დასკვნა</a></nav>
