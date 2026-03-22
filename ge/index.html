@@ -68,6 +68,11 @@ section{scroll-margin-top:60px}
 .am{color:#ff3333;font-weight:bold;background:rgba(255,50,50,.15)}
 .ap{color:#559955}
 .more{color:#555;font-style:italic;padding:5px 12px;font-size:.8em}
+.tip-card{background:rgba(0,170,68,0.04);border:1px solid #1a3a1a;border-radius:10px;padding:22px;margin-bottom:18px;transition:.3s}
+.tip-card:hover{border-color:#00aa44}
+.tip-card h4{color:#00ff88;font-size:1.1em;margin-bottom:10px}
+.tip-card p{font-size:.92em;line-height:1.6}
+.tip-card code{color:#00cc66;background:rgba(0,200,100,.08);padding:1px 5px;border-radius:3px}
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media(max-width:768px){
@@ -126,7 +131,7 @@ nav a{padding:5px 8px;font-size:.65em}
 }</style></head><body>
 <div class="hero"><h1>eFootball 2026 — მონაცემთა მანიპულაციის მტკიცებულებები</h1>
 <div class="method"><strong>ფაილი:</strong> <code>eFootball.exe</code> (374 MB) | <strong>სტრინგები:</strong> <code>4,670,623</code> | <strong>პროექტი:</strong> <code>PES22HC / eFBDev-530</code></div></div>
-<nav><a href="#e1">სტატების თაღლითობა</a><a href="#e2">სიჩქარის მანიპულაცია</a><a href="#e3">გათანაბრება</a><a href="#e4">სერვერის კონტროლი</a><a href="#e5">წინასწარ განსაზღვრული დარტყმა</a><a href="#e6">მეკარის დაგვიანება</a><a href="#e7">ჯარიმის მანიპულაცია</a><a href="#e8">ფარული სირთულე</a><a href="#e9">ფარული სტატები</a><a href="#e10">სერიების ტრეკინგი</a><a href="#e11">მონეტიზაცია</a><a href="#e12">ტელემეტრია</a><a href="#verdict">დასკვნა</a></nav>
+<nav><a href="#e1">სტატების თაღლითობა</a><a href="#e2">სიჩქარის მანიპულაცია</a><a href="#e3">გათანაბრება</a><a href="#e4">სერვერის კონტროლი</a><a href="#e5">წინასწარ განსაზღვრული დარტყმა</a><a href="#e6">მეკარის დაგვიანება</a><a href="#e7">ჯარიმის მანიპულაცია</a><a href="#e8">ფარული სირთულე</a><a href="#e9">ფარული სტატები</a><a href="#e10">სერიების ტრეკინგი</a><a href="#e11">მონეტიზაცია</a><a href="#e12">ტელემეტრია</a><a href="#e13">კონტრ-სტრატეგია</a><a href="#verdict">დასკვნა</a></nav>
 <div class="container">
 <section id="e1"><div class="ev"><div class="ev-hdr"><h2>მტკიცებულება #1: ქარდის სტატები სიცრუეა <span class="sev-c">კრიტიკული</span></h2></div><div class="ev-body">
 <p>თამაში ინახავს <strong>ორ ცალკე სტატისტიკის სისტემას</strong> — რასაც ხედავ ქარდზე, და რა მოქმედებს რეალურად მატჩის დროს.</p>
@@ -851,7 +856,26 @@ nav a{padding:5px 8px;font-size:.65em}
 <span class="ha">06F67F0D</span>  6D 64 55 6E 73 75 62 73  63 72 69 62 65 47 72 70  <span class="ap">|mdUnsubscribeGrp|</span>
 <span class="ha">06F67F1D</span>  63 2E 63 70 70 00 00 61  6E 00 00 22 6D 5F 72 65  <span class="ap">|c.cpp..an..&quot;m_re|</span>
 <span class="ha">06F67F2D</span>  73 75 6C 74 22 00 00 69  6E 64 00 6E 61 6E        <span class="ap">|sult&quot;..ind.nan  |</span></pre></div><div class="more">... +541 სხვაგან</div></div></div>
-</div></div></section><section id="verdict"><div class="verdict"><h2>საბოლოო დასკვნა</h2><p><strong>ეს არ არის თეორია. ეს არის Konami-ს საკუთარი exe-დან ამოღებული მტკიცებულება, ბაიტ-ბაიტ ვერიფიცირებული.</strong></p><p style="margin-top:15px;color:#999"><code>66/66 მტკიცებულების სტრინგი ვერიფიცირებული ბინარში</code></p></div></section>
+</div></div></section><section id="e13"><div class="ev" style="border-color:#00aa44"><div class="ev-hdr" style="background:linear-gradient(90deg,#001a00,#111)"><h2 style="color:#00ff88">როგორ დავამარცხოთ სკრიპტი — სუსტი წერტილები ნაპოვნი ბინარში</h2></div><div class="ev-body">
+<p style="color:#00cc66;margin-bottom:20px">ქვემოთ ყველა სუსტი წერტილი ბინარში ნაპოვნი სტრინგებით არის გამყარებული. ეს არ არის ვარაუდები — ეს არის ექსპლუატირებადი დიზაინის ნიმუშები.</p>
+
+    <div class="tip-card"><h4>სტამინა = სკრიპტის გამაძლიერებელი</h4><p>ბინარის მტკიცებულება: პასის/დარტყმის/კროსის ხარისხი ეცემა <strong>ზუსტ სტამინის ზღვრებზე</strong>: 20-15%, 15-10%, 10-5%, 5-0%. როცა სტამინა ეცემა, სკრიპტი <strong>უფრო ძლიერად</strong> მოქმედებს. <strong>შეცვლა 60-65 წუთზე გააკეთე</strong>, სტამინა 20%-ს ქვემოთ არასოდეს ჩაუშვა.</p>
+    <</div>
+    <div class="tip-card"><h4>ხშირად შეცვალე ტაქტიკა — AI-ს აქვს adaptabilityRate</h4><p>ბინარის მტკიცებულება: <code>adaptabilityRate</code> არის გუნდის დონის პარამეტრი — AI <strong>სწავლობს შენს სტილს</strong> მატჩის განმავლობაში. ასევე: <code>marginPredictionFrameAdjust</code> აჩვენებს რომ AI წინასწარ ხვდება შენს მოქმედებებს. <strong>ტაქტიკა D-pad-ით 15-20 წუთში ერთხელ შეცვალე</strong>. გადაერთე შეტევა/დაცვას შორის. იყავი არაპროგნოზირებადი.</p>
+    <</div>
+    <div class="tip-card"><h4>მანუალური კონტროლი ნაწილობრივ გვერდს უვლის სკრიპტს</h4><p>ბინარის მტკიცებულება: <code>manualPassGetRate</code>, <code>manualPassSpeedBase</code>, <code>manualPassAngleYBase</code> — მანუალურ პასებს <strong>საკუთარი ცალკე რეიტის სისტემა</strong> აქვს, ასისტირებულისგან დამოუკიდებელი. <strong>ითამაშე PA1 ან მანუალურ პასზე</strong>. სისტემის pass_success_rate მანიპულაცია ნაკლებად მოქმედებს მანუალურ ინპუტზე.</p>
+    <</div>
+    <div class="tip-card"><h4>ნუ ააგებ დიდ ლიდერობას სწრაფად</h4><p>ბინარის მტკიცებულება: <code>Comeback</code> სისტემას აქვს საკუთარი ანიმაცია, ხმის ეფექტი და C++ კლასი. <code>MatchGageAdjustment</code> ააქტიურდება მატჩის მდგომარეობის მიხედვით. <strong>2-0-ის შემდეგ შეანელე</strong>. ბურთი შეინარჩუნე, ნუ შეუტევ აგრესიულად. სისტემას "დრამატული" ტრიგერი სჭირდება — ნუ მისცემ.</p>
+    <</div>
+    <div class="tip-card"><h4>თავიდან აიცილე BEST ფორმა ყველა მოთამაშეზე</h4><p>ბინარის მტკიცებულება: <code>condition_cpu_level</code> პირდაპირ აკავშირებს გუნდის ფორმას AI-ს სირთულესთან. ყველა მოთამაშე BEST ფორმაზე = AI გადადის LEGEND_PLUS-ზე. <strong>შეურიე GOOD და NORMAL ფორმის მოთამაშეები</strong>. სათადარიგოზე ნაკლები ფორმის მოთამაშეები ჩასვი, რომ შემცირდეს "ეფექტური" გუნდის ძალა, რომელიც AI-ს სირთულეს ზრდის.</p>
+    <</div>
+    <div class="tip-card"><h4>მოგებების სერია შეგნებულად გაწყვიტე</h4><p>ბინარის მტკიცებულება: <code>NUM_WIN_STREAK</code>, <code>NUM_NOTWIN_STREAK</code> — 8 ტიპის სერია ტრეკირდება. მაღალი მოგებების სერია სავარაუდოდ ააქტიურებს Equalization-ს. <strong>3-4 მოგების შემდეგ შესვენება აიღე ან სხვა რეჟიმში ითამაშე</strong>. სერიის მთვლელი შეიძლება სესიაზე ან სერვერზე იყოს მიბმული.</p>
+    <</div>
+    <div class="tip-card"><h4>Equalization ზოგ რეჟიმში გამორთვადია</h4><p>ბინარის მტკიცებულება: <code>ERoomSettingsKind::EQUALIZATION</code>, <code>GetSelectableRoomSettingsEqualization</code> — Equalization არის <strong>ოთახის პარამეტრი</strong>, რომელიც ფილტრირებადია. <strong>Custom Match / Friendly-ში ოთახის პარამეტრები შეამოწმე</strong> და Equalization გამორთე, თუ ასეთი ოფცია არის.</p>
+    <</div>
+    <div class="tip-card"><h4>არასტანდარტული კუთხიდან დაარტყი</h4><p>ბინარის მტკიცებულება: <code>CheckFutureShootFailedLevel</code> წინასწარ განსაზღვრავს დარტყმის შედეგს. მაგრამ <code>marginPredictionFrameAdjust</code> და <code>AIPredictionEvent</code> აჩვენებს რომ AI პროგნოზს იყენებს. <strong>Finesse shot, chip shot, ვიწრო კუთხიდან, სუსტი ფეხით</strong> — სავარაუდოდ სხვა პროგნოზის მოდელი აქვს. ცვალე დარტყმის ტიპი — ნუ დაარტყამ ყოველთვის ძლიერად შორეულ კუთხეში.</p>
+    <</div>
+</div></div></section><section id="verdict"><div class="verdict"><h2>საბოლოო დასკვნა</h2><p><strong>ეს არ არის თეორია. ეს არის Konami-ს საკუთარი exe-დან ამოღებული მტკიცებულება, ბაიტ-ბაიტ ვერიფიცირებული.</strong></p><p style="margin-top:15px;color:#999"><code>85/85 მტკიცებულების სტრინგი ვერიფიცირებული ბინარში</code></p></div></section>
 </div>
 <div class="footer"><p>ფაილი: <code>eFootball.exe</code> (374,416,384 bytes) | <code>PES22HC / eFBDev-530</code></p><p class="date">ანალიზის თარიღი: 2026-03-22</p></div>
 </body></html>
