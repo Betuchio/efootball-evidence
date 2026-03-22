@@ -9,9 +9,9 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#0a0a0a;color:#e0e0e0;l
 .hero .method{margin-top:25px;background:rgba(255,255,255,0.05);display:inline-block;padding:15px 30px;border-radius:8px;border:1px solid #333;font-size:.9em}
 .hero .method code{color:#ff6666}
 nav{background:#111;padding:14px 40px;border-bottom:1px solid #222;position:sticky;top:0;z-index:100;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-nav a{color:#ff6666;text-decoration:none;padding:8px 16px;border:1px solid #333;border-radius:25px;font-size:.82em;transition:all .25s;background:rgba(255,50,50,0.04);cursor:pointer}
-nav a:hover{background:#ff3333;color:#fff;border-color:#ff3333;box-shadow:0 2px 12px rgba(255,50,50,0.25);transform:translateY(-1px)}
-nav a:active{transform:translateY(0);box-shadow:none}
+nav a{color:#fff;text-decoration:none;padding:10px 20px;border:none;border-radius:8px;font-size:.82em;transition:all .25s;background:linear-gradient(145deg,#1e1e1e,#161616);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.05);font-weight:500}
+nav a:hover{background:linear-gradient(145deg,#ff4444,#cc2222);color:#fff;box-shadow:0 4px 18px rgba(255,50,50,0.35);transform:translateY(-2px)}
+nav a:active{transform:translateY(0);box-shadow:0 1px 3px rgba(0,0,0,0.3)}
 .container{max-width:1100px;margin:0 auto;padding:40px 20px}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:20px 0}
 .stat-item{background:#111;border:1px solid #222;border-radius:8px;padding:20px;text-align:center}
@@ -124,16 +124,10 @@ table.cmp th,table.cmp td{padding:8px 6px;font-size:.82em}
 .hx{font-size:.52em}
 nav a{padding:5px 8px;font-size:.65em}
 }</style></head><body>
-<div class="hero"><h1>eFootball 2026 — მონაცემთა მანიპულაციის მტკიცებულებები</h1><p class="sub">eFootball.exe-ის ბინარული ანალიზი hex dump მტკიცებულებებით ყოველი ბრალდებისთვის</p>
+<div class="hero"><h1>eFootball 2026 — მონაცემთა მანიპულაციის მტკიცებულებები</h1>
 <div class="method"><strong>ფაილი:</strong> <code>eFootball.exe</code> (374 MB) | <strong>სტრინგები:</strong> <code>4,670,623</code> | <strong>პროექტი:</strong> <code>PES22HC / eFBDev-530</code></div></div>
 <nav><a href="#e1">სტატების თაღლითობა</a><a href="#e2">სიჩქარის მანიპულაცია</a><a href="#e3">გათანაბრება</a><a href="#e4">სერვერის კონტროლი</a><a href="#e5">წინასწარ განსაზღვრული დარტყმა</a><a href="#e6">მეკარის დაგვიანება</a><a href="#e7">ჯარიმის მანიპულაცია</a><a href="#e8">ფარული სირთულე</a><a href="#e9">ფარული სტატები</a><a href="#e10">სერიების ტრეკინგი</a><a href="#e11">მონეტიზაცია</a><a href="#e12">ტელემეტრია</a><a href="#verdict">დასკვნა</a></nav>
 <div class="container">
-<div class="stats-grid">
-<div class="stat-item"><div class="number">66/66</div><div class="label">სტრინგი ვერიფიცირებული ბინარში</div></div>
-<div class="stat-item"><div class="number">280</div><div class="label">PHP Endpoints</div></div>
-<div class="stat-item"><div class="number">2,941</div><div class="label">ტელემეტრია</div></div>
-<div class="stat-item"><div class="number">15+</div><div class="label">სიჩქარის პარამეტრი</div></div>
-</div>
 <section id="e1"><div class="ev"><div class="ev-hdr"><h2>მტკიცებულება #1: ქარდის სტატები სიცრუეა <span class="sev-c">კრიტიკული</span></h2></div><div class="ev-body">
 <p>თამაში ინახავს <strong>ორ ცალკე სტატისტიკის სისტემას</strong> — რასაც ხედავ ქარდზე, და რა მოქმედებს რეალურად მატჩის დროს.</p>
 <div class="code-block"><span class="hl">ability_base</span>     <span class="cm">← ბაზური უნარები (ქარდზე ნაჩვენები)</span>

@@ -9,9 +9,9 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#0a0a0a;color:#e0e0e0;l
 .hero .method{margin-top:25px;background:rgba(255,255,255,0.05);display:inline-block;padding:15px 30px;border-radius:8px;border:1px solid #333;font-size:.9em}
 .hero .method code{color:#ff6666}
 nav{background:#111;padding:14px 40px;border-bottom:1px solid #222;position:sticky;top:0;z-index:100;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-nav a{color:#ff6666;text-decoration:none;padding:8px 16px;border:1px solid #333;border-radius:25px;font-size:.82em;transition:all .25s;background:rgba(255,50,50,0.04);cursor:pointer}
-nav a:hover{background:#ff3333;color:#fff;border-color:#ff3333;box-shadow:0 2px 12px rgba(255,50,50,0.25);transform:translateY(-1px)}
-nav a:active{transform:translateY(0);box-shadow:none}
+nav a{color:#fff;text-decoration:none;padding:10px 20px;border:none;border-radius:8px;font-size:.82em;transition:all .25s;background:linear-gradient(145deg,#1e1e1e,#161616);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.05);font-weight:500}
+nav a:hover{background:linear-gradient(145deg,#ff4444,#cc2222);color:#fff;box-shadow:0 4px 18px rgba(255,50,50,0.35);transform:translateY(-2px)}
+nav a:active{transform:translateY(0);box-shadow:0 1px 3px rgba(0,0,0,0.3)}
 .container{max-width:1100px;margin:0 auto;padding:40px 20px}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:20px 0}
 .stat-item{background:#111;border:1px solid #222;border-radius:8px;padding:20px;text-align:center}
@@ -124,16 +124,10 @@ table.cmp th,table.cmp td{padding:8px 6px;font-size:.82em}
 .hx{font-size:.52em}
 nav a{padding:5px 8px;font-size:.65em}
 }</style></head><body>
-<div class="hero"><h1>eFootball 2026 — Evidence of Data Manipulation</h1><p class="sub">Binary analysis of eFootball.exe with hex dump proof for every claim</p>
+<div class="hero"><h1>eFootball 2026 — Evidence of Data Manipulation</h1>
 <div class="method"><strong>File:</strong> <code>eFootball.exe</code> (374 MB) | <strong>Strings:</strong> <code>4,670,623</code> | <strong>Project:</strong> <code>PES22HC / eFBDev-530</code></div></div>
 <nav><a href="#e1">Stats Fraud</a><a href="#e2">Speed Manipulation</a><a href="#e3">Equalization</a><a href="#e4">Server Control</a><a href="#e5">Pre-determined Shots</a><a href="#e6">Goalkeeper Delay</a><a href="#e7">Foul Manipulation</a><a href="#e8">Hidden Difficulty</a><a href="#e9">Hidden Stats</a><a href="#e10">Streak Tracking</a><a href="#e11">Monetization</a><a href="#e12">Telemetry</a><a href="#verdict">VERDICT</a></nav>
 <div class="container">
-<div class="stats-grid">
-<div class="stat-item"><div class="number">66/66</div><div class="label">Strings verified in binary</div></div>
-<div class="stat-item"><div class="number">280</div><div class="label">PHP Endpoints</div></div>
-<div class="stat-item"><div class="number">2,941</div><div class="label">Telemetry points</div></div>
-<div class="stat-item"><div class="number">15+</div><div class="label">Speed parameters</div></div>
-</div>
 <section id="e1"><div class="ev"><div class="ev-hdr"><h2>Evidence #1: Card Stats Are a Lie <span class="sev-c">CRITICAL</span></h2></div><div class="ev-body">
 <p>The game maintains <strong>two separate stat systems</strong> — what you see on the card, and what actually operates during a match.</p>
 <div class="code-block"><span class="hl">ability_base</span>     <span class="cm">← Base abilities (shown on card)</span>
