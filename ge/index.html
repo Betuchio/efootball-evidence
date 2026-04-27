@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <meta name="description" content="მონაცემთა მანიპულაციის მტკიცებულება eFootball.exe-ში">
-<title>eFootball მტკიცებულება — Konami-ის ფარული მანიპულაციის სისტემა, გამოაშკარავებული</title>
+<title>eFootball მტკიცებულება — Konami-ს ფარული მანიპულაციის სისტემა, გამოაშკარავებული</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
@@ -826,9 +826,9 @@ details[open] .proof-icon { transform: rotate(45deg); }
 
 <header class="hero">
 <div class="hero-inner">
-<span class="hero-tag">ბინარული ანალიზი · 2026</span>
-<h1>ისინი იცვლიან შენს მატჩს.<br><span class="accent">შენ ვერ ხედავ.</span></h1>
-<p class="hero-sub">სრული რივერს-ინჟინერინგის ანგარიში სკრიპტინგის, equalization-ის და სერვერის მხრიდან კორექტირების სისტემების შესახებ, რომლებიც აღმოჩნდა eFootball.exe-ში.</p>
+<span class="hero-tag">თამაშის ფაილის ანალიზი · 2026</span>
+<h1>შენს მატჩს ცვლიან.<br><span class="accent">შენ ამას ვერ ხედავ.</span></h1>
+<p class="hero-sub">სრული ტექნიკური ანგარიში სკრიპტინგის, equalization-ისა და სერვერის მხრიდან კორექტირების სისტემების შესახებ, რომლებიც eFootball.exe-ის შიგნით აღმოჩნდა.</p>
 <div class="hero-meta">
 <span class="hero-meta-item">ფაილი: <code>eFootball.exe</code></span>
 <span class="hero-meta-item">ზომა: <code>374 MB</code></span>
@@ -840,22 +840,22 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <main class="container">
 <section id="e1"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 01</div>
-<h2>ქარდის სტატები სიცრუეა — შენი მოთამაშეები სუსტები არიან, ვიდრე გგონია</h2>
+<h2>ქარდის სტატები ცრუა — შენი მოთამაშეები იმაზე სუსტები არიან, ვიდრე გგონია</h2>
 <span class="severity sev-c">კრიტიკული</span>
 </div><div class="ev-body">
-<p class="lead">თამაში ინახავს <strong>ორ სრულიად ცალკე სტატის სისტემას</strong>: ერთი ის არის, რასაც ხედავ ქარდზე ყიდვისას ან ვარჯიშისას, მეორე — რა მოქმედებს რეალურად მატჩის დროს. ეს განსხვავებული მნიშვნელობებია და ეს არასოდეს გეუბნებიან.</p>
+<p class="lead">თამაში იყენებს <strong>ორ სრულიად დამოუკიდებელ სტატური სისტემას</strong>: ერთი ის არის, რასაც ქარდზე ხედავ ყიდვისას ან ვარჯიშისას — მეორე ის, რაც რეალურად მოქმედებს მატჩის დროს. ეს ორი განსხვავებული მნიშვნელობაა და შენთვის არასოდეს ცხადდება.</p>
 
 <div class="section-h">როგორ მუშაობს</div>
-<p class="body-text">თამაშის კოდში, ყოველი მოთამაშის ატრიბუტისთვის არსებობს ორი ცვლადი: <code>ability_base</code> ინახავს ქარდზე დაწერილ მნიშვნელობებს (მაგ. Speed = 95). <code>ability_match</code> ინახავს რეალურ მნიშვნელობებს, რომლებიც მატჩის დროს გამოიყენება (78, 65, ან კიდევ უფრო დაბალი).</p>
-<p class="body-text">მატჩის დაწყებისას, თამაში ითვლის <code>ability_match</code>-ს <code>ability_base</code>-დან რამდენიმე მოდიფიკატორის გამოყენებით: Equalization (გუნდის გათანაბრება), Condition (ფორმა), MatchGageAdjustment (რეალტაიმ სიჩქარის შემცირება) და სხვა. შედეგი — ის, რასაც შენი მოთამაშე რეალურად აკეთებს მოედანზე.</p>
+<p class="body-text">თამაშის კოდში ყოველი მოთამაშის ატრიბუტისთვის ორი ცვლადია: <code>ability_base</code> — ქარდზე დაწერილი მნიშვნელობები (მაგ., Speed = 95). <code>ability_match</code> — რეალური მნიშვნელობები, რომლებიც მატჩის დროს მოქმედებს (78, 65, ან კიდევ უფრო დაბალი).</p>
+<p class="body-text">მატჩის დაწყებისას თამაში ითვლის <code>ability_match</code>-ს <code>ability_base</code>-დან რამდენიმე მოდიფიკატორის გამოყენებით: Equalization (გუნდის გათანაბრება), Condition (ფორმა), MatchGageAdjustment (სიჩქარის რეალური დროის ცვლილება) და სხვა. შედეგი — ის, რასაც შენი მოთამაშე რეალურად აკეთებს მოედანზე.</p>
 
-<div class="callout"><div class="callout-i">!</div><div class="callout-c">შენ იყიდე ქარდი სადაც წერია <strong>Speed = 95</strong>. Equalization-ის აქტიურობისას, იგივე მოთამაშე რბის <strong>Speed ≈ 75</strong>-ით. ეს არ არის ის მოთამაშე, რომელშიც გადაიხადე — და თამაში არასოდეს გაჩვენებს შეცვლილ რიცხვს.</div></div>
+<div class="callout"><div class="callout-i">!</div><div class="callout-c">შენ იყიდე ქარდი, რომელზეც წერია <strong>Speed = 95</strong>. როცა Equalization აქტიურია, იგივე მოთამაშე <strong>Speed ≈ 75</strong>-ით რბის. ეს არ არის ის მოთამაშე, რომელშიც ფული გადაიხადე — და თამაში შეცვლილ რიცხვს არასოდეს აჩვენებს.</div></div>
 
 <div class="section-h">როგორ გრძნობ</div>
 <ul class="points">
-<li>შენი 95-სიჩქარის ფორვარდი უკნიდან ეწევა 75-სიჩქარის მცველს, ყოველგვარი ლოგიკური მიზეზის გარეშე</li>
-<li>92-რეიტინგიანი playmaker პასებს გასცემს როგორც 80-რეიტინგიანი — მოკლე პასები აცდება, საჰაერო ბურთები არასწორად ეცემა</li>
-<li>მოთამაშეები 'უმოქმედოები' ან 'ნახევრად მძინარეები' ჩანან, თუნდაც სრულყოფილ ფორმაში</li>
+<li>შენს 95-სიჩქარის ფორვარდს უკნიდან ეწევა 75-სიჩქარის მცველი, ყოველგვარი ლოგიკური მიზეზის გარეშე</li>
+<li>92-რეიტინგიანი playmaker ისე გასცემს პასებს, როგორც 80-რეიტინგიანი — მოკლე პასები აცდება, საჰაერო ბურთები არასწორად ეცემა</li>
+<li>მოთამაშეები 'უმოქმედო' ან 'ნახევრად მძინარე' ჩანან, თუნდაც სრულყოფილ ფორმაში იყვნენ</li>
 </ul>
 <
 </div></div></section><section id="e2"><div class="ev"><div class="ev-head">
@@ -863,7 +863,7 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <h2>15+ პარამეტრი ფარულად ცვლის მოთამაშის სიჩქარეს რეალურ დროში</h2>
 <span class="severity sev-c">კრიტიკული</span>
 </div><div class="ev-body">
-<p class="lead"><strong>MatchGageAdjustment</strong> — ეს არის სისტემა თამაშის შიგნით, რომელიც ცვლის მოთამაშის სიჩქარეს, პასის სიჩქარეს, ინტერცეპტის სიჩქარეს, სლაიდინგის სიჩქარეს და მოძრაობის ყველა ასპექტს — რეალურ დროში, მატჩის მიმდინარეობისას.</p>
+<p class="lead"><strong>MatchGageAdjustment</strong> — თამაშის შიდა სისტემაა, რომელიც ცვლის მოთამაშის სიჩქარეს, პასის სიჩქარეს, ინტერცეპტის სიჩქარეს, სლაიდინგის სიჩქარეს და მოძრაობის ყველა სხვა ასპექტს — რეალურ დროში, თვითონ მატჩის მიმდინარეობისას.</p>
 
 <div class="section-h">რა იცვლება</div>
 <div class="code-block"><span class="hl">adjustSpeed</span>                <span class="cm">// ბაზური სიჩქარის მამრავლი</span>
@@ -876,104 +876,104 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <span class="hl">adjustPassSpeedMax</span>         <span class="cm">// პასის მაქს. სიჩქარე</span>
 <span class="hl">adjustSlideMoveSpeed</span>       <span class="cm">// სლაიდინგის სიჩქარე</span></div>
 
-<p class="body-text">თითოეულ პარამეტრს აქვს 'მინუს' (შენელება) და 'პლუს' (აჩქარება) ვერსია. თამაშს შეუძლია გამოიყენოს ისინი <strong>ასიმეტრიულად</strong> — შენი მოთამაშეები შეანელოს, მეტოქის — აჩქაროს, ერთსა და იმავე მატჩში, რეალურ დროში.</p>
+<p class="body-text">თითოეულ პარამეტრს აქვს ორი ვერსია: 'მინუს' (შენელება) და 'პლუს' (აჩქარება). თამაშს მათი <strong>ასიმეტრიული</strong> გამოყენება შეუძლია — შენი მოთამაშეები შეანელოს, მეტოქის კი აჩქაროს, ერთსა და იმავე მატჩში, რეალურ დროში.</p>
 
 <div class="section-h">თვალსაჩინო მტკიცებულება</div>
-<p class="body-text">თამაშს აქვს debug ლოგის ხაზი, რომელიც ადასტურებს რომ ეს აქტიურად გამოიყენება:</p>
+<p class="body-text">თამაშის შიგნით არის debug ლოგის ხაზი, რომელიც ადასტურებს, რომ ეს სისტემა აქტიურად გამოიყენება:</p>
 <div class="code-block"><span class="st">[adjustSp] SpChange: %.2f(%.2f / %d)</span></div>
-<p class="body-text">ეს ხაზი სიტყვასიტყვით ამბობს 'სიჩქარის ცვლილება' — Konami-ის დეველოპერებმა დაწერეს ეს მათ შიდა ბილდებში სისტემის მონიტორინგისთვის. ის რეალურია, მუშაობს და ყოველ კორექტირებას აღრიცხავს.</p>
+<p class="body-text">ეს ხაზი სიტყვასიტყვით ნიშნავს 'სიჩქარის ცვლილებას' — Konami-ს დეველოპერებმა ეს დაწერეს, რომ სისტემაზე შიდა ბილდებში დაკვირვებოდნენ. ის რეალურია, მუშაობს და ყოველ კორექტირებას აღრიცხავს.</p>
 
-<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">ამიტომ შენი გუნდი 10 წუთი 'ნელია', მერე ისევ 'სწრაფი'. სისტემა იცვლება — აყენებს შემცირებებს და ბოოსტებს მატჩის მდგომარეობის, ანგარიშის, ბურთის ფლობის და სხვა ფარული ტრიგერების მიხედვით.</div></div>
+<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">ამიტომაც გრძნობ, რომ შენი გუნდი 10 წუთი 'ნელია', მერე უცებ ისევ 'სწრაფი' ხდება. სისტემა იცვლება — აწესებს შენელებებს და გაძლიერებებს მატჩის მდგომარეობის, ანგარიშის, ბურთის ფლობისა და სხვა ფარული ტრიგერების მიხედვით.</div></div>
 <
 </div></div></section><section id="e3"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 03</div>
-<h2>Equalization — Konami-ის ოფიციალური 'გათანაბრების' სისტემა</h2>
+<h2>Equalization — Konami-ს ოფიციალური 'გათანაბრების' სისტემა</h2>
 <span class="severity sev-c">კრიტიკული</span>
 </div><div class="ev-body">
-<p class="lead">Konami-მ თავად დაარქვა ამ სისტემას <strong>"Equalization"</strong>. ეს არის შეგნებული მექანიზმი, რომელიც <strong>ასუსტებს ძლიერ გუნდს და აძლიერებს სუსტს</strong>, ანადგურებს იმ უპირატესობას, რომელშიც შენ გადაიხადე.</p>
+<p class="lead">სისტემას სახელი თავად Konami-მ დაარქვა — <strong>"Equalization"</strong> (გათანაბრება). ეს შეგნებული მექანიზმია, რომელიც <strong>ძლიერ გუნდს ასუსტებს და სუსტს აძლიერებს</strong>, რითაც ანადგურებს იმ უპირატესობას, რომლისთვისაც ფული გადაიხადე.</p>
 
 <div class="section-h">რას ცვლის</div>
 <ul class="points">
-<li><strong>მოთამაშის სიჩქარე და აჩქარება</strong> — შენი სწრაფი მოთამაშეები ხდებიან ნელი, მათი — სწრაფი</li>
-<li><strong>პასის წარმატების მაჩვენებელი</strong> — შენი პასები ხშირად აცდება, მათი — სამიზნეს პოულობს</li>
-<li><strong>დარტყმის სიზუსტე და დასრულება</strong> — შენი დარტყმები მიფრინავს გვერდით, მათი — კუთხეებს პოულობს</li>
-<li><strong>დაცვითი რეაქციები</strong> — შენი მცველები რეაგირებენ ნელა, მათი თავდამსხმელები — სწრაფად</li>
-<li><strong>მეკარის პოზიციონირება</strong> — შენი მეკარე 'არასწორად ხვდება', მათი — სწორ ადგილზე დგას</li>
+<li><strong>მოთამაშის სიჩქარე და აჩქარება</strong> — შენი სწრაფი მოთამაშეები ნელდებიან, მეტოქის კი — აჩქარდებიან</li>
+<li><strong>პასის წარმატების მაჩვენებელი</strong> — შენი პასები ხშირად აცდება, მეტოქის კი — სამიზნეს პოულობს</li>
+<li><strong>დარტყმის სიზუსტე და დასრულება</strong> — შენი დარტყმები გვერდით მიფრინავს, მეტოქის კი — ზუსტად კუთხეებს პოულობს</li>
+<li><strong>დაცვითი რეაქციები</strong> — შენი მცველები ნელა რეაგირებენ, მეტოქის თავდამსხმელები კი — სწრაფად</li>
+<li><strong>მეკარის პოზიციონირება</strong> — შენი მეკარე 'არასწორ ადგილზე იდგა', მეტოქის კი — ზუსტად სწორ ადგილზეა</li>
 </ul>
 
 <div class="section-h">სად ააქტიურდება</div>
-<p class="body-text"><code>m_enableEqualization</code> — ეს არის flag, რომელიც შეიძლება ჩაირთოს ან გამოირთოს. <strong>AI Division-ში და ონლაინ რეჟიმების უმრავლესობაში</strong>, ეს flag მუდმივად ჩართულია და მოთამაშეს არ აქვს მისი გამორთვის შესაძლებლობა. Custom Match / Friendly რეჟიმებში, flag <em>შეიძლება</em> შეიცვალოს — ანუ Konami-მ იცის, რომ სისტემა მატჩებს უსამართლოდ ხდის, და გადაწყვიტა ეს ხელსაწყო შენთვის გამოერთო.</p>
+<p class="body-text"><code>m_enableEqualization</code> — flag-ია, რომელიც შეიძლება ჩაირთოს ან გამოირთოს. <strong>AI Division-სა და ონლაინ რეჟიმების უმრავლესობაში</strong> ეს flag მუდმივად ჩართულია და მოთამაშეს მისი გამორთვის შესაძლებლობა არ ეძლევა. Custom Match-ისა და Friendly-ის რეჟიმებში flag-ის ცვლილება <em>შესაძლებელია</em> — ანუ Konami-მ იცის, რომ სისტემა მატჩებს ნაკლებად სამართლიანს ხდის, მაგრამ გადაწყვიტა ეს ღილაკი შენთვის გამორთული ჰქონოდა.</p>
 
-<div class="callout"><div class="callout-i">i</div><div class="callout-c">ყველაზე მნიშვნელოვანი სიტყვა — <strong>"Equalization"</strong>. Konami-მ არ სცადა მისი ბუნდოვანი სახელით დამალვა. დაარქვა იმას, რაც არის: იძულებითი თანასწორობა. ორი გუნდი, რაოდენ განსხვავებული ხარისხის უნდა იყოს, ითამაშებენ უფრო ახლოს, ვიდრე უნდა. 'კარგი vs. ცუდი' შედეგი გადაიქცევა 'შემთხვევითად'.</div></div>
+<div class="callout"><div class="callout-i">i</div><div class="callout-c">ყველაზე მნიშვნელოვანი თვითონ სიტყვაა — <strong>"Equalization"</strong>. Konami-მ არც კი სცადა, რომ ბუნდოვანი სახელით დაემალა. დაარქვა იმას, რაც სინამდვილეშია: იძულებითი თანასწორობა. ორი გუნდი, რაც არ უნდა განსხვავებული ხარისხის იყოს, ითამაშებს იმაზე უფრო თანაბრად, ვიდრე უნდა ეთამაშათ. 'კარგი vs. ცუდი' შედეგი 'შემთხვევითად' გადაიქცევა.</div></div>
 <
 </div></div></section><section id="e4"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 04</div>
-<h2>Konami-ის სერვერს შეუძლია შენი მატჩის შეცვლა, სანამ თამაშობ</h2>
+<h2>Konami-ს სერვერს თამაშის მსვლელობისას შენი მატჩის შეცვლა შეუძლია</h2>
 <span class="severity sev-c">კრიტიკული</span>
 </div><div class="ev-body">
-<p class="lead">Konami-ის სერვერი არ არის უბრალოდ ლიდერბორდი — ის არის <strong>აქტიური მონაწილე</strong> შენს მატჩში. მას აქვს ბრძანებები, რომლებსაც შეუძლიათ გოლების დამატება, ჯარიმების დამატება, თამაშის ფაზის შეცვლა და რაც მთავარია: <strong>adjustment პარამეტრების გაგზავნა</strong> შენს კლიენტთან მატჩის შუაში.</p>
+<p class="lead">Konami-ს სერვერი უბრალოდ ლიდერბორდი არ არის — ის შენი მატჩის <strong>აქტიური მონაწილეა</strong>. მას ისეთი ბრძანებები აქვს, რომელთაც შეუძლიათ გოლის დამატება, ჯარიმის დამატება, თამაშის ფაზის შეცვლა და რაც მთავარია: <strong>adjustment პარამეტრების გაგზავნა</strong> შენს კლიენტზე მატჩის შუაში.</p>
 
 <div class="section-h">მატჩის შუაში adjustment-ის ბრძანება</div>
-<div class="code-block"><span class="hl">CMD_SEND_ADJUST_PARAM</span>            <span class="cm">// ბინარში 11-ჯერ ნაპოვნი</span>
+<div class="code-block"><span class="hl">CMD_SEND_ADJUST_PARAM</span>            <span class="cm">// ფაილში 11-ჯერ ნაპოვნი</span>
 <span class="hl">CmdSendAdjustParam.php</span>          <span class="cm">// PHP სერვერის endpoint</span>
 <span class="hl">is_enable_send_adjust_param</span>     <span class="cm">// კოდში 8-ჯერ მოწმდება</span></div>
-<p class="body-text">ბრძანება ბინარში 11-ჯერ არსებობს. შემოწმება, არის თუ არა ის აქტიური, ხდება 8-ჯერ — სისტემა არის გაკონტროლებული, მონიტორინგქვეშ და გადართვადი. Konami-ის სერვერს შეუძლია გადაწყვიტოს გაგზავნოს adjustment მონაცემები <strong>ცოცხალი მატჩის დროს</strong>, ნებისმიერ კრიტერიუმზე დაყრდნობით: შენი მოგებების სერია, შენი გუნდის overall, შენი ხარჯვის ისტორია. კლიენტი ვერ უარყოფს — სერვერის სიტყვა კანონია.</p>
+<p class="body-text">ბრძანება თამაშის ფაილში 11-ჯერ ფიქსირდება. იმის შემოწმება, აქტიურია თუ არა, 8-ჯერ ხდება — სისტემა გაკონტროლებული, მონიტორინგის ქვეშ მყოფი და გადართვადია. Konami-ს სერვერს შეუძლია გადაწყვიტოს, გააგზავნოს adjustment მონაცემები <strong>ცოცხალი მატჩის დროს</strong>, ნებისმიერ კრიტერიუმზე დაყრდნობით: შენი მოგებების სერია, შენი გუნდის overall, შენი ხარჯვის ისტორია. კლიენტს უარის თქმა არ შეუძლია — სერვერის სიტყვა კანონია.</p>
 
-<div class="section-h">სხვა სერვერის ბრძანებები რომლებიც კომპანიის ხელშია</div>
+<div class="section-h">სხვა სერვერის ბრძანებები, რომლებიც კომპანიის ხელშია</div>
 <ul class="points">
 <li><code>CmdAddScore.php</code> — <strong>გოლის დამატება</strong> სერვერის ბრძანებით</li>
 <li><code>CmdAddFoul.php</code> — <strong>ჯარიმის დამატება</strong> სერვერის ბრძანებით</li>
-<li><code>CmdChangeGamephase.php</code> — <strong>თამაშის ფაზის ცვლილების იძულება</strong> (კიკოფი, შესვენება და ა.შ.)</li>
+<li><code>CmdChangeGamephase.php</code> — <strong>თამაშის ფაზის იძულებითი ცვლილება</strong> (კიკოფი, შესვენება და ა.შ.)</li>
 <li><code>CmdSetGameResult.php</code> — <strong>საბოლოო შედეგის დაყენება</strong></li>
 <li><code>CmdGetVscomOpponent.php</code> — <strong>სერვერი ირჩევს შენს AI მეტოქეს</strong> (არა შემთხვევითად — არჩეულად)</li>
 </ul>
 
-<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c"><strong>გაჟონილი შიდა ინფრასტრუქტურა ბინარში:</strong><br><code>http://stundev.konami</code> — დეველოპმენტ სერვერი<br><code>http://172.28.123.65</code> — Konami-ის შიდა IP მისამართი<br><code>https://ntl.service.konami.net</code> — გლობალური პროდაქშენი<br>ეს მისამართები ადასტურებს რომ ეს არის რეალური, განთავსებული და ფუნქციური ინფრასტრუქტურა — არა თეორიული შესაძლებლობა.</div></div>
+<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c"><strong>თამაშის ფაილში გაჟონილი შიდა ინფრასტრუქტურა:</strong><br><code>http://stundev.konami</code> — დეველოპმენტის სერვერი<br><code>http://172.28.123.65</code> — Konami-ს შიდა IP მისამართი<br><code>https://ntl.service.konami.net</code> — გლობალური პროდაქშენი<br>ეს მისამართები ადასტურებს, რომ ეს რეალური, განთავსებული და მოქმედი ინფრასტრუქტურაა — არა თეორიული შესაძლებლობა.</div></div>
 <
 </div></div></section><section id="e5"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 05</div>
-<h2>შენი დარტყმის შედეგი წყდება სანამ მას აიღებ</h2>
+<h2>შენი დარტყმის შედეგი მის აღებამდე უკვე გადაწყვეტილია</h2>
 <span class="severity sev-c">კრიტიკული</span>
 </div><div class="ev-body">
-<p class="lead">ეს არის ყველაზე საშფოთო აღმოჩენა. ფუნქცია <code>CheckFutureShootFailedLevel</code> სიტყვასიტყვით ითარგმნება როგორც <strong>"მომავალი დარტყმის წარუმატებლობის დონის შემოწმება"</strong>. თამაში წყვეტს, შენი დარტყმა იქნება წარმატებული თუ წარუმატებელი <strong>სანამ ბურთი შენი მოთამაშის ფეხს დატოვებს</strong>.</p>
+<p class="lead">ეს ყველაზე შემაშფოთებელი აღმოჩენაა. ფუნქცია <code>CheckFutureShootFailedLevel</code> სიტყვასიტყვით ითარგმნება ასე: <strong>"მომავალი დარტყმის წარუმატებლობის დონის შემოწმება"</strong>. თამაში წყვეტს, შენი დარტყმა წარმატებული იქნება თუ წარუმატებელი <strong>სანამ ბურთი მოთამაშის ფეხიდან გავა</strong>.</p>
 
 <div class="section-h">როგორ მუშაობს დარტყმა eFootball-ში სინამდვილეში</div>
 <ul class="points">
 <li>შენ აჭერ shoot ღილაკს</li>
-<li><strong>სანამ ანიმაცია გამოვა</strong>, თამაში უშვებს <code>CheckFutureShootFailedLevel</code>-ს</li>
-<li>ის გასცემს შედეგს: SUCCESS, FAIL ან LINE_OUT (გარეთ)</li>
-<li>შემდეგ ანიმაცია არჩევით <strong>ემთხვევა წინასწარ განსაზღვრულ შედეგს</strong></li>
-<li>შენ ხედავ, შენი მოთამაშე 'ცუდად' ურტყამს ბურთს — მაგრამ ეს 'ცუდი' დარტყმა სკრიპტირებულია, არა ფიზიკური</li>
+<li><strong>სანამ ანიმაცია დაიწყება</strong>, თამაში უშვებს <code>CheckFutureShootFailedLevel</code>-ს</li>
+<li>გასცემს შედეგს: SUCCESS, FAIL ან LINE_OUT (გარეთ)</li>
+<li>შემდეგ ანიმაცია ისე ირჩევა, რომ <strong>დაემთხვეს წინასწარ განსაზღვრულ შედეგს</strong></li>
+<li>შენ ხედავ, რომ შენი მოთამაშე 'ცუდად' ურტყამს ბურთს — მაგრამ ეს 'ცუდი' დარტყმა სკრიპტირებულია, არა ფიზიკურად მომხდარი</li>
 </ul>
 
 <div class="section-h">პასი იგივე ლოგიკით მუშაობს</div>
-<p class="body-text">იგივე ლოგიკა მოქმედებს პასებზე. <code>pass_success_rate</code> ბინარში <strong>8-ჯერ</strong> ჩნდება, ხოლო <code>pk_success_rate</code> (პენალტი) — 4-ჯერ. თითოეული პასი ფასდება ალბათობის ცხრილის მიხედვით — შენი მიზანი, დროება და უნარი ნაკლებად მნიშვნელოვანია, ვიდრე კამათელი, რომელიც სისტემამ აგდო კულისებს მიღმა.</p>
+<p class="body-text">იგივე ლოგიკა მოქმედებს პასებზეც. <code>pass_success_rate</code> თამაშის ფაილში <strong>8-ჯერ</strong> ჩნდება, ხოლო <code>pk_success_rate</code> (პენალტი) — 4-ჯერ. ყოველი პასი ალბათობის ცხრილის მიხედვით ფასდება — შენი მიზანი, დროება და უნარი ნაკლებად მნიშვნელოვანია, ვიდრე ის კამათელი, რომელსაც სისტემა კულისებს მიღმა აგდებს.</p>
 
-<div class="callout"><div class="callout-i">!</div><div class="callout-c">შენ არ 'გაუშვი ცარიელი კარი'. სისტემამ <strong>აირჩია</strong> შენთვის რომ გაგეცდინა. ანიმაცია რომ შემდეგ ითამაშა, იყო მხოლოდ მხატვრული საფარი გადაწყვეტილებისთვის, რომელიც უკვე მიღებული იყო.</div></div>
+<div class="callout"><div class="callout-i">!</div><div class="callout-c">შენ ცარიელ კარს 'არ აცდუნე'. სისტემამ <strong>თვითონ გადაწყვიტა</strong>, რომ აგცდუნებინებდა. ანიმაცია, რომელიც ამის შემდეგ ითამაშა, უბრალოდ მხატვრული საფარი იყო იმ გადაწყვეტილებისა, რომელიც უკვე მიღებული იყო.</div></div>
 <
 </div></div></section><section id="e6"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 06</div>
-<h2>მეკარეები შეგნებულად გვიანდებიან — 12 სხვადასხვა გზით</h2>
+<h2>მეკარეები შეგნებულად აგვიანებენ რეაქციას — 12 სხვადასხვა გზით</h2>
 <span class="severity sev-h">მაღალი</span>
 </div><div class="ev-body">
-<p class="lead">მეკარის ბლოკისთვის არსებობს ორი განსხვავებული C++ კლასი: <code>ActionKeeperBlock</code> (ნორმალური ბლოკი) და <code>ActionKeeperBlockLate</code> — <strong>ცალკე კლასი</strong>, შექმნილი სპეციალურად მეკარის გვიან რეაქციისთვის. ეს არ არის ბაგი. Konami-ის ინჟინერმა დაწერა, დაარქვა და გამოუშვა ეს კოდი შეგნებულად.</p>
+<p class="lead">მეკარის ბლოკისთვის ორი სხვადასხვა C++ კლასი არსებობს: <code>ActionKeeperBlock</code> (ნორმალური ბლოკი) და <code>ActionKeeperBlockLate</code> — <strong>ცალკე კლასი</strong>, რომელიც სპეციალურად მეკარის გვიან რეაქციისთვის შეიქმნა. ეს ბაგი არ არის. Konami-ს ინჟინერმა ეს კოდი შეგნებულად დაწერა, შეგნებულად დაარქვა სახელი და შეგნებულად გამოუშვა.</p>
 
 <div class="section-h">12 კალიბრირებული ვარიანტი</div>
-<p class="body-text">დაგვიანებული ბლოკის ქცევა კალიბრირებულია სამი მეკარის სტილისთვის (Classical, Normal, Offensive) და ორი მანძილის კატეგორიისთვის (NEAR, FAR). თითოეული კომბინაციისთვის ასევე არის "OK" ვარიანტები — სისტემა აღრიცხავს <strong>დაგვიანებულ ბლოკებს, რომლებიც მაინც წარმატებული გამოვიდა</strong>. ეს არის ხელოვნური რეაქციის წარუმატებლობის სრული სიმულაცია.</p>
+<p class="body-text">დაგვიანებული ბლოკის ქცევა კალიბრირებულია მეკარის სამი სტილისთვის (Classical, Normal, Offensive) და ორი მანძილის კატეგორიისთვის (NEAR, FAR). თითოეული კომბინაციისთვის ასევე "OK" ვერსიები არსებობს — სისტემა აღრიცხავს <strong>იმ დაგვიანებულ ბლოკებსაც კი, რომლებიც წარმატებული გამოდგა</strong>. ეს არის ხელოვნური რეაქციის წარუმატებლობის სრული სიმულაცია.</p>
 
 <div class="code-block"><span class="hl">GK_BLOCKLATE_CLASSICAL</span> / <span class="hl">CLASSICAL_NEAR</span>
 <span class="hl">GK_BLOCKLATE_NORMAL</span> / <span class="hl">NORMAL_NEAR</span>
 <span class="hl">GK_BLOCKLATE_OFFENSE</span> / <span class="hl">OFFENSE_NEAR</span>
-<span class="cm">// + OK ვარიანტი თითოეულისთვის (დაიგვიანა, მაგრამ მაინც დაიჭირა)</span></div>
+<span class="cm">// + OK ვერსია თითოეულისთვის (დაიგვიანა, მაგრამ მაინც დაიჭირა)</span></div>
 
-<div class="callout"><div class="callout-i">!</div><div class="callout-c">როცა 90-რეიტინგიანი მეკარე 'გაუგებრად' ვერ რეაგირებს ჩვეულებრივ დარტყმაზე — ეს კოდი არის ამის მიზეზი. სისტემა ჩუმად გადადის <code>ActionKeeperBlock</code>-დან <code>ActionKeeperBlockLate</code>-ზე — იგივე ანიმაცია, განსხვავებული ფრეიმის დროება, განსხვავებული შედეგი.</div></div>
+<div class="callout"><div class="callout-i">!</div><div class="callout-c">როცა 90-რეიტინგიანი მეკარე 'გაუგებრად' ვერ ახერხებს ჩვეულებრივ დარტყმაზე რეაგირებას — სწორედ ეს კოდია მიზეზი. სისტემა ჩუმად გადართავს <code>ActionKeeperBlock</code>-ს <code>ActionKeeperBlockLate</code>-ით — იგივე ანიმაცია, ფრეიმების განსხვავებული დროება, განსხვავებული შედეგი.</div></div>
 <
 </div></div></section><section id="e7"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 07</div>
-<h2>ჯარიმები არ ეფუძნება ფიზიკას — ისინი გათამაშდება ალბათობის ცხრილიდან</h2>
+<h2>ჯარიმები არ ეფუძნება ფიზიკას — ისინი ალბათობის ცხრილიდან თამაშდება</h2>
 <span class="severity sev-h">მაღალი</span>
 </div><div class="ev-body">
-<p class="lead">ნორმალურ ფეხბურთის თამაშში, ჯარიმა ხდება ფიზიკური კონტაქტის გამო. eFootball-ში, ჯარიმა ხდება იმიტომ, რომ <strong>ალბათობის გათამაშებამ წარმატება ჰქონდა</strong>. ალბათობას ადგენს ცხრილი, ორგანიზებული მოთამაშის რეიტინგის ზოლების მიხედვით. კონტაქტის ანიმაცია — დეკორაციაა.</p>
+<p class="lead">ფეხბურთის ნორმალურ თამაშში ჯარიმა ფიზიკური კონტაქტის გამო ხდება. eFootball-ში კი ჯარიმა იმიტომ ხდება, რომ <strong>ალბათობის გათამაშება წარმატებით დასრულდა</strong>. ალბათობას ცხრილი ადგენს, რომელიც ორგანიზებულია მოთამაშის რეიტინგის ზოლების მიხედვით. კონტაქტის ანიმაცია უბრალო დეკორაციაა.</p>
 
 <div class="section-h">ჯარიმის ალბათობის ცხრილი</div>
 <div class="code-block"><span class="hl">FOUL_SLIDING_DRIBBLE_PARAMTER_40_49</span>
@@ -984,23 +984,23 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <span class="hl">FOUL_SLIDING_DRIBBLE_PARAMTER_90_99</span>
 <span class="hl">FOUL_SLIDING_DRIBBLE_PARAMTER_100_109</span>
 <span class="hl">FOUL_SLIDING_DRIBBLE_PARAMTER_110_120</span>
-<span class="cm">// + _HAVE_SKILL ვარიანტი თითოეული ზოლისთვის</span></div>
+<span class="cm">// + _HAVE_SKILL ვერსია თითოეული ზოლისთვის</span></div>
 
-<div class="section-h">მას შემდეგ რაც სისტემა 'ხედავს' ჯარიმას, შეუძლია გააუქმოს</div>
+<div class="section-h">მას შემდეგაც კი, რაც სისტემა 'ხედავს' ჯარიმას, მისი გაუქმება შეუძლია</div>
 <ul class="points">
-<li><code>FOUL_JUDGE_CANCEL</code> — სისტემამ აღმოაჩინა ჯარიმა, შემდეგ <strong>გააუქმა გადაწყვეტილება</strong></li>
-<li><code>FOUL_DEMO_CANCEL</code> — ჯარიმის ჩვენებაც გაუქმებულია — მოთამაშე ვერც კი ნახავს რა მოხდა</li>
-<li><code>DUMMY_INTENTIONAL_FOUL</code> — სისტემას შეუძლია <strong>ყალბი ჯარიმის შექმნა</strong>, რომელიც არ მომხდარა ფიზიკაში</li>
+<li><code>FOUL_JUDGE_CANCEL</code> — სისტემამ აღმოაჩინა ჯარიმა, შემდეგ კი <strong>გადაწყვეტილება გააუქმა</strong></li>
+<li><code>FOUL_DEMO_CANCEL</code> — ჯარიმის ჩვენებაც კი უქმდება — მოთამაშე ვერც ნახავს, რა მოხდა</li>
+<li><code>DUMMY_INTENTIONAL_FOUL</code> — სისტემას შეუძლია <strong>ყალბი ჯარიმის შექმნა</strong>, რომელიც ფიზიკურად არ მომხდარა</li>
 </ul>
 
-<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">შენი მოთამაშე საჯარიმოში წააქციეს. ჩვენება ნათლად აჩვენებს კონტაქტს. პენალტი არ ინიშნება. ბრალს დებ მსაჯს. მაგრამ ბინარი ამბობს: <code>FOUL_JUDGE</code> გაეშვა, დააბრუნა TRUE (ეს იყო ჯარიმა), შემდეგ <code>FOUL_JUDGE_CANCEL</code> გაეშვა და გადაწყვეტილება გააუქმა. მსაჯმა ნახა — სისტემამ უბრძანა იგნორი.</div></div>
+<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">შენი მოთამაშე საჯარიმოში წააქციეს. გამეორება ნათლად აჩვენებს კონტაქტს. პენალტი არ ინიშნება. შენ ამაში მსაჯს დაადანაშაულებ. მაგრამ თამაშის ფაილი ამბობს: <code>FOUL_JUDGE</code> გაეშვა და TRUE დააბრუნა (ეს ნამდვილად ჯარიმა იყო), შემდეგ კი <code>FOUL_JUDGE_CANCEL</code> ჩაერთო და გადაწყვეტილება გააუქმა. მსაჯმა ნახა — სისტემამ უბრძანა, რომ იგნორირება გაეკეთებინა.</div></div>
 <
 </div></div></section><section id="e8"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 08</div>
-<h2>სირთულის 10 დონეა — შენ მხოლოდ 7-ს ხედავ</h2>
+<h2>სირთულის 10 დონე არსებობს — შენ მხოლოდ 7 ხედავ</h2>
 <span class="severity sev-h">მაღალი</span>
 </div><div class="ev-body">
-<p class="lead">ხილული სირთულის კიბე მთავრდება <strong>Legend</strong>-ით. მაგრამ ბინარი განსაზღვრავს მის ზემოთ სამ ფარულ დონეს: <code>LEGEND_PLUS1</code>, <code>LEGEND_PLUS2</code>, <code>LEGEND_PLUS3</code>. როცა ადიხარ AI Division-ში, შეგხვდება ეს ფარული დონეები — მაგრამ UI მაინც წერს "Legend".</p>
+<p class="lead">ხილული სირთულის კიბე <strong>Legend</strong>-ით სრულდება. მაგრამ თამაშის ფაილი მის ზემოთ კიდევ სამ ფარულ დონეს განსაზღვრავს: <code>LEGEND_PLUS1</code>, <code>LEGEND_PLUS2</code>, <code>LEGEND_PLUS3</code>. AI Division-ში ასვლისას სწორედ ეს ფარული დონეები შეგხვდება — მაგრამ UI-ზე ისევ "Legend" წერია.</p>
 
 <div class="code-block"><span class="cm">// რასაც ხედავ (7 დონე):</span>
 <span class="kw">CPU_LEVEL_VERYEASY</span> (1)  →  <span class="kw">CPU_LEVEL_LEGEND</span> (7)
@@ -1011,36 +1011,36 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <span class="hl">LEGEND_PLUS3</span>  (10)</div>
 
 <div class="section-h">სირთულე იზრდება შენი გუნდის ფორმასთან ერთად</div>
-<p class="body-text">ცვლადი <code>condition_cpu_level</code> პირდაპირ აკავშირებს შენი გუნდის საშუალო კონდიციას AI-ის სირთულესთან. <strong>რაც უფრო კარგად გრძნობენ თავს შენი მოთამაშეები, მით უფრო რთულია AI</strong>. ააწყვე 110-რეიტინგიანი გუნდი BEST კონდიციით და შენ არ თამაშობ Legend-ზე — თამაშობ LEGEND_PLUS3-ზე, მაგრამ ეკრანი მაინც გეუბნება "Legend".</p>
+<p class="body-text">ცვლადი <code>condition_cpu_level</code> შენი გუნდის საშუალო ფორმას პირდაპირ უკავშირებს AI-ს სირთულეს. <strong>რაც უფრო კარგად გრძნობენ თავს შენი მოთამაშეები, მით უფრო რთული ხდება AI</strong>. ააწყვე 110-რეიტინგიანი გუნდი BEST ფორმაში და შენ Legend-ზე კი არ თამაშობ — LEGEND_PLUS3-ზე თამაშობ, მაგრამ ეკრანი მაინც "Legend"-ს გიწერს.</p>
 
-<p class="body-text">უარესი — შეტევა და დაცვა რეგულირდება <em>ცალ-ცალკე</em>:</p>
-<div class="code-block"><span class="hl">m_offenseComLevel</span>     <span class="cm">// AI-ის შეტევითი ინტენსივობა</span>
-<span class="hl">m_defenseComLevel</span>     <span class="cm">// AI-ის დაცვითი ინტენსივობა</span>
+<p class="body-text">უარესი ისაა, რომ შეტევა და დაცვა <em>ცალ-ცალკე</em> რეგულირდება:</p>
+<div class="code-block"><span class="hl">m_offenseComLevel</span>     <span class="cm">// AI-ს შეტევითი ინტენსივობა</span>
+<span class="hl">m_defenseComLevel</span>     <span class="cm">// AI-ს დაცვითი ინტენსივობა</span>
 <span class="hl">m_offenseSubComLevel</span>  <span class="cm">// შეტევის ქვე-დონე (ზუსტი)</span>
 <span class="hl">m_defenseSubComLevel</span>  <span class="cm">// დაცვის ქვე-დონე (ზუსტი)</span></div>
 
-<div class="callout"><div class="callout-i">i</div><div class="callout-c">ამიტომ შეიძლება იგივე Division 1 AI იყოს კედელივით დაცვაში და დანასავით შეტევაში. AI-ის ტვინის ორი ნახევარი ცალკე დონეებზე მუშაობს.</div></div>
+<div class="callout"><div class="callout-i">i</div><div class="callout-c">ამიტომაც შეიძლება იგივე Division 1-ის AI დაცვაში კედელივით იდგეს და შეტევაში დანასავით ჭრიდეს. AI-ს ტვინის ორი ნახევარი ცალ-ცალკე დონეებზე მუშაობს.</div></div>
 <
 </div></div></section><section id="e9"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 09</div>
-<h2>მოთამაშეებს აქვთ ფარული სტატები, რომლებსაც ყიდვამდე ვერ ხედავ</h2>
+<h2>მოთამაშეებს აქვთ ფარული სტატები, რომლებსაც ყიდვამდე ვერც ნახავ</h2>
 <span class="severity sev-h">მაღალი</span>
 </div><div class="ev-body">
 <p class="lead">ყოველ მოთამაშეს აქვს 15-ზე მეტი სტატი, რომლებიც <strong>არ ჩანს ქარდზე</strong>, მაგრამ აქტიურად მოქმედებენ თამაშზე. ორი ქარდი იდენტური ხილული სტატებით შეიძლება სრულიად განსხვავებულად ითამაშოს ფარულის გამო. Konami-მ იცის რომელია ისინი და გადაწყვიტა არ აჩვენოს.</p>
 
 <div class="tbl-wrap"><table class="cmp">
 <tr><th>ხილული (ქარდზე)</th><th>ფარული (კოდში)</th><th>რას აკონტროლებს</th></tr>
-<tr><td><code>OFFENSE_DECISION</code></td><td><code>COOL</code></td><td>სიმშვიდე ზეწოლის ქვეშ</td></tr><tr><td><code>BALL_CONTROL</code></td><td><code>DURABILITY</code></td><td>დაღლილობისა და ტრავმის წინააღმდეგობა</td></tr><tr><td><code>DRIBBLE</code></td><td><code>STABILITY</code></td><td>სხეულის ბალანსი კონტაქტისას</td></tr><tr><td><code>SHORT_PASS</code></td><td><code>TRAP</code></td><td>ბურთის მიღების ხარისხი</td></tr><tr><td><code>SPEED</code></td><td><code>WEAK_FOOT_ACCURACY</code></td><td>სუსტი ფეხის სიზუსტე</td></tr><tr><td><code>AGILITY</code></td><td><code>WEAK_FOOT_FREQUENCY</code></td><td>რამდენად ხშირად გამოიყენება სუსტი ფეხი</td></tr><tr><td><code>KICK_POWER</code></td><td><code>DRIBBLE_TYPE</code></td><td>დრიბლინგის სტილის კატეგორია</td></tr><tr><td><code>STAMINA</code></td><td><code>RUNNING_POSTURE</code></td><td>სირბილის ანიმაციის სიმრავლე</td></tr><tr><td><code>DEFENSE_DECISION</code></td><td><code>STRONGER_FOOT</code></td><td>დომინანტური ფეხის მნიშვნელობა</td></tr>
+<tr><td><code>OFFENSE_DECISION</code></td><td><code>COOL</code></td><td>სიმშვიდე ზეწოლის ქვეშ</td></tr><tr><td><code>BALL_CONTROL</code></td><td><code>DURABILITY</code></td><td>დაღლილობისა და ტრავმისადმი წინააღმდეგობა</td></tr><tr><td><code>DRIBBLE</code></td><td><code>STABILITY</code></td><td>სხეულის ბალანსი კონტაქტისას</td></tr><tr><td><code>SHORT_PASS</code></td><td><code>TRAP</code></td><td>ბურთის მიღების ხარისხი</td></tr><tr><td><code>SPEED</code></td><td><code>WEAK_FOOT_ACCURACY</code></td><td>სუსტი ფეხის სიზუსტე</td></tr><tr><td><code>AGILITY</code></td><td><code>WEAK_FOOT_FREQUENCY</code></td><td>რამდენად ხშირად გამოიყენება სუსტი ფეხი</td></tr><tr><td><code>KICK_POWER</code></td><td><code>DRIBBLE_TYPE</code></td><td>დრიბლინგის სტილის კატეგორია</td></tr><tr><td><code>STAMINA</code></td><td><code>RUNNING_POSTURE</code></td><td>სირბილის ანიმაციის სიმრავლე</td></tr><tr><td><code>DEFENSE_DECISION</code></td><td><code>STRONGER_FOOT</code></td><td>დომინანტური ფეხის მნიშვნელობა</td></tr>
 </table></div>
 
 <div class="callout"><div class="callout-i">i</div><div class="callout-c">შენ ყიდულობ 95-რეიტინგიან ფორვარდს. ქაღალდზე ის იდენტურია სხვა 95-რეიტინგიან ფორვარდთან. მაგრამ ამას აქვს <code>COOL = 30</code> და <code>STABILITY = 45</code> — დაცვითი ზეწოლის ქვეშ ის პანიკაშია და ადვილად ბაკდება ბურთიდან. მეორეს აქვს <code>COOL = 90</code>, <code>STABILITY = 88</code> — ის კედელია. <strong>შენ არ გქონდა საშუალება გცოდნოდა.</strong></div></div>
 <
 </div></div></section><section id="e10"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 10</div>
-<h2>სისტემა ტრეკავს 8 ტიპის სერიას — ფრეც კი შენს წინააღმდეგ ითვლება</h2>
+<h2>სისტემა აღრიცხავს 8 სხვადასხვა ტიპის სერიას — ფრეც კი შენს წინააღმდეგ ითვლება</h2>
 <span class="severity sev-h">მაღალი</span>
 </div><div class="ev-body">
-<p class="lead">ბინარი შეიცავს 8 ცალკე სერიის მთვლელს. ყველაზე საგულისხმოა <code>NUM_NOTWIN_STREAK</code> — მთვლელი, რომელიც იზრდება ყოველთვის, როცა არ იგებ, მათ შორის <strong>ფრეების</strong> დროს. რატომ უნდა აინტერესებდეს სისტემას არ-მოგებები, თუ ეს მონაცემები არ გამოიყენება რაღაცის შენ წინააღმდეგ ჩასართავად?</p>
+<p class="lead">თამაშის ფაილში 8 ცალკე სერიის მთვლელია. ყველაზე საგულისხმოა <code>NUM_NOTWIN_STREAK</code> — მთვლელი, რომელიც იზრდება ყოველთვის, როცა არ იგებ, მათ შორის <strong>ფრეების</strong> დროსაც. რატომ აინტერესებს სისტემას არ-მოგებები, თუ ეს მონაცემები რაღაცის შენ წინააღმდეგ ჩასართავად არ გამოიყენება?</p>
 
 <div class="code-block"><span class="hl">NUM_WIN_STREAK</span>           <span class="cm">// თანმიმდევრული მოგებები</span>
 <span class="hl">NUM_LOSE_STREAK</span>          <span class="cm">// თანმიმდევრული წაგებები</span>
@@ -1051,14 +1051,14 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <span class="hl">NUM_CONCEDING_STREAK</span>     <span class="cm">// გოლების გაშვების მატჩები</span>
 <span class="hl">NUM_MULTIPLE_WIN_STREAK</span>  <span class="cm">// დიდი მოგებების სერია</span></div>
 
-<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">4-5 მოგების შემდეგ ზედიზედ, შემდეგი მატჩი უცბად ხდება 'შეუძლებელი'. შენი მოთამაშეები ნელა მოძრაობენ, AI ყველგანაა, მეკარე ისეთ ბურთებს იჭერს, როგორც არ უნდა ეჭირა. ეს არ არის ცუდი იღბალი — სერიის მთვლელმა გადაკვეთა ზღვარი და Equalization სისტემას გაეცნო.</div></div>
+<div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">ზედიზედ 4-5 მოგების შემდეგ, შემდეგი მატჩი უცებ 'შეუძლებელი' ხდება. შენი მოთამაშეები ნელა მოძრაობენ, AI ყველგან არის, მეკარე ისეთ ბურთებსაც იჭერს, რომელთა დაჭერაც არ უნდა შეძლებოდა. ეს ცუდი იღბალი არ არის — სერიის მთვლელმა ზღვარი გადააჭარბა და Equalization სისტემამ ეს გაიგო.</div></div>
 <
 </div></div></section><section id="e11"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 11</div>
-<h2>Konami აღრიცხავს ყოველ მანიპულაციას, რომელსაც ახორციელებს შენს მატჩზე</h2>
+<h2>Konami აღრიცხავს ყოველ მანიპულაციას, რომელსაც შენს მატჩზე ახორციელებს</h2>
 <span class="severity sev-c">კრიტიკული</span>
 </div><div class="ev-body">
-<p class="lead"><code>MATCH_PLAY_DATA_ADJUST_SYSTEM_ACT</code> არის ტელემეტრიის ივენთი — Konami აღრიცხავს ყოველ ჯერზე, როცა adjustment სისტემა ააქტიურდება. <strong>ეს არ არის ბაგი. ეს არის ფუნქცია, რომელიც მონიტორინგქვეშაა.</strong> ისინი ზუსტად იციან როდის, რამდენად ხშირად და ვინზე მოქმედებს სისტემა.</p>
+<p class="lead"><code>MATCH_PLAY_DATA_ADJUST_SYSTEM_ACT</code> ტელემეტრიის ივენთია — Konami აღრიცხავს ყოველ ჯერს, როცა adjustment სისტემა ააქტიურდება. <strong>ეს ბაგი არ არის. ეს არის ფუნქცია, რომელსაც აკვირდებიან.</strong> მათ ზუსტად იციან, როდის, რამდენად ხშირად და ვისზე მოქმედებს სისტემა.</p>
 
 <div class="section-h">რამდენ მონაცემს აგროვებენ მატჩზე</div>
 <ul class="points">
@@ -1074,51 +1074,51 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <div class="code-block"><span class="st">F:\MBuild15_eFBDev-530\Source\Shared\pes\Game\Online\
     CommandAutoMake\Command\Source_Private\
     CmdSendAdjustParam.cpp</span></div>
-<p class="body-text">ეს path-ი არის ფაილის მდებარეობა Konami-ის შიდა ბილდის გარემოში. <code>CmdSendAdjustParam.cpp</code> <strong>Source_Private</strong>-ში — ანუ Konami-მ ეს ფაილი მონიშნა როგორც კერძო, დამალული source. კერძო ვისგან? საზოგადოებისგან, რომლისთვისაც არ უნდათ რომ ეცოდინოთ მისი არსებობის.</p>
+<p class="body-text">ეს path არის ფაილის მისამართი Konami-ს შიდა ბილდის გარემოში. <code>CmdSendAdjustParam.cpp</code> სწორედ <strong>Source_Private</strong>-ში — ე.ი. Konami-მ ეს ფაილი კერძო, დამალული source-ის სახით მონიშნა. კერძო ვისგან? საზოგადოებისგან, რომელმაც, მათი ხედვით, არ უნდა იცოდეს მისი არსებობის შესახებ.</p>
 
-<div class="callout"><div class="callout-i">!</div><div class="callout-c">კომბინაცია სამხილია: სისტემა, რომელიც არეგულირებს შენს მატჩს (დამტკიცებული), სერვერი რომელიც ააქტიურებს მას (დამტკიცებული), ტელემეტრია რომელიც აღრიცხავს ყოველ აქტივაციას (დამტკიცებული) და შიდა დასახელების კონვენცია, რომელიც source-ს მონიშნავს როგორც 'კერძო' (დამტკიცებული). ეს არ არის როგორ მუშაობს პატიოსანი თამაში.</div></div>
+<div class="callout"><div class="callout-i">!</div><div class="callout-c">კომბინაცია გამამხელია: სისტემა, რომელიც შენს მატჩს არეგულირებს (დამტკიცებული); სერვერი, რომელიც მას ააქტიურებს (დამტკიცებული); ტელემეტრია, რომელიც ყოველ აქტივაციას აღრიცხავს (დამტკიცებული); და შიდა დასახელების წესი, რომელიც source-ს 'კერძოდ' ნიშნავს (დამტკიცებული). ასე პატიოსანი თამაში არ მუშაობს.</div></div>
 <
 </div></div></section><section id="e12"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 12</div>
-<h2>როგორ იბრძოლო წინააღმდეგ — 13 სუსტი წერტილი ნაპოვნი ბინარში</h2>
+<h2>როგორ იბრძოლო წინააღმდეგ — 13 სუსტი წერტილი ნაპოვნი თამაშის ფაილში</h2>
 <span class="severity sev-g">კონტრ-სტრატეგია</span>
 </div><div class="ev-body">
-<p class="lead">სისტემას აქვს სუსტი წერტილები. ყოველი რჩევა ქვემოთ გამყარებულია თამაშის ფაილში ნაპოვნი კოდით. ეს არ არის ვარაუდები — ეს არის ექსპლუატირებადი დიზაინის ნიმუშები, რომელიც სისტემამ თვითონ გამოამჟღავნა.</p>
-<div class="tip-card"><h4>01 · სტამინა — სკრიპტის გამაძლიერებელი</h4><p>ბინარი აღრიცხავს პასის/დარტყმის/კროსის ხარისხს ზუსტ სტამინის პროცენტებზე: 20-15%, 15-10%, 10-5%, 5-0%. სტამინის ცემასთან ერთად სკრიპტის ეფექტი ძლიერდება. <strong>დაღლილი მოთამაშეები შეცვალე 60-65 წუთზე</strong>. სტამინა 20%-ს ქვემოთ არასოდეს ჩაუშვა — ეს არის ის წერტილი, სადაც სისტემა ყველაზე ძლიერად მოქმედებს.</p><</div><div class="tip-card"><h4>02 · AI-ის აბნევა — ცვალე ტაქტიკა ყოველ 15 წუთში</h4><p>ცვლადი <code>adaptabilityRate</code> ადასტურებს რომ AI <strong>სწავლობს შენი თამაშის სტილს</strong> მატჩის მსვლელობისას. <code>marginPredictionFrameAdjust</code> აჩვენებს, რომ ის წინასწარ ხვდება შენს შემდეგ მოქმედებას. ცვალე ტაქტიკა D-pad-ით ყოველ 15-20 წუთში. გადადი შეტევითი, დაბალანსებული და დაცვითი ტაქტიკის ჩატარებას შორის. იყავი არაპროგნოზირებადი — პროგნოზის სისტემა ფუჭდება, როცა შენ აღარ ხარ პროგნოზირებადი.</p><</div><div class="tip-card"><h4>03 · მანუალური პასი ნაწილობრივ გაურბის სკრიპტს</h4><p>ცვლადები <code>manualPassGetRate</code>, <code>manualPassSpeedBase</code>, <code>manualPassAngleYBase</code> ადასტურებს რომ მანუალური პასები იყენებენ <strong>სრულიად ცალკე კოდის გზას</strong> ასისტირებული პასებისგან. სისტემის <code>pass_success_rate</code> მანიპულაცია ნაკლებად მოქმედებს შენს პირდაპირ ინპუტზე. <strong>გადადი PA1-ზე ან სრულ მანუალურ პასინგზე.</strong> შენი სიზუსტე წყვეტს იყოს კამათლის გადაგდება და ისევ ხდება შენი რეალური უნარი.</p><</div><div class="tip-card"><h4>04 · ნუ ააგებ დიდ ლიდერობას ძალიან სწრაფად</h4><p><code>Comeback</code> სისტემას აქვს საკუთარი ანიმაცია, ხმის ეფექტი და C++ კლასი — ის არის <strong>სკრიპტირებული დრამატული მექანიზმი</strong>. 2-0-ის შემდეგ შეანელე. შეინარჩუნე ბურთი. ნუ შეუტევ აგრესიულად. სისტემას სჭირდება "დრამატული" ტრიგერი სრული რეზინის ეფექტის ჩასართავად — ნუ მისცემ. მოთმინებიანი 2-0 30 წუთის განმავლობაში უსაფრთხოა, ვიდრე ეფექტური 4-0 60-ე წუთზე.</p><</div><div class="tip-card"><h4>05 · ნუ ჩასვამ ყველას BEST კონდიციით</h4><p>ცვლადი <code>condition_cpu_level</code> პირდაპირ აკავშირებს შენი გუნდის კონდიციას AI-ის სირთულესთან. <strong>ყველა მოთამაშე BEST-ზე = AI თამაშობს LEGEND_PLUS3-ზე.</strong> შეურიე GOOD და NORMAL ფორმის მოთამაშეები. ჩასვი რამდენიმე დაბალი ფორმის მოთამაშე სკამზე, რომ მათ არ გაზარდონ გუნდის "ეფექტური overall". შენ გინდა იყო ოდნავ ქვემოთ იმ ზღვარისა, რომელიც ააქტიურებს უფრო რთულ AI დონეებს.</p><</div><div class="tip-card"><h4>06 · შეგნებულად გაწყვიტე მოგებების სერია</h4><p>3-4 მოგების შემდეგ, სერიის მთვლელი <code>NUM_WIN_STREAK</code> სავარაუდოდ ააქტიურებს Equalization-ს შენს შემდეგ მატჩში. <strong>გააკეთე შესვენება ან ითამაშე სხვა რეჟიმში.</strong> გადადი AI Division-დან Friendly-ში. გადადი ონლაინიდან AI მატჩებზე. სერიის მთვლელი შეიძლება იყოს სესიაზე მიბმული, დღიური ან სერვერზე შენახული — მაგრამ ნამდვილად გადევნება. ნუ მიუშვებ მას რიცხვამდე, რომელიც გაზარალებს.</p><</div><div class="tip-card"><h4>07 · Equalization ზოგ რეჟიმში შეიძლება გამოირთოს</h4><p>ცვლადები <code>ERoomSettingsKind::EQUALIZATION</code> და <code>GetSelectableRoomSettingsEqualization</code> ადასტურებს, რომ Equalization არის <strong>ოთახის დონის პარამეტრი</strong>. <strong>Custom Match / Friendly რეჟიმებში</strong>, შეამოწმე ოთახის ოფციები — შეიძლება იყოს გადამრთველი, რომ გამოირთოს. თუ იპოვე, შენი სრულად აშენებული გუნდი ითამაშებს როგორც უნდა — სრული ძალით.</p><</div><div class="tip-card"><h4>08 · ცვალე დარტყმის ტიპები — დაამტვრიე პროგნოზის მოდელი</h4><p><code>CheckFutureShootFailedLevel</code> წინასწარ განსაზღვრავს შედეგებს, მაგრამ <code>marginPredictionFrameAdjust</code> ადასტურებს რომ AI იყენებს პროგნოზის მოდელს. დარტყმის სხვადასხვა ტიპი სავარაუდოდ იყენებს განსხვავებულ პროგნოზის ცხრილებს. <strong>შერია:</strong> finesse დარტყმები, chip დარტყმები, დაბალი driven დარტყმები, სუსტი ფეხის დარტყმები, ვიწრო კუთხიდან დარტყმები. ნუ გახდები მოთამაშე, რომელიც ყოველთვის ძლიერად ურტყამს შორეული კუთხეში — ეს არის ყველაზე ადვილი ნიმუში, რომლის წინააღმდეგ სკრიპტს ადვილად შეუძლია გამოაქვს.</p><</div><div class="tip-card"><h4>09 · გამოიყენე კაბელით ინტერნეტი — ასიმეტრიული Input Delay არსებობს</h4><p><code>AsymmetricInputDelayModeEnable</code>, <code>AsymmetricInputDelayWifiEnable</code>, <code>AsymmetricInputDelayWirelessWeight</code> — თამაში აყენებს <strong>სხვადასხვა input delay-ს სხვადასხვა მოთამაშეზე</strong>. WiFi კავშირები დამატებით წონას იღებენ. <code>AsymmetricInputDelayTurnSuddenChangeEnable</code> ნიშნავს, რომ delay <strong>შეიძლება უცბად შეიცვალოს მატჩის შუაში</strong>. გამოიყენე Ethernet როცა შესაძლებელია. WiFi ამატებს ხელოვნურ შეფერხებას ნებისმიერ აქტიური სკრიპტინგის ზევით.</p><</div><div class="tip-card"><h4>10 · გაიტანე ადრე — კიკოფზე არის "gimmick window"</h4><p><code>GimmickMatchStartWindow</code> და <code>GimmickMatchStartWindowEnd</code> ავლენენ სპეციალურ boost ფანჯარას მატჩის დაწყებისას. <code>initialBoosterId</code> აჩვენებს რომ საწყისი booster-ები გამოიყენება. <strong>თავდაიდე იმავწამს კიკოფის შემდეგ.</strong> სისტემას ჯერ არ აქვს მატჩის ნაკადთან კალიბრაცია, და gimmick window-მ შეიძლება მოგცეს მცირე, ექსპლუატირებადი უპირატესობა. ნუ ითამაშებ პასიურად 1-ლ წუთში — ეს არის მთელი მატჩის ყველაზე უპასუხო შეტევითი წუთი.</p><</div><div class="tip-card"><h4>11 · ნუ აპრესავ კურსორის გადართვას — ის ტრეკირდება</h4><p><code>CURSOR_CHANGE_REPEATEDLY_2/3/4_OR_MORE</code> აჩვენებს რომ თამაში <strong>ითვლის რამდენად სწრაფად ცვლი მოთამაშეებს</strong>. <code>CURSOR_CHANGE_OPTIMUM</code> ნიშნავს რომ სისტემას შეუძლია გადააფაროს შენი მანუალური არჩევანი. <code>RetryAuto_DIFFERENT_CURSOR_TARGET</code> ირჩევს სხვა მოთამაშეს, ვიდრე შენ გინდოდა. <strong>გადართვა ცდე გააზრებულად, არა აგრესიულად.</strong> სპამინგი იძულებას აძლევს სისტემას "დაგეხმაროს" უარესი არჩევანებით, ვიდრე შენ გააკეთებდი.</p><</div><div class="tip-card"><h4>12 · ცვალე სტანდარტული სიტუაციები — ეფექტურობა ეცემა</h4><p><code>setPlayDeclineRate</code> ადასტურებს რომ სტანდარტული სიტუაციების ეფექტურობა <strong>დროთა განმავლობაში ეცემა</strong>. <code>DisableBufferingControlInSetPlay</code> აჩვენებს რომ input buffering იცვლება სტანდარტებზე. ნუ გამოიყენებ ერთსა და იმავე კორნერის ან თავისუფალი დარტყმის სქემას განმეორებით. ცვალე მიზანი, მიწოდების ტიპი, გამქცევის ნიმუში. განმეორებითი ნიმუშები ვლინდება და სისტემის მიერ შეგნებულად სუსტდება.</p><</div><div class="tip-card"><h4>13 · სველი მოედანი დაგეხმარება — გამოიყენე</h4><p><code>PITCH_CONDITION_DRY/NORMAL/WET</code> — მოედნის სამი მდგომარეობა. <code>EPitchEffectType::Ball</code> ადასტურებს, რომ მოედანი პირდაპირ მოქმედებს ბურთის ფიზიკაზე. <code>EPitchEffectType::FootTrail</code> მოქმედებს მოთამაშის გაცურვაზე. <strong>სველ მოედანზე გამოიყენე მიწის პასები და დაბალი driven დარტყმები.</strong> საჰაერო თამაში ხდება ნაკლებად პროგნოზირებადი, რაც რეალურად მუშაობს პროგნოზის სისტემის <em>წინააღმდეგ</em>. რაც უფრო სველია მოედანი, მით უარესად ხვდება AI შენს მოქმედებებს.</p><</div>
+<p class="lead">სისტემას სუსტი წერტილები აქვს. ქვემოთ მოყვანილი ყოველი რჩევა გამყარებულია თამაშის ფაილში ნაპოვნი კოდით. ეს ვარაუდები არ არის — ეს დიზაინის ისეთი ნიმუშებია, რომლებიც სისტემამ თვითონ გამოაშკარავა.</p>
+<div class="tip-card"><h4>01 · სტამინა — სკრიპტინგის გამაძლიერებელი</h4><p>თამაშის ფაილი აღრიცხავს პასის/დარტყმის/კროსის ხარისხს კონკრეტულ სტამინის პროცენტებზე: 20-15%, 15-10%, 10-5%, 5-0%. სტამინის კლებასთან ერთად სკრიპტინგის ეფექტი ძლიერდება. <strong>დაღლილი მოთამაშეები შეცვალე 60-65 წუთზე</strong>. სტამინას 20%-ის ქვემოთ ჩამოსვლის საშუალება არასოდეს მისცე — ეს ის წერტილია, სადაც სისტემა ყველაზე ძლიერად მოქმედებს.</p><</div><div class="tip-card"><h4>02 · AI-ს აბნევა — შეცვალე ტაქტიკა ყოველ 15 წუთში</h4><p>ცვლადი <code>adaptabilityRate</code> ადასტურებს, რომ AI <strong>მატჩის მსვლელობისას სწავლობს შენი თამაშის სტილს</strong>. <code>marginPredictionFrameAdjust</code> კი აჩვენებს, რომ წინასწარ ცდილობს გამოიცნოს შენი შემდეგი მოქმედება. ცვალე ტაქტიკა D-pad-ით ყოველ 15-20 წუთში. გადადი შეტევითი, დაბალანსებული და დაცვითი ტაქტიკიდან ერთიდან მეორეზე. იყავი არაპროგნოზირებადი — პროგნოზირების სისტემა ვერ მუშაობს, როცა შენი მოქმედებების გამოცნობა შეუძლებელია.</p><</div><div class="tip-card"><h4>03 · მანუალური პასი ნაწილობრივ გვერდს უვლის სკრიპტს</h4><p>ცვლადები <code>manualPassGetRate</code>, <code>manualPassSpeedBase</code>, <code>manualPassAngleYBase</code> ადასტურებს, რომ მანუალური პასები <strong>სრულიად ცალკე კოდს იყენებენ</strong>, ვიდრე ასისტირებული პასები. სისტემის <code>pass_success_rate</code> მანიპულაცია შენს პირდაპირ ინპუტზე ნაკლებად მოქმედებს. <strong>გადადი PA1-ზე ან სრულად მანუალურ პასინგზე.</strong> შენი სიზუსტე აღარ იქნება კამათლის გათამაშება — ისევ შენი რეალური უნარი გამოვა წინა პლანზე.</p><</div><div class="tip-card"><h4>04 · ნუ ააგებ დიდ უპირატესობას ძალიან სწრაფად</h4><p><code>Comeback</code> სისტემას აქვს საკუთარი ანიმაცია, ხმის ეფექტი და C++ კლასი — ეს <strong>სკრიპტირებული დრამატული მექანიზმია</strong>. 2-0-ის ანგარიშის მერე შეანელე. შეინარჩუნე ბურთის ფლობა. ნუ შეუტევ აგრესიულად. სისტემას სრული რეზინის ეფექტის ასამოქმედებლად სჭირდება "დრამატული" ტრიგერი — ნუ მისცემ. მოთმინებით შენარჩუნებული 2-0 ანგარიში 30 წუთის განმავლობაში უფრო უსაფრთხოა, ვიდრე ეფექტური 4-0 60-ე წუთისთვის.</p><</div><div class="tip-card"><h4>05 · ნუ ჩასვამ ყველა მოთამაშეს BEST ფორმაზე</h4><p>ცვლადი <code>condition_cpu_level</code> შენი გუნდის ფორმას პირდაპირ უკავშირებს AI-ს სირთულეს. <strong>ყველა მოთამაშე BEST ფორმაში = AI თამაშობს LEGEND_PLUS3-ზე.</strong> შეურიე GOOD და NORMAL ფორმის მოთამაშეები. რამდენიმე დაბალი ფორმის მოთამაშე სკამზე ჩასვი, რათა გუნდის "ეფექტური overall" არ გაიზარდოს. შენი მიზანია, ოდნავ ქვემოთ იყო იმ ზღვარზე, რომელიც უფრო რთული AI დონეების აქტივაციას იწვევს.</p><</div><div class="tip-card"><h4>06 · მოგებების სერია შეგნებულად გაწყვიტე</h4><p>3-4 მოგების შემდეგ სერიის მთვლელი <code>NUM_WIN_STREAK</code> სავარაუდოდ ააქტიურებს Equalization-ს შენს შემდეგ მატჩში. <strong>გააკეთე შესვენება ან სხვა რეჟიმში ითამაშე.</strong> გადადი AI Division-დან Friendly-ში. გადადი ონლაინიდან AI მატჩებზე. სერიის მთვლელი შეიძლება სესიასთან, დღესთან ან სერვერთან იყოს მიბმული — მაგრამ აუცილებლად გადევნებს. არ მისცე ის რიცხვს მიაღწიოს, რომელიც გაზარალებს.</p><</div><div class="tip-card"><h4>07 · ზოგ რეჟიმში Equalization-ის გამორთვა შესაძლებელია</h4><p>ცვლადები <code>ERoomSettingsKind::EQUALIZATION</code> და <code>GetSelectableRoomSettingsEqualization</code> ადასტურებს, რომ Equalization <strong>ოთახის დონის პარამეტრია</strong>. <strong>Custom Match / Friendly რეჟიმებში</strong> შეამოწმე ოთახის პარამეტრები — შეიძლება იქ იყოს მისი გამოსართველი ღილაკი. თუ ნახავ, შენი სრულად აშენებული გუნდი ისე ითამაშებს, როგორც უნდა — სრული ძალით.</p><</div><div class="tip-card"><h4>08 · ცვალე დარტყმის ტიპები — გატეხე პროგნოზირების მოდელი</h4><p><code>CheckFutureShootFailedLevel</code> წინასწარ ადგენს შედეგებს, მაგრამ <code>marginPredictionFrameAdjust</code> ადასტურებს, რომ AI პროგნოზირების მოდელს იყენებს. დარტყმის სხვადასხვა ტიპი, სავარაუდოდ, განსხვავებულ პროგნოზირების ცხრილებს იყენებს. <strong>შერიე:</strong> finesse დარტყმები, chip დარტყმები, დაბალი driven დარტყმები, სუსტი ფეხის დარტყმები, ვიწრო კუთხიდან დარტყმები. ნუ გახდები ისეთი მოთამაშე, რომელიც ყოველთვის ძლიერად ურტყამს შორეულ კუთხეში — ეს ყველაზე ადვილი ნიმუშია, რომელიც სკრიპტს ადვილად ემორჩილება.</p><</div><div class="tip-card"><h4>09 · გამოიყენე კაბელიანი ინტერნეტი — ასიმეტრიული Input Delay არსებობს</h4><p><code>AsymmetricInputDelayModeEnable</code>, <code>AsymmetricInputDelayWifiEnable</code>, <code>AsymmetricInputDelayWirelessWeight</code> — თამაში <strong>სხვადასხვა მოთამაშეს სხვადასხვა input delay-ს უწესებს</strong>. WiFi კავშირები დამატებით წონას იღებენ. <code>AsymmetricInputDelayTurnSuddenChangeEnable</code> ნიშნავს, რომ delay <strong>შეიძლება უცებ შეიცვალოს მატჩის შუაში</strong>. შესაძლებლობის შემთხვევაში გამოიყენე Ethernet. WiFi ხელოვნურ შეფერხებას უმატებს ნებისმიერ მოქმედ სკრიპტინგს.</p><</div><div class="tip-card"><h4>10 · გაიტანე გოლი ადრე — კიკოფზე არსებობს "gimmick window"</h4><p><code>GimmickMatchStartWindow</code> და <code>GimmickMatchStartWindowEnd</code> ავლენს სპეციალურ boost-ის ფანჯარას მატჩის დაწყებისას. <code>initialBoosterId</code> ადასტურებს, რომ საწყისი booster-ები აქტიურდება. <strong>შეუტიე კიკოფის თანავე.</strong> სისტემას ჯერ არ აქვს მატჩთან მორგების დრო და "gimmick window"-ში შეიძლება მოკლე უპირატესობა მოიპოვო. ნუ ითამაშებ პასიურად პირველ წუთში — ეს მთელი მატჩის ყველაზე ხელშეუშლელი შეტევითი მომენტია.</p><</div><div class="tip-card"><h4>11 · ნუ ცვლი კურსორს ხშირად — ეს აღირიცხება</h4><p><code>CURSOR_CHANGE_REPEATEDLY_2/3/4_OR_MORE</code> ადასტურებს, რომ თამაში <strong>ითვლის, რამდენად სწრაფად ცვლი მოთამაშეებს</strong>. <code>CURSOR_CHANGE_OPTIMUM</code> ნიშნავს, რომ სისტემას შეუძლია შენი მანუალური არჩევანი გადააფაროს. <code>RetryAuto_DIFFERENT_CURSOR_TARGET</code> სხვა მოთამაშეს ირჩევს, ვიდრე შენ გინდოდა. <strong>გადართე გააზრებულად, არა პანიკაში.</strong> ხშირი გადართვა აიძულებს სისტემას, "დაგეხმაროს" უარესი არჩევანებით, ვიდრე თვითონ გააკეთებდი.</p><</div><div class="tip-card"><h4>12 · ცვალე სტანდარტული სიტუაციები — მათი ეფექტურობა ეცემა</h4><p><code>setPlayDeclineRate</code> ადასტურებს, რომ სტანდარტული სიტუაციების ეფექტურობა <strong>დროთა განმავლობაში ეცემა</strong>. <code>DisableBufferingControlInSetPlay</code> კი აჩვენებს, რომ სტანდარტებზე input buffering იცვლება. ნუ გამოიყენებ ერთსა და იმავე კორნერის ან თავისუფალი დარტყმის სქემას განმეორებით. ცვალე სამიზნე, მიწოდების ტიპი, გამქცევის ნიმუში. განმეორებად ნიმუშებს სისტემა ცნობს და შეგნებულად ასუსტებს.</p><</div><div class="tip-card"><h4>13 · სველი მოედანი დაგეხმარება — გამოიყენე ეს</h4><p><code>PITCH_CONDITION_DRY/NORMAL/WET</code> — მოედნის სამი მდგომარეობა. <code>EPitchEffectType::Ball</code> ადასტურებს, რომ მოედანი ბურთის ფიზიკაზე პირდაპირ მოქმედებს. <code>EPitchEffectType::FootTrail</code> კი მოთამაშის ფეხის გაცურვაზე ახდენს გავლენას. <strong>სველ მოედანზე გამოიყენე მიწაზე პასები და დაბალი driven დარტყმები.</strong> საჰაერო თამაში ნაკლებად პროგნოზირებადი ხდება, რაც სინამდვილეში პროგნოზირების სისტემის <em>წინააღმდეგ</em> მუშაობს. რაც უფრო სველია მოედანი, მით უარესად გამოიცნობს AI შენს მოქმედებებს.</p><</div>
 </div></div></section><section id="e13"><div class="ev"><div class="ev-head">
 <div class="ev-num">EVIDENCE 13</div>
-<h2>საუკეთესო Playing Style სკრიპტის წინააღმდეგ</h2>
+<h2>საუკეთესო Playing Style-ები სკრიპტის წინააღმდეგ</h2>
 <span class="severity sev-i">ტაქტიკური გზამკვლევი</span>
 </div><div class="ev-body">
-<p class="lead">ყოველ პოზიციაზე რამდენიმე Playing Style არის. ზოგი ეფუძნება სიჩქარეს, რომელსაც სკრიპტინგის სისტემა აქრობს. სხვები ეფუძნება პოზიციონირებას და ფიზიკურობას, რასაც ის ვერ ეხება. აი სრული აღწერა — და რეკომენდებული შემადგენლობა.</p>
+<p class="lead">ყოველ პოზიციაზე რამდენიმე Playing Style არსებობს. ზოგი მათგანი სიჩქარეს ეფუძნება, რომელსაც სკრიპტინგის სისტემა ახშობს. სხვები პოზიციონირებასა და ფიზიკურობას ემყარება, რასაც ის ადვილად ვერ ეხება. აი სრული მიმოხილვა — და რეკომენდებული შემადგენლობა.</p>
 
 <div class="section-h">თავდამსხმელები (CF / SS)</div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>CF</td><td>Goal Poacher</td><td>მტაცებელი ბოლო მცველის მხარზე, რბის ხაზის უკან, ცხოვრობს ოფსაიდზე.</td><td style="color:#ff7a8e;font-weight:600">❌ სიჩქარეზე დამოკიდებული — სიჩქარის nerf ანადგურებს</td></tr><tr><td>CF/SS/AMF</td><td>Dummy Runner</td><td>ყალბი გარბენები მცველების ადგილიდან დასაძრობად. იწირავს თავს გუნდისთვის.</td><td style="color:#5dd9aa;font-weight:600">✅ AI-ის პროგნოზს აბნევს — ის არ არის სამიზნე</td></tr><tr><td>CF</td><td>Fox in the Box</td><td>რჩება 18-იარდიანი ზონის შიგნით, ცხოვრობს ახლო-მანძილის დასრულებებისთვის.</td><td style="color:#5dd9aa;font-weight:600">✅ სიჩქარე არ სჭირდება, ახლო დარტყმები ძნელად სკრიპტირდება</td></tr><tr><td>CF</td><td>Target Man</td><td>ფიზიკური ღუზა — იცავს თამაშს, აფარებს ბურთს, ყოველი შეტევის ცენტრი.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო — ფიზიკა ჯობია სიჩქარის nerf-ებს</td></tr><tr><td>CF/SS</td><td>Deep-Lying Forward</td><td>ეცემა ხაზებს შორის ბურთის მისაღებად, უფრო ნახევრახა, ვიდრე მესაგო.</td><td style="color:#5dd9aa;font-weight:600">✅ პოზიციური, სტაბილური, თავს უვლის სიჩქარეზე დამოკიდებულებას</td></tr></table></div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>CF</td><td>Goal Poacher</td><td>მტაცებელი — ბოლო მცველის მხარს უკან, რბის ხაზის უკან, ცხოვრობს ოფსაიდის ზღვარზე.</td><td style="color:#ff7a8e;font-weight:600">❌ სიჩქარეზე დამოკიდებული — სიჩქარის nerf მას ანადგურებს</td></tr><tr><td>CF/SS/AMF</td><td>Dummy Runner</td><td>ყალბი გარბენებით მცველებს ადგილიდან აცილებს. გუნდისთვის თავს იწირავს.</td><td style="color:#5dd9aa;font-weight:600">✅ AI-ს პროგნოზს აბნევს — ის სამიზნე არ არის</td></tr><tr><td>CF</td><td>Fox in the Box</td><td>რჩება 18-იარდიანი ზონის შიგნით, ცხოვრობს ახლო-მანძილიდან დასრულებებით.</td><td style="color:#5dd9aa;font-weight:600">✅ სიჩქარე არ სჭირდება — ახლო მანძილიდან დარტყმები ძნელად სკრიპტირდება</td></tr><tr><td>CF</td><td>Target Man</td><td>ფიზიკური ღუზა — იკავებს ბურთის ფლობას, აფარებს ბურთს, ყოველი შეტევის ცენტრალური ფიგურაა.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო — ფიზიკა სიჩქარის nerf-ებს ჯობნის</td></tr><tr><td>CF/SS</td><td>Deep-Lying Forward</td><td>ხაზებს შორის ჩამოდის ბურთის მისაღებად — უფრო ნახევარმცველი, ვიდრე თავდამსხმელი.</td><td style="color:#5dd9aa;font-weight:600">✅ პოზიციური, სტაბილური — გვერდს უვლის სიჩქარეზე დამოკიდებულებას</td></tr></table></div>
 <div class="section-h">ფლანგები (RWF / LWF / RMF / LMF)</div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>RWF/LWF</td><td>Prolific Winger</td><td>ფართო პოზიცია, ხანდახან შიგნით შემოდის, კლასიკური ფლანგის ფრთა.</td><td style="color:#ff7a8e;font-weight:600">❌ სიჩქარეც და დარტყმაც სკრიპტირდება</td></tr><tr><td>RWF/LWF/RMF/LMF</td><td>Roaming Flank</td><td>ხშირად ცენტრში შემოდის ფრთებიდან, ცენტრალური საფრთხე ფართო პოზიციიდან.</td><td style="color:#ffb340;font-weight:600">⚠️ AI ისწავლის ნიმუშს დროთა განმავლობაში adaptabilityRate-ით</td></tr><tr><td>RWF/LWF/RMF/LMF</td><td>Cross Specialist</td><td>ხაზთან ახლოს, ცხოვრობს იდეალური კროსის მიწოდებისთვის.</td><td style="color:#5dd9aa;font-weight:600">✅ კროსები გვერდს უვლის ცენტრალურ სკრიპტინგ ზონებს</td></tr><tr><td>SS/RWF/LWF/AMF/RMF/LMF</td><td>Creative Playmaker</td><td>ხედვის მქონე — პოულობს ხარვეზებს, გასცემს გადამწყვეტ პასებს, ზოგავს სტამინას.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო — არაპროგნოზირებადი + ზოგავს სტამინას</td></tr></table></div>
-<div class="section-h">შეტევითი ნახევრახა (AMF)</div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>SS/AMF</td><td>Classic No. 10</td><td>ტრადიციული playmaker საჯარიმოს ახლოს, ქმნის და ამთავრებს შანსებს.</td><td style="color:#ffb340;font-weight:600">⚠️ სტაბილური, მაგრამ პროგნოზირებადი პოზიციონირება</td></tr><tr><td>SS/AMF/RMF/LMF/CMF</td><td>Hole Player</td><td>დინამიური — გამჭოლი გარბენები საჯარიმოში ბურთის ფლობისას.</td><td style="color:#5dd9aa;font-weight:600">✅ მოულოდნელი გარბენები აბნევს AI-ის პროგნოზს</td></tr></table></div>
-<div class="section-h">ცენტრალური ნახევრახა (CMF / DMF)</div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>RMF/LMF/CMF/DMF</td><td>Box-to-Box</td><td>მუშა-ცხენი — მთელი მოედანი 90 წუთის განმავლობაში.</td><td style="color:#ffb340;font-weight:600">⚠️ სტამინას სწრაფად ხარჯავს — სტამინის ზღვრები აძლიერებს სკრიპტს</td></tr><tr><td>DMF</td><td>Anchor Man</td><td>ჯდება დაცვის წინ, არასდროს ტოვებს პოზიციას, იფარავს უკანა ოთხეულს.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო DMF — სტაბილური, ზოგავს სტამინას</td></tr><tr><td>CMF/DMF/CB</td><td>The Destroyer</td><td>აგრესიული დამრღვევი — იღებს ბურთს ზეწოლისა და მკაცრი ტაკლინგის გზით.</td><td style="color:#ffb340;font-weight:600">⚠️ ჯარიმის რისკი — სისტემას შეუძლია ჯარიმის შემოღება</td></tr><tr><td>CMF/DMF</td><td>Orchestrator</td><td>ღრმა ტემპის დიქტატორი, ანაწილებს სიზუსტით.</td><td style="color:#5dd9aa;font-weight:600">✅ ძლიერი მანუალური პასინგით — გვერდს უვლის pass_success_rate-ს</td></tr></table></div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>RWF/LWF</td><td>Prolific Winger</td><td>ფართო პოზიცია, ხანდახან შიგნით შემოდის — კლასიკური ფლანგის მოთამაშე.</td><td style="color:#ff7a8e;font-weight:600">❌ სიჩქარეც და დარტყმაც — ორივე სკრიპტს ექვემდებარება</td></tr><tr><td>RWF/LWF/RMF/LMF</td><td>Roaming Flank</td><td>ხშირად ფრთებიდან ცენტრში შემოდის — ცენტრალური საფრთხე ფართო პოზიციიდან.</td><td style="color:#ffb340;font-weight:600">⚠️ AI დროთა განმავლობაში ისწავლის ნიმუშს adaptabilityRate-ით</td></tr><tr><td>RWF/LWF/RMF/LMF</td><td>Cross Specialist</td><td>ხაზთან ახლოს რჩება, ცხოვრობს იდეალური კროსის მიწოდებით.</td><td style="color:#5dd9aa;font-weight:600">✅ კროსები გვერდს უვლის სკრიპტინგის ცენტრალურ ზონებს</td></tr><tr><td>SS/RWF/LWF/AMF/RMF/LMF</td><td>Creative Playmaker</td><td>მახვილი ხედვის მქონე — პოულობს ხარვეზებს, გადამწყვეტ პასებს გასცემს, სტამინას ზოგავს.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო — არაპროგნოზირებადი + ზოგავს სტამინას</td></tr></table></div>
+<div class="section-h">შეტევითი ნახევარმცველი (AMF)</div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>SS/AMF</td><td>Classic No. 10</td><td>ტრადიციული playmaker საჯარიმოს ახლოს — ქმნის და ამთავრებს შანსებს.</td><td style="color:#ffb340;font-weight:600">⚠️ სტაბილური, მაგრამ პოზიციონირება პროგნოზირებადია</td></tr><tr><td>SS/AMF/RMF/LMF/CMF</td><td>Hole Player</td><td>დინამიური — ბურთის ფლობისას აკეთებს გამჭოლ გარბენებს საჯარიმოში.</td><td style="color:#5dd9aa;font-weight:600">✅ მოულოდნელი გარბენები AI-ს პროგნოზს აბნევს</td></tr></table></div>
+<div class="section-h">ცენტრალური ნახევარმცველი (CMF / DMF)</div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>RMF/LMF/CMF/DMF</td><td>Box-to-Box</td><td>მუშა-ცხენი — მთელ მოედანს ფარავს 90 წუთის განმავლობაში.</td><td style="color:#ffb340;font-weight:600">⚠️ სტამინას სწრაფად ხარჯავს — სტამინის ზღვრები სკრიპტს აძლიერებს</td></tr><tr><td>DMF</td><td>Anchor Man</td><td>დაცვის წინ ჯდება, არასდროს ტოვებს პოზიციას, იცავს უკანა ოთხეულს.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო DMF — სტაბილური, სტამინას ზოგავს</td></tr><tr><td>CMF/DMF/CB</td><td>The Destroyer</td><td>აგრესიული დამრღვევი — ზეწოლითა და მკაცრი ტაკლინგით ართმევს ბურთს.</td><td style="color:#ffb340;font-weight:600">⚠️ ჯარიმის რისკი — სისტემას შეუძლია ჯარიმის დაკისრება</td></tr><tr><td>CMF/DMF</td><td>Orchestrator</td><td>ღრმად მდგომი ტემპის დიქტატორი — სიზუსტით ანაწილებს ბურთს.</td><td style="color:#5dd9aa;font-weight:600">✅ ძლიერია მანუალურ პასინგთან ერთად — pass_success_rate-ს გვერდს უვლის</td></tr></table></div>
 <div class="section-h">მცველები (CB / LB / RB)</div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>CB</td><td>Build Up</td><td>ღრმად ეცემა შესაგროვებლად და შეტევების დასაწყებად, ცვლის თამაშს გრძელი პასებით.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო CB — პოზიციური, ჭკვიანი, იწყებს უკნიდან</td></tr><tr><td>CB</td><td>The Destroyer</td><td>აგრესიულად გამოდის ხაზიდან ბურთის მისაღებად საჯარიმომდე.</td><td style="color:#ffb340;font-weight:600">⚠️ აგრესიული გამოსვლა ტოვებს ხარვეზებს + FOUL_JUDGE-ის რისკი</td></tr><tr><td>CB</td><td>Extra Frontman</td><td>თავგადასავლიანი — მიდის შეტევაში როცა შესაძლებელია. ტოვებს დაცვითი სტრუქტურას.</td><td style="color:#ff7a8e;font-weight:600">❌ ტოვებს ხარვეზებს — Comeback სისტემა იყენებს ამას</td></tr><tr><td>LB/RB</td><td>Offensive Fullback</td><td>მიდის წინ შეტევაში, ფარავს ფრთას.</td><td style="color:#ff7a8e;font-weight:600">❌ სტამინა + სიჩქარეზე დამოკიდებული, ტოვებს სივრცეს უკან</td></tr><tr><td>LB/RB</td><td>Full-back Finisher</td><td>თავგადასავლიანი fullback — შემოდის ცენტრალურ ზონებში გოლის გასატანად.</td><td style="color:#ffb340;font-weight:600">⚠️ რისკიანი — Comeback იყენებს ცარიელ ფლანგს</td></tr><tr><td>LB/RB</td><td>Defensive Fullback</td><td>პრიორიტეტი ანიჭებს დაცვით სტაბილურობას, ვიდრე შეტევის წვლილს.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო — Comeback-ს სივრცეს არ აძლევს, სტაბილური</td></tr><tr><td>LB/RB</td><td>Innerlap</td><td>შემოდის შიგნით ნახევრახას ზონებში, ვიდრე ფარავს ფართოდ.</td><td style="color:#ffb340;font-weight:600">⚠️ საინტერესო მოძრაობა, მაგრამ დაცვითად რისკიანი</td></tr></table></div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>CB</td><td>Build Up</td><td>ღრმად ჩამოდის ბურთის მისაღებად და შეტევების დასაწყებად, თამაშს გრძელი პასებით ცვლის.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო CB — პოზიციური, ჭკვიანი, შეტევას უკნიდან იწყებს</td></tr><tr><td>CB</td><td>The Destroyer</td><td>აგრესიულად გამოდის ხაზიდან ბურთის მოსაპოვებლად, სანამ ის საჯარიმომდე მოაღწევს.</td><td style="color:#ffb340;font-weight:600">⚠️ აგრესიული გამოსვლა ხარვეზებს ტოვებს + FOUL_JUDGE-ის რისკი</td></tr><tr><td>CB</td><td>Extra Frontman</td><td>თავგადასავლის მოყვარული — შეტევაში შესაძლებლობის შემთხვევაში მიდის. ტოვებს დაცვით სტრუქტურას.</td><td style="color:#ff7a8e;font-weight:600">❌ ხარვეზებს ტოვებს — Comeback სისტემა ამას იყენებს</td></tr><tr><td>LB/RB</td><td>Offensive Fullback</td><td>წინ მიდის შეტევაში, overlap-ს აკეთებს ფრთაზე.</td><td style="color:#ff7a8e;font-weight:600">❌ სტამინასა და სიჩქარეზე დამოკიდებული, უკან სივრცეს ტოვებს</td></tr><tr><td>LB/RB</td><td>Full-back Finisher</td><td>თავგადასავლიანი fullback — გოლის გასატანად ცენტრალურ ზონებში შემოდის.</td><td style="color:#ffb340;font-weight:600">⚠️ რისკიანი — Comeback ცარიელ ფლანგს იყენებს</td></tr><tr><td>LB/RB</td><td>Defensive Fullback</td><td>უპირატესობას ანიჭებს დაცვით სტაბილურობას შეტევის წვლილზე მეტად.</td><td style="color:#5dd9aa;font-weight:600">✅ საუკეთესო — Comeback-ს სივრცეს არ აძლევს, სტაბილურია</td></tr><tr><td>LB/RB</td><td>Innerlap</td><td>ფრთაზე ფართოდ overlap-ის ნაცვლად შიგნით — ნახევარმცველის ზონაში შემოდის.</td><td style="color:#ffb340;font-weight:600">⚠️ საინტერესო მოძრაობა, მაგრამ დაცვის თვალსაზრისით რისკიანია</td></tr></table></div>
 <div class="section-h">მეკარეები (GK)</div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>GK</td><td>Offensive GK</td><td>sweeper-მეკარე — ტოვებს ხაზს, თამაშობს როგორც დამატებითი მცველი.</td><td style="color:#ffb340;font-weight:600">⚠️ BlockLate + კარიდან მანძილი = საშიში კომბინაცია</td></tr><tr><td>GK</td><td>Defensive GK</td><td>რჩება ხაზთან ახლოს, ფოკუსირებულია დარტყმებზე და პოზიციონირებაზე.</td><td style="color:#5dd9aa;font-weight:600">✅ უსაფრთხო — ამცირებს BlockLate-ის ზიანს</td></tr></table></div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რას აკეთებს</th><th>სკრიპტის წინააღმდეგ</th></tr><tr><td>GK</td><td>Offensive GK</td><td>sweeper-მეკარე — ხაზს ტოვებს, დამატებითი მცველის ფუნქციას ასრულებს.</td><td style="color:#ffb340;font-weight:600">⚠️ BlockLate + კარიდან დაშორება = საშიში კომბინაცია</td></tr><tr><td>GK</td><td>Defensive GK</td><td>ხაზთან ახლოს რჩება, ფოკუსირებულია დარტყმების მოგერიებაზე და პოზიციონირებაზე.</td><td style="color:#5dd9aa;font-weight:600">✅ უსაფრთხო — BlockLate-ის ზიანს ამცირებს</td></tr></table></div>
 
-<div class="callout good"><div class="callout-i">★</div><div class="callout-c"><strong>რეკომენდებული ანტი-სკრიპტინგ შემადგენლობა:</strong><br><br>არაფერი, რაც სიჩქარეს ეფუძნება. ყველაფერი ააგებული პოზიციონირებაზე, ფიზიკურობასა და არაპროგნოზირებად მოძრაობაზე.</div></div>
-<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რატომ</th></tr><tr><td>GK</td><td><strong style="color:#5dd9aa">Defensive GK</strong></td><td>ამცირებს BlockLate-ის ექსპოზიციას</td></tr><tr><td>CB</td><td><strong style="color:#5dd9aa">Build Up</strong></td><td>ჭკვიანური შეტევის დაწყება</td></tr><tr><td>LB/RB</td><td><strong style="color:#5dd9aa">Defensive Fullback</strong></td><td>Comeback-ს არ აძლევს სივრცეს</td></tr><tr><td>DMF</td><td><strong style="color:#5dd9aa">Anchor Man</strong></td><td>სტამინის შენარჩუნებით სტაბილურობა</td></tr><tr><td>CMF</td><td><strong style="color:#5dd9aa">Orchestrator</strong></td><td>მანუალური პასინგის ძალა</td></tr><tr><td>AMF</td><td><strong style="color:#5dd9aa">Hole Player</strong></td><td>არაპროგნოზირებადი გარბენები</td></tr><tr><td>LWF/RWF</td><td><strong style="color:#5dd9aa">Creative Playmaker</strong></td><td>აბნევს AI-ის პროგნოზს</td></tr><tr><td>CF</td><td><strong style="color:#5dd9aa">Target Man / Fox in the Box</strong></td><td>ფიზიკა > სკრიპტირებული სიჩქარე</td></tr></table></div>
+<div class="callout good"><div class="callout-i">★</div><div class="callout-c"><strong>რეკომენდებული ანტი-სკრიპტინგ შემადგენლობა:</strong><br><br>არაფერი, რაც სიჩქარეს ეფუძნება. ყველაფერი — პოზიციონირებაზე, ფიზიკურობასა და არაპროგნოზირებად მოძრაობაზე ააგე.</div></div>
+<div class="tbl-wrap"><table class="cmp"><tr><th>პოზიცია</th><th>სტილი</th><th>რატომ</th></tr><tr><td>GK</td><td><strong style="color:#5dd9aa">Defensive GK</strong></td><td>BlockLate-ის ზემოქმედებას ამცირებს</td></tr><tr><td>CB</td><td><strong style="color:#5dd9aa">Build Up</strong></td><td>ჭკვიანი შეტევის დაწყება</td></tr><tr><td>LB/RB</td><td><strong style="color:#5dd9aa">Defensive Fullback</strong></td><td>Comeback-ს არ აძლევს სივრცეს</td></tr><tr><td>DMF</td><td><strong style="color:#5dd9aa">Anchor Man</strong></td><td>სტამინის შემნახველი სტაბილურობა</td></tr><tr><td>CMF</td><td><strong style="color:#5dd9aa">Orchestrator</strong></td><td>მანუალური პასინგით ძლიერი</td></tr><tr><td>AMF</td><td><strong style="color:#5dd9aa">Hole Player</strong></td><td>არაპროგნოზირებადი გარბენები</td></tr><tr><td>LWF/RWF</td><td><strong style="color:#5dd9aa">Creative Playmaker</strong></td><td>აბნევს AI-ს პროგნოზს</td></tr><tr><td>CF</td><td><strong style="color:#5dd9aa">Target Man / Fox in the Box</strong></td><td>ფიზიკა > სკრიპტირებული სიჩქარე</td></tr></table></div>
 
 <
 </div></div></section><section id="verdict"><div class="verdict">
 <div class="verdict-tag">საბოლოო დასკვნა</div>
-<h2>ეს არ არის თეორია. ეს არის Konami-ის საკუთარი თამაშის ფაილიდან ამოღებული მტკიცებულება.</h2>
-<p>ყოველი ცვლადის სახელი, ყოველი სერვერის endpoint, ყოველი ფარული პარამეტრი, რომელიც ნაჩვენებია ამ ანგარიშში, არსებობს eFootball.exe-ის შიგნით — გადამოწმებული ბაიტ-ბაიტ ბინარული ანალიზის გზით.</p>
-<div class="stat-line">81/94 სტრინგი გადამოწმებული თამაშის ფაილში</div>
+<h2>ეს თეორია არ არის. ეს Konami-ს საკუთარი თამაშის ფაილიდან ამოღებული მტკიცებულებაა.</h2>
+<p>ყოველი ცვლადის სახელი, ყოველი სერვერის endpoint და ყოველი ფარული პარამეტრი, რომელიც ამ ანგარიშშია ნაჩვენები, eFootball.exe-ის შიგნით არსებობს — ბაიტ-ბაიტ გადამოწმებული თამაშის ფაილის ანალიზის გზით.</p>
+<div class="stat-line">81/94 სტრინგი თამაშის ფაილში დადასტურდა</div>
 </div></section>
 </main>
 
 <footer class="footer">
-<p>რივერს-ინჟინერინგი ფაილიდან <code>eFootball.exe</code> · <code>374,416,384 bytes</code></p>
+<p>გაანალიზებული ფაილი: <code>eFootball.exe</code> · <code>374,416,384 bytes</code></p>
 <p>შიდა პროექტი: <code>PES22HC / eFBDev-530</code></p>
 <p style="margin-top:10px">2026 · April</p>
 </footer>
