@@ -807,9 +807,338 @@ details[open] .proof-icon { transform: rotate(45deg); }
   * { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* AUTH BAR (top-left, mirrors side menu) */
+.auth-bar {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 999;
+  font-family: 'DM Sans', sans-serif;
+}
+.auth-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  max-width: calc(100vw - 100px);
+}
+.auth-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
+.auth-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px var(--shadow-color); }
+.auth-btn.loggedin { background: var(--good); color: oklch(0 0 0); }
+.auth-user {
+  font-weight: 800;
+  text-transform: none;
+  font-family: 'DM Sans', sans-serif;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* AUTH MODAL */
+.auth-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.auth-modal.open { display: flex; }
+.auth-card {
+  background: var(--card);
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  position: relative;
+}
+.auth-card-head { display: flex; border-bottom: 3px solid var(--border); }
+.auth-tab {
+  flex: 1;
+  padding: 14px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.auth-tab:first-child { border-right: 3px solid var(--border); }
+.auth-tab.active { background: var(--primary); color: var(--primary-foreground); }
+.auth-body { padding: 24px; }
+.auth-form { display: flex; flex-direction: column; gap: 10px; }
+.auth-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-foreground);
+  margin-top: 4px;
+}
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--background);
+  color: var(--foreground);
+  border: 3px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  outline: none;
+  transition: box-shadow 0.15s;
+}
+.auth-input:focus { box-shadow: var(--shadow-primary); }
+.auth-hint {
+  font-size: 0.74rem;
+  color: var(--muted-foreground);
+  font-family: 'Space Mono', monospace;
+  margin-top: -4px;
+}
+.auth-submit {
+  padding: 14px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-top: 14px;
+}
+.auth-submit:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
+.auth-submit:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px var(--shadow-color); }
+.auth-submit:disabled { opacity: 0.6; cursor: wait; }
+.auth-error {
+  padding: 12px 14px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 2px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: none;
+  word-break: break-word;
+}
+.auth-error.show { display: block; }
+.auth-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  z-index: 2001;
+}
+.auth-close:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
+
+/* COMMENTS */
+.comments {
+  margin-top: 28px;
+  padding: 22px;
+  background: var(--background);
+  border: 3px solid var(--border);
+}
+.comments-h {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 6px solid var(--accent);
+  padding-left: 10px;
+}
+.comments-h .cnt {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  padding: 2px 10px;
+  border: 2px solid var(--border);
+  font-size: 0.74rem;
+  margin-left: auto;
+}
+.comment-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+.comment-item {
+  padding: 14px 16px;
+  background: var(--card);
+  border: 2px solid var(--border);
+}
+.comment-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.comment-user {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-foreground);
+  background: var(--accent);
+  padding: 3px 9px;
+  border: 2px solid var(--border);
+}
+.comment-time {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+.comment-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--card-foreground);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.comment-empty {
+  text-align: center;
+  padding: 22px 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+  background: var(--card);
+  border: 2px dashed var(--border);
+}
+.comment-form { display: flex; flex-direction: column; gap: 10px; }
+.comment-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--background);
+  color: var(--foreground);
+  border: 3px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 80px;
+  outline: none;
+  transition: box-shadow 0.15s;
+}
+.comment-input:focus { box-shadow: var(--shadow-primary); }
+.comment-submit {
+  align-self: flex-start;
+  padding: 12px 22px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.comment-submit:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
+.comment-submit:disabled { opacity: 0.6; cursor: wait; }
+.comment-locked {
+  padding: 16px;
+  text-align: center;
+  background: var(--muted);
+  border: 2px dashed var(--border);
+  color: var(--muted-foreground);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.comment-locked button {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border: 2px solid var(--border);
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.comment-locked button:hover { background: var(--primary); color: var(--primary-foreground); }
+
+@media (max-width: 768px) {
+  .auth-bar { top: 16px; left: 16px; }
+  .auth-btn { padding: 11px 13px; font-size: 0.7rem; border-width: 2px; gap: 6px; }
+  .auth-user { max-width: 90px; }
+  .auth-card { border-width: 2px; }
+  .auth-tab { padding: 12px; font-size: 0.78rem; }
+  .auth-body { padding: 18px; }
+  .auth-input { border-width: 2px; padding: 10px 12px; font-size: 0.9rem; }
+  .auth-submit { padding: 12px; font-size: 0.78rem; }
+  .auth-close { top: 16px; right: 16px; width: 38px; height: 38px; border-width: 2px; }
+  .comments { padding: 18px 16px; border-width: 2px; }
+  .comment-item { padding: 12px 14px; }
+  .comment-input { border-width: 2px; padding: 10px 12px; font-size: 0.9rem; min-height: 70px; }
+  .hero { padding-top: 90px; }
+}
 </style>
 </head>
 <body>
+
+<aside class="auth-bar">
+<button id="auth-trigger" class="auth-btn" type="button"><span id="auth-btn-text">შესვლა</span></button>
+</aside>
+<div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true">
+<button class="auth-close" id="auth-close" aria-label="Close" type="button">×</button>
+<div class="auth-card">
+<div class="auth-card-head">
+<button class="auth-tab active" data-tab="login" type="button">შესვლა</button>
+<button class="auth-tab" data-tab="register" type="button">რეგისტრაცია</button>
+</div>
+<div class="auth-body">
+<div class="auth-error" id="auth-error" role="alert"></div>
+<form class="auth-form" id="auth-form">
+<label class="auth-label" for="auth-id">ID</label>
+<input class="auth-input" id="auth-id" type="text" autocomplete="username" maxlength="30" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+<span class="auth-hint">ID: 3-30 სიმბოლო (a-z, 0-9, _)</span>
+<label class="auth-label" for="auth-pw">პაროლი</label>
+<input class="auth-input" id="auth-pw" type="password" autocomplete="current-password" minlength="6" maxlength="100" required>
+<span class="auth-hint">პაროლი: მინ. 6 სიმბოლო</span>
+<button class="auth-submit" id="auth-submit" type="submit">შესვლა</button>
+</form>
+</div>
+</div>
+</div>
 
 <aside class="side-menu" aria-label="ნავიგაციის მენიუს გახსნა">
 <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="ნავიგაციის მენიუს გახსნა">
@@ -1833,14 +2162,264 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <p style="margin-top:10px">2026 · April</p>
 </footer>
 
-<script>
-// Close menu when clicking a link (mobile)
-document.querySelectorAll('.menu-list a').forEach(a => {
-  a.addEventListener('click', () => {
-    const t = document.getElementById('menu-toggle');
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, limit } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+const firebaseConfig = {"apiKey": "REPLACE_WITH_YOUR_API_KEY", "authDomain": "REPLACE_WITH_YOUR_AUTH_DOMAIN", "projectId": "REPLACE_WITH_YOUR_PROJECT_ID", "storageBucket": "REPLACE_WITH_YOUR_STORAGE_BUCKET", "messagingSenderId": "REPLACE_WITH_YOUR_SENDER_ID", "appId": "REPLACE_WITH_YOUR_APP_ID"};
+
+const I18N = {
+  en: {
+    login: "Sign in", register: "Sign up", logout: "Sign out", locale: "en-US",
+    title: "Comments", empty: "No comments yet — be the first.",
+    placeholder: "Share your thoughts...", send: "Post",
+    lockedMsg: "Sign in to post a comment.",
+    idHint: "ID: 3-30 chars (a-z, 0-9, _)", pwHint: "Password: at least 6 characters",
+    errInUse: "This ID is already taken.",
+    errBadCred: "Wrong ID or password.",
+    errTooMany: "Too many attempts. Try again later.",
+    errGeneric: "Something went wrong. Try again.",
+    errSend: "Couldn't send comment.",
+    errOffline: "Can't connect to Firebase. Check your internet."
+  },
+  ge: {
+    login: "შესვლა", register: "რეგისტრაცია", logout: "გასვლა", locale: "ka-GE",
+    title: "კომენტარები", empty: "კომენტარები ჯერ არ არის — შენ იყავი პირველი.",
+    placeholder: "დაწერე შენი აზრი...", send: "გაგზავნა",
+    lockedMsg: "კომენტარის დასაწერად შედი ან დარეგისტრირდი.",
+    idHint: "ID: 3-30 სიმბოლო (a-z, 0-9, _)", pwHint: "პაროლი: მინ. 6 სიმბოლო",
+    errInUse: "ეს ID უკვე გამოყენებულია.",
+    errBadCred: "ID ან პაროლი არასწორია.",
+    errTooMany: "ბევრი მცდელობა. სცადე ცოტა ხანში.",
+    errGeneric: "შეცდომა. სცადე თავიდან.",
+    errSend: "კომენტარის გაგზავნა ვერ მოხერხდა.",
+    errOffline: "Firebase-თან კავშირი ვერ მოხერხდა. შეამოწმე ინტერნეტი."
+  }
+};
+const T = I18N["ge"];
+
+const validId = (id) => /^[a-z0-9_]{3,30}$/.test(id);
+const idToEmail = (id) => id + "@efootball-evidence.local";
+
+const configValid = !String(firebaseConfig.apiKey || "").startsWith("REPLACE_");
+
+let app, auth, db, currentUser = null;
+if (configValid) {
+  try {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+  } catch (e) {
+    console.error("Firebase init failed:", e);
+  }
+} else {
+  console.warn("Firebase config not set. Auth & comments are disabled until config is added.");
+  const bar = document.querySelector(".auth-bar");
+  if (bar) bar.style.display = "none";
+}
+
+const $ = (id) => document.getElementById(id);
+const modal = $("auth-modal");
+const trigger = $("auth-trigger");
+const btnText = $("auth-btn-text");
+const closeBtn = $("auth-close");
+const tabs = document.querySelectorAll(".auth-tab");
+const form = $("auth-form");
+const idIn = $("auth-id");
+const pwIn = $("auth-pw");
+const submitBtn = $("auth-submit");
+const errorBox = $("auth-error");
+let mode = "login";
+
+function setMode(m) {
+  mode = m;
+  tabs.forEach(t => t.classList.toggle("active", t.dataset.tab === m));
+  submitBtn.textContent = m === "login" ? T.login : T.register;
+  errorBox.classList.remove("show");
+}
+function openModal(m) {
+  setMode(m || "login");
+  modal.classList.add("open");
+  setTimeout(() => idIn.focus(), 50);
+}
+function closeModal() {
+  modal.classList.remove("open");
+  form.reset();
+  errorBox.classList.remove("show");
+}
+function showError(msg) {
+  errorBox.textContent = msg;
+  errorBox.classList.add("show");
+}
+
+if (trigger) {
+  trigger.addEventListener("click", () => {
+    if (!auth) return;
+    if (currentUser) signOut(auth);
+    else openModal("login");
+  });
+}
+if (closeBtn) closeBtn.addEventListener("click", closeModal);
+if (modal) modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+tabs.forEach(t => t.addEventListener("click", () => setMode(t.dataset.tab)));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal && modal.classList.contains("open")) closeModal(); });
+
+if (form) form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!auth) { showError(T.errOffline); return; }
+  const id = idIn.value.trim().toLowerCase();
+  const pw = pwIn.value;
+  if (!validId(id)) { showError(T.idHint); return; }
+  if (pw.length < 6) { showError(T.pwHint); return; }
+  submitBtn.disabled = true;
+  errorBox.classList.remove("show");
+  try {
+    if (mode === "register") {
+      const cred = await createUserWithEmailAndPassword(auth, idToEmail(id), pw);
+      try { await updateProfile(cred.user, { displayName: id }); } catch(_) {}
+    } else {
+      await signInWithEmailAndPassword(auth, idToEmail(id), pw);
+    }
+    closeModal();
+  } catch (err) {
+    const code = err.code || "";
+    let msg = T.errGeneric;
+    if (code === "auth/email-already-in-use") msg = T.errInUse;
+    else if (code === "auth/invalid-credential" || code === "auth/wrong-password" || code === "auth/user-not-found" || code === "auth/invalid-login-credentials") msg = T.errBadCred;
+    else if (code === "auth/weak-password") msg = T.pwHint;
+    else if (code === "auth/too-many-requests") msg = T.errTooMany;
+    else if (code === "auth/network-request-failed") msg = T.errOffline;
+    showError(msg);
+    console.error("auth error:", err);
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+
+if (auth) onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  const name = user ? (user.displayName || (user.email ? user.email.split("@")[0] : "?")) : null;
+  if (user) {
+    trigger.classList.add("loggedin");
+    btnText.innerHTML = '<span class="auth-user">@' + escapeHTML(name) + '</span>&nbsp;·&nbsp;' + escapeHTML(T.logout);
+  } else {
+    trigger.classList.remove("loggedin");
+    btnText.textContent = T.login;
+  }
+  refreshAllCommentForms();
+});
+
+// COMMENTS
+function fmtTime(ts) {
+  if (!ts) return "...";
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  try {
+    return d.toLocaleString(T.locale, { year:"numeric", month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
+  } catch(_) { return d.toString(); }
+}
+function escapeHTML(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+}
+function renderCommentForm(container, sectionId) {
+  const formArea = container.querySelector(".comment-form-area");
+  if (!formArea) return;
+  if (currentUser) {
+    formArea.innerHTML =
+      '<form class="comment-form">' +
+        '<textarea class="comment-input" maxlength="1000" placeholder="' + escapeHTML(T.placeholder) + '" required></textarea>' +
+        '<button class="comment-submit" type="submit">' + escapeHTML(T.send) + '</button>' +
+      '</form>';
+    formArea.querySelector("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const ta = e.target.querySelector("textarea");
+      const btn = e.target.querySelector("button");
+      const text = ta.value.trim();
+      if (!text || !db || !currentUser) return;
+      btn.disabled = true;
+      try {
+        await addDoc(collection(db, "sections", sectionId, "comments"), {
+          userId: currentUser.uid,
+          username: currentUser.displayName || (currentUser.email ? currentUser.email.split("@")[0] : "?"),
+          text: text,
+          timestamp: serverTimestamp()
+        });
+        ta.value = "";
+      } catch (err) {
+        console.error("send error:", err);
+        alert(T.errSend + " " + (err.message || ""));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  } else {
+    formArea.innerHTML =
+      '<div class="comment-locked">' +
+        '<span>' + escapeHTML(T.lockedMsg) + '</span>' +
+        '<button type="button" class="login-cta">' + escapeHTML(T.login) + '</button>' +
+      '</div>';
+    const cta = formArea.querySelector(".login-cta");
+    if (cta) cta.addEventListener("click", () => openModal("login"));
+  }
+}
+function refreshAllCommentForms() {
+  document.querySelectorAll(".comments").forEach(c => renderCommentForm(c, c.dataset.sid));
+}
+function attachCommentsToSection(section) {
+  const sid = section.id;
+  if (!sid) return;
+  if (section.querySelector(":scope .comments")) return;
+  const evBody = section.querySelector(".ev-body");
+  const target = evBody || section;
+  const wrap = document.createElement("div");
+  wrap.className = "comments";
+  wrap.dataset.sid = sid;
+  wrap.innerHTML =
+    '<div class="comments-h"><span>💬</span><span>' + escapeHTML(T.title) + '</span><span class="cnt" data-cnt>0</span></div>' +
+    '<div class="comment-list" data-list><div class="comment-empty">' + escapeHTML(T.empty) + '</div></div>' +
+    '<div class="comment-form-area"></div>';
+  target.appendChild(wrap);
+  renderCommentForm(wrap, sid);
+  if (db) {
+    const q = query(collection(db, "sections", sid, "comments"), orderBy("timestamp", "desc"), limit(100));
+    onSnapshot(q, (snap) => {
+      const list = wrap.querySelector("[data-list]");
+      const cnt = wrap.querySelector("[data-cnt]");
+      if (snap.empty) {
+        list.innerHTML = '<div class="comment-empty">' + escapeHTML(T.empty) + '</div>';
+        cnt.textContent = "0";
+        return;
+      }
+      cnt.textContent = String(snap.size);
+      list.innerHTML = "";
+      snap.forEach(doc => {
+        const c = doc.data();
+        const item = document.createElement("div");
+        item.className = "comment-item";
+        item.innerHTML =
+          '<div class="comment-meta">' +
+            '<span class="comment-user">@' + escapeHTML(c.username || "?") + '</span>' +
+            '<span class="comment-time">' + escapeHTML(fmtTime(c.timestamp)) + '</span>' +
+          '</div>' +
+          '<div class="comment-text">' + escapeHTML(c.text || "") + '</div>';
+        list.appendChild(item);
+      });
+    }, (err) => { console.error("comments subscribe error:", err); });
+  }
+}
+if (configValid) {
+  document.querySelectorAll("section[id]").forEach(attachCommentsToSection);
+}
+
+// Side menu close on link click
+document.querySelectorAll(".menu-list a").forEach(a => {
+  a.addEventListener("click", () => {
+    const t = $("menu-toggle");
     if (t) t.checked = false;
   });
 });
+
 </script>
 
 </body>
