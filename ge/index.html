@@ -9,1149 +9,769 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --background: oklch(0 0 0);
-  --foreground: oklch(1.0000 0 0);
-  --card: oklch(0.18 0 0);
-  --card-foreground: oklch(1.0000 0 0);
-  --primary: oklch(0.7044 0.1872 23.1858);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.9691 0.2005 109.6228);
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0 0);
   --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0.2178 0 0);
-  --muted-foreground: oklch(0.8452 0 0);
-  --accent: oklch(0.6755 0.1765 252.2592);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.44 0 0);
+  --accent: oklch(0.94 0 0);
   --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(1.0000 0 0);
-  --border: oklch(1.0000 0 0);
-  --good: oklch(0.7395 0.2268 142.8504);
-  --warn: oklch(0.8 0.18 75);
-  --shadow-color: rgba(0, 0, 0, 1);
-  --shadow-sm: 4px 4px 0px 0px var(--shadow-color);
-  --shadow: 4px 4px 0px 0px var(--shadow-color);
-  --shadow-lg: 6px 6px 0px 0px var(--shadow-color);
-  --shadow-white: 4px 4px 0px 0px oklch(1.0000 0 0);
-  --shadow-primary: 4px 4px 0px 0px oklch(0.7044 0.1872 23.1858);
-  --shadow-secondary: 4px 4px 0px 0px oklch(0.9691 0.2005 109.6228);
-  --shadow-accent: 4px 4px 0px 0px oklch(0.6755 0.1765 252.2592);
-  --max-w: 920px;
+  --destructive: oklch(0.63 0.19 23.03);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.94 0 0);
+  --ring: oklch(0 0 0);
+  --chart-1: oklch(0.81 0.17 75.35);
+  --chart-2: oklch(0.55 0.22 264.53);
+  --chart-3: oklch(0.72 0 0);
+  --chart-4: oklch(0.92 0 0);
+  --chart-5: oklch(0.56 0 0);
+  --radius: 0.5rem;
+  --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.06);
+  --shadow-sm: 0px 1px 2px 0px hsl(0 0% 0% / 0.09);
+  --shadow: 0px 1px 2px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0px 1px 2px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0px 1px 2px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --max-w: 880px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: 'Geist', 'Noto Sans Georgian', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   background: var(--background);
   color: var(--foreground);
   line-height: 1.6;
   font-size: 16px;
-  overflow-x: hidden;
-  min-height: 100vh;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
-/* HAMBURGER SIDE MENU */
-.menu-toggle { display: none; }
+a { color: inherit; }
+button { font-family: inherit; }
 
-.side-menu {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 1000;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.menu-handle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: var(--primary);
-  border: 3px solid var(--border);
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  position: relative;
-  z-index: 2;
-}
-.menu-handle:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
-.menu-handle:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px var(--shadow-color); }
-
-.menu-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 22px;
-}
-.menu-icon span {
-  display: block;
-  height: 3px;
-  background: var(--primary-foreground);
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.menu-panel {
-  position: absolute;
+/* NAV */
+.nav {
+  position: sticky;
   top: 0;
-  right: 0;
-  width: 320px;
-  max-width: calc(100vw - 48px);
-  max-height: 0;
-  overflow: hidden;
+  z-index: 100;
+  background: rgba(252, 252, 252, 0.85);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.nav-logo {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--foreground);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+.nav-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--destructive);
+  box-shadow: 0 0 0 3px oklch(0.97 0.04 23.03);
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
+.nav-toc { position: relative; }
+.nav-toc-btn {
   background: var(--card);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  margin-top: 64px;
-  transform: translateY(-12px);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 7px 12px 7px 14px;
+  border-radius: var(--radius);
+  font-size: 0.83rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s, border-color 0.15s;
+  box-shadow: var(--shadow-xs);
+}
+.nav-toc-btn:hover { background: var(--muted); border-color: oklch(0.85 0 0); }
+.nav-toc-btn .chev { font-size: 0.7rem; opacity: 0.6; transition: transform 0.2s; }
+.nav-toc:hover .nav-toc-btn .chev,
+.nav-toc:focus-within .nav-toc-btn .chev { transform: rotate(180deg); }
+.nav-toc-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: var(--shadow-xl);
   opacity: 0;
   visibility: hidden;
-  transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.25s ease, visibility 0.3s;
+  transform: translateY(-4px);
+  transition: opacity 0.18s, visibility 0.18s, transform 0.18s;
+  padding: 6px;
 }
-
-/* Hover (desktop) */
-.side-menu:hover .menu-panel,
-.side-menu:focus-within .menu-panel,
-.menu-toggle:checked ~ .menu-panel {
-  max-height: calc(100vh - 100px);
+.nav-toc:hover .nav-toc-panel,
+.nav-toc:focus-within .nav-toc-panel {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  overflow-y: auto;
 }
-
-/* Animated hamburger -> X when checked */
-.menu-toggle:checked ~ .menu-handle .menu-icon span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.menu-toggle:checked ~ .menu-handle .menu-icon span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle:checked ~ .menu-handle .menu-icon span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-.menu-header {
-  padding: 16px 18px;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-bottom: 3px solid var(--border);
-  font-family: 'Space Mono', monospace;
-}
-
-.menu-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.menu-list li {
-  border-bottom: 2px solid var(--border);
-}
-.menu-list li:last-child { border-bottom: none; }
-.menu-list a {
+.nav-toc-panel ul { list-style: none; }
+.nav-toc-panel li a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  color: var(--card-foreground);
+  gap: 12px;
+  padding: 8px 12px;
+  color: var(--foreground);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 500;
-  transition: background 0.15s, color 0.15s, padding-left 0.15s;
+  font-size: 0.86rem;
+  border-radius: calc(var(--radius) - 2px);
+  transition: background 0.15s;
 }
-.menu-list a:hover {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  padding-left: 24px;
-}
-.menu-list a .menu-num {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
+.nav-toc-panel li a:hover { background: var(--muted); }
+.nav-toc-panel li a .num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.7rem;
   background: var(--muted);
   color: var(--muted-foreground);
   padding: 2px 7px;
-  font-weight: 700;
+  border-radius: 4px;
   flex-shrink: 0;
-  border: 2px solid var(--border);
-}
-.menu-list a:hover .menu-num {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
+  font-weight: 500;
 }
 
 /* HERO */
 .hero {
-  position: relative;
-  padding: 80px 24px 60px;
-  text-align: left;
-  border-bottom: 3px solid var(--border);
-  background: var(--background);
-  overflow: hidden;
+  padding: 80px 24px 64px;
+  border-bottom: 1px solid var(--border);
 }
 .hero-inner { max-width: var(--max-w); margin: 0 auto; }
 .hero-tag {
-  display: inline-block;
-  padding: 8px 16px;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 10px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 500;
   margin-bottom: 28px;
-  font-family: 'Space Mono', monospace;
+}
+.hero-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--destructive);
+  box-shadow: 0 0 0 3px oklch(0.95 0.05 23.03);
 }
 .hero h1 {
-  font-size: clamp(2.4rem, 7vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1;
+  font-size: clamp(2.4rem, 6.5vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   margin-bottom: 24px;
   color: var(--foreground);
 }
-.hero h1 .accent {
-  display: inline-block;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  padding: 0 12px;
-  margin-top: 4px;
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-}
+.hero h1 .accent { color: var(--destructive); }
 .hero-sub {
-  font-size: clamp(1.05rem, 2.3vw, 1.25rem);
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   color: var(--muted-foreground);
   max-width: 640px;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
   line-height: 1.55;
 }
 .hero-meta {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  gap: 0;
-  background: var(--card);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  font-size: 0.82rem;
-  font-family: 'Space Mono', monospace;
+  gap: 14px;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
 }
 .hero-meta-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  color: var(--card-foreground);
-  border-right: 2px solid var(--border);
+  gap: 6px;
 }
-.hero-meta-item:last-child { border-right: none; }
 .hero-meta-item code {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  padding: 2px 8px;
+  font-family: 'Geist Mono', monospace;
+  background: var(--card);
+  color: var(--foreground);
+  padding: 3px 8px;
+  border-radius: 5px;
   font-size: 0.85em;
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
 }
-.hero-meta-divider { display: none; }
 
 /* CONTAINER */
 .container {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 60px 24px 80px;
-  position: relative;
+  padding: 56px 24px 80px;
 }
 
 /* SECTION */
-section { scroll-margin-top: 24px; margin-bottom: 48px; }
+section { scroll-margin-top: 80px; margin-bottom: 28px; }
 
 .ev {
   background: var(--card);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.ev:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px 0px var(--shadow-color);
-}
+.ev:hover { box-shadow: var(--shadow-md); }
 
 .ev-head {
-  padding: 28px 28px 24px;
-  border-bottom: 3px solid var(--border);
-  background: var(--muted);
+  padding: 28px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .ev-num {
-  display: inline-block;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  padding: 4px 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-bottom: 14px;
-  border: 2px solid var(--border);
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--muted-foreground);
+  letter-spacing: 0.05em;
+  font-weight: 500;
 }
 .ev-head h2 {
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  margin-bottom: 16px;
-  color: var(--card-foreground);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--foreground);
 }
 .severity {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: 2px solid var(--border);
-  font-family: 'Space Mono', monospace;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--card);
+  align-self: flex-start;
 }
-.sev-c { background: var(--primary); color: var(--primary-foreground); }
-.sev-h { background: var(--warn); color: oklch(0 0 0); }
-.sev-i { background: var(--accent); color: var(--accent-foreground); }
-.sev-g { background: var(--good); color: oklch(0 0 0); }
+.severity::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
+.sev-c { background: oklch(0.97 0.04 23.03); color: oklch(0.42 0.16 23.03); border-color: oklch(0.88 0.05 23.03); }
+.sev-c::before { background: var(--destructive); }
+.sev-h { background: oklch(0.96 0.06 75); color: oklch(0.42 0.13 75); border-color: oklch(0.86 0.07 75); }
+.sev-h::before { background: oklch(0.7 0.16 75); }
+.sev-i { background: oklch(0.96 0.04 264); color: oklch(0.42 0.18 264); border-color: oklch(0.85 0.06 264); }
+.sev-i::before { background: oklch(0.55 0.22 264.53); }
+.sev-g { background: oklch(0.96 0.05 142); color: oklch(0.4 0.16 142); border-color: oklch(0.84 0.07 142); }
+.sev-g::before { background: oklch(0.55 0.18 142); }
 
-.ev-body { padding: 28px; background: var(--card); }
+.ev-body { padding: 22px 28px 28px; }
 
 .lead {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--foreground);
+  margin-bottom: 22px;
   line-height: 1.6;
-  color: var(--card-foreground);
-  margin-bottom: 24px;
-  font-weight: 500;
+  font-weight: 400;
 }
-.lead strong { color: var(--primary); font-weight: 700; }
-.lead code {
-  font-family: 'Space Mono', monospace;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  padding: 2px 7px;
+.lead strong { color: var(--destructive); font-weight: 600; }
+.lead code, p code, li code, td code, th code {
+  font-family: 'Geist Mono', monospace;
+  background: var(--muted);
+  color: var(--foreground);
+  padding: 1px 6px;
+  border-radius: 4px;
   font-size: 0.88em;
-  font-weight: 700;
-  border: 2px solid var(--border);
+  font-weight: 500;
+  border: 1px solid var(--border);
 }
 
 .section-h {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--card-foreground);
-  background: var(--muted);
-  padding: 8px 14px;
-  margin: 28px 0 14px;
-  border-left: 6px solid var(--primary);
+  color: var(--muted-foreground);
+  margin: 24px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
 }
 
 p.body-text {
-  color: var(--card-foreground);
+  color: var(--foreground);
+  margin-bottom: 12px;
   line-height: 1.65;
-  margin-bottom: 14px;
   font-size: 0.97rem;
 }
-p.body-text strong { color: var(--primary); font-weight: 700; }
-p.body-text code {
-  font-family: 'Space Mono', monospace;
-  background: var(--muted);
-  color: var(--card-foreground);
-  padding: 1px 6px;
-  font-size: 0.85em;
-  font-weight: 700;
-  border: 1px solid var(--border);
-}
+p.body-text strong { color: var(--foreground); font-weight: 600; }
 
 ul.points {
   list-style: none;
+  margin: 12px 0 18px;
   padding: 0;
-  margin: 14px 0 22px;
-  border: 3px solid var(--border);
-  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
 }
 ul.points li {
+  padding: 12px 16px 12px 38px;
+  font-size: 0.94rem;
   position: relative;
-  padding: 14px 16px 14px 44px;
-  color: var(--foreground);
-  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border);
   line-height: 1.5;
-  border-bottom: 2px solid var(--border);
 }
 ul.points li:last-child { border-bottom: none; }
 ul.points li::before {
-  content: '→';
+  content: '';
   position: absolute;
-  left: 14px;
-  top: 14px;
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 1.1rem;
+  left: 18px;
+  top: 19px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--foreground);
 }
-ul.points li strong { color: var(--primary); font-weight: 700; }
-ul.points li code {
-  font-family: 'Space Mono', monospace;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  padding: 1px 5px;
-  font-size: 0.85em;
-  font-weight: 700;
-  border: 1px solid var(--border);
-}
+ul.points li strong { color: var(--foreground); font-weight: 600; }
 
 .callout {
   display: flex;
-  gap: 14px;
-  padding: 18px 20px;
-  background: var(--background);
-  color: var(--foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  margin: 20px 0;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 18px 0;
 }
 .callout-i {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  background: var(--primary);
-  color: var(--primary-foreground);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--foreground);
+  color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 800;
-  border: 2px solid var(--border);
-}
-.callout-c { color: var(--foreground); font-size: 0.95rem; line-height: 1.55; }
-.callout-c strong { color: var(--primary); font-weight: 700; }
-.callout-c code {
-  font-family: 'Space Mono', monospace;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  padding: 1px 5px;
-  font-size: 0.85em;
   font-weight: 700;
-  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-family: 'Geist', sans-serif;
 }
-.callout.warn { background: var(--warn); color: oklch(0 0 0); }
-.callout.warn .callout-i { background: oklch(0 0 0); color: var(--warn); }
-.callout.warn .callout-c { color: oklch(0 0 0); }
-.callout.warn .callout-c strong { color: oklch(0 0 0); }
-.callout.warn .callout-c code { background: oklch(0 0 0); color: var(--warn); border-color: oklch(0 0 0); }
-.callout.good { background: var(--good); color: oklch(0 0 0); }
-.callout.good .callout-i { background: oklch(0 0 0); color: var(--good); }
-.callout.good .callout-c { color: oklch(0 0 0); }
-.callout.good .callout-c strong { color: oklch(0 0 0); }
-.callout.good .callout-c code { background: oklch(0 0 0); color: var(--good); border-color: oklch(0 0 0); }
+.callout-c { font-size: 0.94rem; line-height: 1.55; color: var(--foreground); }
+.callout-c strong { font-weight: 600; }
+.callout-c code {
+  font-family: 'Geist Mono', monospace;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.87em;
+  font-weight: 500;
+}
+.callout.warn { background: oklch(0.97 0.04 75); border-color: oklch(0.85 0.06 75); }
+.callout.warn .callout-i { background: oklch(0.5 0.15 75); }
+.callout.warn .callout-c code { background: oklch(0.95 0.06 75); }
+.callout.good { background: oklch(0.97 0.04 142); border-color: oklch(0.84 0.06 142); }
+.callout.good .callout-i { background: oklch(0.5 0.18 142); }
+.callout.good .callout-c code { background: oklch(0.95 0.06 142); }
 
+/* DIAGRAMS */
+.diagram {
+  margin: 22px 0;
+  padding: 22px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.diagram svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.diagram-cap {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+  margin-top: 14px;
+  font-style: italic;
+}
+.dia-bar-label { font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 600; fill: var(--foreground); }
+.dia-bar-num { font-family: 'Geist Mono', monospace; font-size: 13px; font-weight: 500; }
+.dia-bar-cap { font-family: 'Geist', sans-serif; font-size: 11px; fill: oklch(0.5 0 0); font-weight: 500; }
+.dia-track { fill: var(--card); stroke: var(--border); stroke-width: 1; }
+.dia-bar-good { fill: var(--foreground); }
+.dia-bar-bad { fill: var(--destructive); }
+.dia-bar-warn { fill: oklch(0.7 0.16 75); }
+.dia-bar-info { fill: var(--chart-2); }
+.dia-box { fill: var(--card); stroke: var(--foreground); stroke-width: 1.5; }
+.dia-box-bad { fill: oklch(0.97 0.04 23.03); stroke: var(--destructive); stroke-width: 1.5; }
+.dia-arrow { stroke: var(--foreground); stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+.dia-arrow-bad { stroke: var(--destructive); stroke-width: 1.5; fill: none; marker-end: url(#arrow-bad); }
+.dia-text { font-family: 'Geist', sans-serif; font-size: 12px; fill: var(--foreground); font-weight: 500; }
+.dia-text-mono { font-family: 'Geist Mono', monospace; font-size: 11px; fill: var(--muted-foreground); }
+.dia-text-bad { fill: var(--destructive); font-weight: 600; }
+
+/* CODE BLOCK */
 .code-block {
-  background: var(--background);
-  color: var(--foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 18px 20px;
-  margin: 18px 0;
-  font-family: 'Space Mono', monospace;
+  background: oklch(0.18 0 0);
+  color: oklch(0.92 0 0);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 14px 0;
+  font-family: 'Geist Mono', monospace;
   font-size: 0.82rem;
   line-height: 1.7;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   white-space: pre;
+  border: 1px solid oklch(0.22 0 0);
 }
-.hl { color: var(--primary); font-weight: 700; }
-.cm { color: var(--muted-foreground); }
-.kw { color: var(--accent); font-weight: 700; }
-.st { color: var(--secondary); font-weight: 700; }
+.hl { color: oklch(0.85 0.16 75); font-weight: 500; }
+.cm { color: oklch(0.55 0 0); font-style: italic; }
+.kw { color: oklch(0.7 0.18 264); font-weight: 500; }
+.st { color: oklch(0.72 0.17 142); font-weight: 500; }
 
-/* Tables */
+/* TABLES */
 .tbl-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin: 18px 0;
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 table.cmp {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
-  min-width: 520px;
-  background: var(--background);
+  min-width: 500px;
+  background: var(--card);
 }
 table.cmp th {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  padding: 12px 14px;
+  background: var(--muted);
+  padding: 10px 14px;
   text-align: left;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-bottom: 2px solid var(--border);
-  border-right: 2px solid var(--border);
-  font-family: 'Space Mono', monospace;
+  color: var(--muted-foreground);
+  border-bottom: 1px solid var(--border);
 }
-table.cmp th:last-child { border-right: none; }
 table.cmp td {
   padding: 11px 14px;
-  border-bottom: 2px solid var(--border);
-  border-right: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
   color: var(--foreground);
 }
-table.cmp td:last-child { border-right: none; }
 table.cmp tr:last-child td { border-bottom: none; }
-table.cmp code {
-  font-family: 'Space Mono', monospace;
-  background: var(--muted);
-  color: var(--foreground);
-  padding: 1px 5px;
-  font-size: 0.85em;
-  font-weight: 700;
-  border: 1px solid var(--border);
-}
 
-/* Tip cards */
+/* TIP CARDS */
 .tip-card {
   background: var(--card);
-  color: var(--card-foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 22px;
-  margin-bottom: 18px;
-  transition: transform 0.15s, box-shadow 0.15s;
-  position: relative;
-}
-.tip-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px var(--shadow-color);
-}
-.tip-card h4 {
-  color: var(--card-foreground);
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-  display: inline-block;
-  background: var(--good);
-  color: oklch(0 0 0);
-  padding: 6px 12px;
-  border: 2px solid var(--border);
-}
-.tip-card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--card-foreground);
-}
-.tip-card p strong { color: var(--primary); font-weight: 700; }
-.tip-card p code {
-  font-family: 'Space Mono', monospace;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-  padding: 1px 5px;
-  font-size: 0.85em;
-  font-weight: 700;
   border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.18s, transform 0.18s;
 }
+.tip-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.tip-card h4 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--foreground);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+.tip-card h4::before {
+  content: '✓';
+  width: 20px;
+  height: 20px;
+  background: oklch(0.5 0.18 142);
+  color: white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.tip-card p { font-size: 0.93rem; color: var(--muted-foreground); line-height: 1.55; }
+.tip-card p strong { color: var(--foreground); font-weight: 600; }
 
-/* Hex Proof */
+/* HEX PROOF */
 .proof-details {
-  margin-top: 22px;
-  background: var(--background);
-  border: 3px solid var(--border);
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
 }
 .proof-summary {
   cursor: pointer;
-  padding: 14px 18px;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--foreground);
   list-style: none;
   user-select: none;
-  background: var(--accent);
-  color: var(--accent-foreground);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  background: var(--muted);
+  font-weight: 500;
+  transition: background 0.15s;
 }
+.proof-summary:hover { background: oklch(0.94 0 0); }
 .proof-summary::-webkit-details-marker { display: none; }
 .proof-icon {
-  background: var(--accent-foreground);
-  color: var(--accent);
-  width: 24px;
-  height: 24px;
+  background: var(--foreground);
+  color: var(--background);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   transition: transform 0.2s;
-  font-weight: 800;
-  border: 2px solid var(--border);
-}
-.proof-text { flex: 1; }
-.proof-count {
-  font-family: 'Space Mono', monospace;
-  background: var(--accent-foreground);
-  color: var(--accent);
-  padding: 3px 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border: 2px solid var(--border);
+  flex-shrink: 0;
 }
 details[open] .proof-icon { transform: rotate(45deg); }
-.proof-summary:hover { background: oklch(0.6 0.18 252); }
-.proof-inner { padding: 14px; border-top: 3px solid var(--border); background: var(--background); }
+.proof-text { flex: 1; }
+.proof-count {
+  font-family: 'Geist Mono', monospace;
+  background: var(--card);
+  color: var(--foreground);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.74rem;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+.proof-inner { padding: 12px; border-top: 1px solid var(--border); }
 
-.sp { margin-bottom: 14px; border: 2px solid var(--border); background: var(--card); }
+.sp { margin-bottom: 10px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .sp-hdr {
-  padding: 11px 14px;
+  padding: 9px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
   background: var(--muted);
 }
 .ss {
-  font-family: 'Space Mono', monospace;
-  color: var(--card-foreground);
-  font-size: 0.88rem;
+  font-family: 'Geist Mono', monospace;
+  color: var(--foreground);
+  font-size: 0.85rem;
   word-break: break-all;
-  font-weight: 700;
+  font-weight: 500;
 }
 .bf, .bnf {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 0.7rem;
-  font-weight: 700;
-  padding: 4px 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
   white-space: nowrap;
-  border: 2px solid var(--border);
-  text-transform: uppercase;
+  border: 1px solid var(--border);
 }
-.bf { background: var(--good); color: oklch(0 0 0); }
-.bnf { background: var(--primary); color: var(--primary-foreground); }
+.bf { background: oklch(0.96 0.05 142); color: oklch(0.4 0.18 142); border-color: oklch(0.85 0.06 142); }
+.bnf { background: oklch(0.97 0.04 23); color: var(--destructive); border-color: oklch(0.88 0.05 23); }
 
-.hx-box { margin: 8px; border: 2px solid var(--border); }
+.hx-box { margin: 8px; border: 1px solid var(--border); border-radius: calc(var(--radius) - 2px); overflow: hidden; background: var(--card); }
 .hx-hdr {
-  padding: 8px 12px;
+  padding: 7px 10px;
   display: flex;
   justify-content: space-between;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.74rem;
-  color: var(--foreground);
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
   background: var(--muted);
   flex-wrap: wrap;
   gap: 5px;
-  border-bottom: 2px solid var(--border);
-  font-weight: 700;
 }
 .hx-hdr code {
-  font-family: 'Space Mono', monospace;
-  color: var(--accent);
-  font-weight: 700;
+  font-family: 'Geist Mono', monospace;
+  color: var(--foreground);
+  font-weight: 500;
+  background: var(--card);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
 }
 .hx {
-  background: oklch(0 0 0);
+  background: oklch(0.985 0 0);
   padding: 12px;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 0.7rem;
   line-height: 1.55;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  color: oklch(0.65 0 0);
+  color: oklch(0.42 0 0);
   margin: 0;
   white-space: pre;
+  border-top: 1px solid var(--border);
 }
-.ha { color: var(--accent); font-weight: 700; }
-.hm { color: oklch(0 0 0); font-weight: 700; background: var(--secondary); padding: 0 1px; }
-.am { color: oklch(0 0 0); font-weight: 700; background: var(--secondary); }
-.ap { color: var(--good); }
+.ha { color: var(--chart-2); font-weight: 500; }
+.hm { background: oklch(0.93 0.13 75); color: oklch(0.3 0.15 75); padding: 0 1px; font-weight: 600; }
+.am { background: oklch(0.93 0.13 75); color: oklch(0.3 0.15 75); font-weight: 600; }
+.ap { color: oklch(0.4 0.18 142); }
 .more {
-  color: var(--foreground);
+  color: var(--muted-foreground);
   padding: 8px 14px;
-  font-size: 0.78rem;
-  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
   background: var(--muted);
-  border-top: 2px solid var(--border);
+  border-top: 1px solid var(--border);
+  font-family: 'Geist Mono', monospace;
 }
 
-/* Verdict */
+/* VERDICT */
 .verdict {
-  margin: 64px 0 32px;
+  margin: 56px 0 24px;
   padding: 56px 32px;
   text-align: center;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border: 3px solid var(--border);
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: calc(var(--radius) + 2px);
   box-shadow: var(--shadow-lg);
-  position: relative;
 }
 .verdict-tag {
   display: inline-block;
-  padding: 6px 14px;
-  background: var(--background);
-  color: var(--foreground);
-  border: 2px solid var(--border);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
+  padding: 4px 12px;
+  background: rgba(255,255,255,0.1);
+  color: var(--background);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+  letter-spacing: 0.04em;
 }
 .verdict h2 {
-  font-size: clamp(1.6rem, 4.2vw, 2.4rem);
-  font-weight: 800;
+  font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+  font-weight: 700;
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 16px;
-  color: var(--primary-foreground);
+  color: var(--background);
 }
-.verdict p { color: var(--primary-foreground); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.55; opacity: 0.92; }
+.verdict p {
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: 0 auto;
+  opacity: 0.85;
+  line-height: 1.55;
+}
 .verdict .stat-line {
   display: inline-block;
-  margin-top: 26px;
-  padding: 10px 18px;
-  background: var(--background);
-  color: var(--good);
-  border: 2px solid var(--border);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.88rem;
-  font-weight: 700;
+  margin-top: 24px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.85rem;
+  color: oklch(0.81 0.17 75.35);
+  font-weight: 500;
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
   text-align: center;
-  padding: 50px 24px;
-  border-top: 3px solid var(--border);
-  color: var(--foreground);
+  padding: 40px 24px 56px;
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
   font-size: 0.85rem;
-  background: var(--muted);
-  font-family: 'Space Mono', monospace;
 }
 .footer p { margin: 4px 0; }
 .footer code {
-  background: var(--background);
-  color: var(--foreground);
+  font-family: 'Geist Mono', monospace;
+  background: var(--card);
   padding: 2px 7px;
+  border-radius: 4px;
   font-size: 0.85em;
   border: 1px solid var(--border);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .side-menu { top: 16px; right: 16px; }
-  .menu-handle { width: 48px; height: 48px; border-width: 2px; }
-  .menu-icon { width: 20px; gap: 4px; }
-  .menu-icon span { height: 2.5px; }
-  .menu-panel { margin-top: 56px; width: 280px; max-width: calc(100vw - 32px); border-width: 2px; }
-  .hero { padding: 60px 18px 50px; }
-  .hero-tag { font-size: 0.7rem; padding: 6px 12px; margin-bottom: 22px; }
-  .hero h1 .accent { padding: 0 8px; }
-  .hero-meta { font-size: 0.74rem; }
-  .hero-meta-item { padding: 8px 12px; }
-  .container { padding: 36px 16px 60px; }
-  section { margin-bottom: 36px; }
-  .ev { border-width: 2px; box-shadow: 4px 4px 0px 0px var(--shadow-color); }
-  .ev-head { padding: 22px 18px 18px; }
-  .ev-body { padding: 20px 18px; }
-  .lead { font-size: 1rem; }
-  .callout { padding: 16px 16px; gap: 12px; border-width: 2px; }
-  .callout-i { width: 32px; height: 32px; font-size: 0.95rem; }
-  .callout-c { font-size: 0.9rem; }
-  .code-block { padding: 14px; font-size: 0.74rem; border-width: 2px; }
-  .tip-card { padding: 18px 16px; border-width: 2px; }
-  .tip-card h4 { font-size: 0.95rem; padding: 5px 10px; }
-  .tip-card p { font-size: 0.9rem; }
-  .proof-summary { padding: 12px 14px; font-size: 0.78rem; }
-  .ss { font-size: 0.8rem; }
-  .hx { font-size: 0.62rem; padding: 10px; line-height: 1.5; }
-  .hx-hdr { font-size: 0.7rem; padding: 6px 10px; }
-  .verdict { padding: 40px 22px; margin: 44px 0 28px; border-width: 2px; }
-  .verdict-tag { font-size: 0.7rem; padding: 5px 12px; }
+  .nav-inner { padding: 12px 16px; }
+  .nav-toc-btn { padding: 6px 10px 6px 12px; font-size: 0.78rem; }
+  .nav-toc-panel { width: 270px; }
+  .hero { padding: 56px 16px 44px; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-sub { font-size: 0.98rem; }
+  .container { padding: 32px 16px 60px; }
+  section { margin-bottom: 22px; }
+  .ev-head { padding: 22px 18px 0; }
+  .ev-body { padding: 18px 18px 22px; }
+  .lead { font-size: 0.98rem; }
+  .diagram { padding: 16px 12px; }
+  .verdict { padding: 40px 20px; margin: 40px 0 20px; }
+  .code-block { padding: 14px; font-size: 0.74rem; }
+  .hx { font-size: 0.62rem; padding: 10px; }
+  .hx-hdr { font-size: 0.68rem; padding: 6px 8px; }
   table.cmp { font-size: 0.84rem; min-width: 460px; }
-  table.cmp th, table.cmp td { padding: 9px 10px; }
-  .tbl-wrap { border-width: 2px; }
-  .ev-num { font-size: 0.72rem; padding: 3px 8px; }
+  table.cmp th, table.cmp td { padding: 8px 10px; }
+  ul.points li { padding: 10px 14px 10px 32px; font-size: 0.9rem; }
+  ul.points li::before { left: 14px; top: 17px; }
 }
-
 @media (max-width: 420px) {
-  .hero h1 { font-size: 2.1rem; }
-  .hero-sub { font-size: 0.95rem; }
-  .ev-head h2 { font-size: 1.3rem; }
-  .severity { font-size: 0.66rem; padding: 4px 10px; }
+  .hero h1 { font-size: 1.95rem; }
+  .ev-head h2 { font-size: 1.25rem; }
 }
-
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
-}
-
-/* AUTH BAR (top-left, mirrors side menu) */
-.auth-bar {
-  position: fixed;
-  top: 24px;
-  left: 24px;
-  z-index: 999;
-  font-family: 'DM Sans', sans-serif;
-}
-.auth-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 18px;
-  background: var(--accent);
-  color: var(--accent-foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  max-width: calc(100vw - 100px);
-}
-.auth-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
-.auth-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px var(--shadow-color); }
-.auth-btn.loggedin { background: var(--good); color: oklch(0 0 0); }
-.auth-user {
-  font-weight: 800;
-  text-transform: none;
-  font-family: 'DM Sans', sans-serif;
-  max-width: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* AUTH MODAL */
-.auth-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(0, 0, 0, 0.85);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.auth-modal.open { display: flex; }
-.auth-card {
-  background: var(--card);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  width: 100%;
-  max-width: 420px;
-  overflow: hidden;
-  position: relative;
-}
-.auth-card-head { display: flex; border-bottom: 3px solid var(--border); }
-.auth-tab {
-  flex: 1;
-  padding: 14px;
-  background: var(--muted);
-  color: var(--muted-foreground);
-  border: none;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-.auth-tab:first-child { border-right: 3px solid var(--border); }
-.auth-tab.active { background: var(--primary); color: var(--primary-foreground); }
-.auth-body { padding: 24px; }
-.auth-form { display: flex; flex-direction: column; gap: 10px; }
-.auth-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--card-foreground);
-  margin-top: 4px;
-}
-.auth-input {
-  width: 100%;
-  padding: 12px 14px;
-  background: var(--background);
-  color: var(--foreground);
-  border: 3px solid var(--border);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.95rem;
-  outline: none;
-  transition: box-shadow 0.15s;
-}
-.auth-input:focus { box-shadow: var(--shadow-primary); }
-.auth-hint {
-  font-size: 0.74rem;
-  color: var(--muted-foreground);
-  font-family: 'Space Mono', monospace;
-  margin-top: -4px;
-}
-.auth-submit {
-  padding: 14px;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  margin-top: 14px;
-}
-.auth-submit:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
-.auth-submit:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px var(--shadow-color); }
-.auth-submit:disabled { opacity: 0.6; cursor: wait; }
-.auth-error {
-  padding: 12px 14px;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border: 2px solid var(--border);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  display: none;
-  word-break: break-word;
-}
-.auth-error.show { display: block; }
-.auth-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
-  background: var(--card);
-  color: var(--card-foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  font-size: 1.4rem;
-  font-weight: 800;
-  cursor: pointer;
-  font-family: 'Space Mono', monospace;
-  z-index: 2001;
-}
-.auth-close:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
-
-/* COMMENTS */
-.comments {
-  margin-top: 28px;
-  padding: 22px;
-  background: var(--background);
-  border: 3px solid var(--border);
-}
-.comments-h {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--foreground);
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-left: 6px solid var(--accent);
-  padding-left: 10px;
-}
-.comments-h .cnt {
-  background: var(--accent);
-  color: var(--accent-foreground);
-  padding: 2px 10px;
-  border: 2px solid var(--border);
-  font-size: 0.74rem;
-  margin-left: auto;
-}
-.comment-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
-.comment-item {
-  padding: 14px 16px;
-  background: var(--card);
-  border: 2px solid var(--border);
-}
-.comment-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.comment-user {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--accent-foreground);
-  background: var(--accent);
-  padding: 3px 9px;
-  border: 2px solid var(--border);
-}
-.comment-time {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--muted-foreground);
-}
-.comment-text {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--card-foreground);
-  word-wrap: break-word;
-  white-space: pre-wrap;
-}
-.comment-empty {
-  text-align: center;
-  padding: 22px 14px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.82rem;
-  color: var(--muted-foreground);
-  background: var(--card);
-  border: 2px dashed var(--border);
-}
-.comment-form { display: flex; flex-direction: column; gap: 10px; }
-.comment-input {
-  width: 100%;
-  padding: 12px 14px;
-  background: var(--background);
-  color: var(--foreground);
-  border: 3px solid var(--border);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  resize: vertical;
-  min-height: 80px;
-  outline: none;
-  transition: box-shadow 0.15s;
-}
-.comment-input:focus { box-shadow: var(--shadow-primary); }
-.comment-submit {
-  align-self: flex-start;
-  padding: 12px 22px;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.comment-submit:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px var(--shadow-color); }
-.comment-submit:disabled { opacity: 0.6; cursor: wait; }
-.comment-locked {
-  padding: 16px;
-  text-align: center;
-  background: var(--muted);
-  border: 2px dashed var(--border);
-  color: var(--muted-foreground);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.comment-locked button {
-  background: var(--accent);
-  color: var(--accent-foreground);
-  border: 2px solid var(--border);
-  padding: 6px 12px;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.comment-locked button:hover { background: var(--primary); color: var(--primary-foreground); }
-
-@media (max-width: 768px) {
-  .auth-bar { top: 16px; left: 16px; }
-  .auth-btn { padding: 11px 13px; font-size: 0.7rem; border-width: 2px; gap: 6px; }
-  .auth-user { max-width: 90px; }
-  .auth-card { border-width: 2px; }
-  .auth-tab { padding: 12px; font-size: 0.78rem; }
-  .auth-body { padding: 18px; }
-  .auth-input { border-width: 2px; padding: 10px 12px; font-size: 0.9rem; }
-  .auth-submit { padding: 12px; font-size: 0.78rem; }
-  .auth-close { top: 16px; right: 16px; width: 38px; height: 38px; border-width: 2px; }
-  .comments { padding: 18px 16px; border-width: 2px; }
-  .comment-item { padding: 12px 14px; }
-  .comment-input { border-width: 2px; padding: 10px 12px; font-size: 0.9rem; min-height: 70px; }
-  .hero { padding-top: 90px; }
 }
 </style>
 </head>
 <body>
 
-<aside class="auth-bar">
-<button id="auth-trigger" class="auth-btn" type="button"><span id="auth-btn-text">შესვლა</span></button>
-</aside>
-<div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true">
-<button class="auth-close" id="auth-close" aria-label="Close" type="button">×</button>
-<div class="auth-card">
-<div class="auth-card-head">
-<button class="auth-tab active" data-tab="login" type="button">შესვლა</button>
-<button class="auth-tab" data-tab="register" type="button">რეგისტრაცია</button>
-</div>
-<div class="auth-body">
-<div class="auth-error" id="auth-error" role="alert"></div>
-<form class="auth-form" id="auth-form">
-<label class="auth-label" for="auth-id">ID</label>
-<input class="auth-input" id="auth-id" type="text" autocomplete="username" maxlength="30" autocapitalize="off" autocorrect="off" spellcheck="false" required>
-<span class="auth-hint">ID: 3-30 სიმბოლო (a-z, 0-9, _)</span>
-<label class="auth-label" for="auth-pw">პაროლი</label>
-<input class="auth-input" id="auth-pw" type="password" autocomplete="current-password" minlength="6" maxlength="100" required>
-<span class="auth-hint">პაროლი: მინ. 6 სიმბოლო</span>
-<button class="auth-submit" id="auth-submit" type="submit">შესვლა</button>
-</form>
+<nav class="nav">
+<div class="nav-inner">
+<a href="#top" class="nav-logo"><span class="nav-logo-dot"></span> eFootball მტკიცებულება</a>
+<div class="nav-toc" tabindex="0">
+<button class="nav-toc-btn" type="button">განყოფილებები <span class="chev">▾</span></button>
+<div class="nav-toc-panel">
+<ul><li><a href="#e1"><span class="num">01</span><span>სტატები სიცრუე</span></a></li><li><a href="#e2"><span class="num">02</span><span>სიჩქარის მანიპულაცია</span></a></li><li><a href="#e3"><span class="num">03</span><span>გათანაბრება</span></a></li><li><a href="#e4"><span class="num">04</span><span>სერვერის კონტროლი</span></a></li><li><a href="#e5"><span class="num">05</span><span>წინასწარ განსაზღვრული დარტყმა</span></a></li><li><a href="#e6"><span class="num">06</span><span>მეკარის დაგვიანება</span></a></li><li><a href="#e7"><span class="num">07</span><span>ჯარიმები</span></a></li><li><a href="#e8"><span class="num">08</span><span>ფარული სირთულე</span></a></li><li><a href="#e9"><span class="num">09</span><span>ფარული სტატები</span></a></li><li><a href="#e10"><span class="num">10</span><span>სერიები</span></a></li><li><a href="#e11"><span class="num">11</span><span>ტელემეტრია</span></a></li><li><a href="#e12"><span class="num">12</span><span>კონტრ-სტრატეგია</span></a></li><li><a href="#e13"><span class="num">13</span><span>საუკეთესო სტილები</span></a></li><li><a href="#verdict"><span class="num">★</span><span>დასკვნა</span></a></li></ul>
 </div>
 </div>
 </div>
-
-<aside class="side-menu" aria-label="ნავიგაციის მენიუს გახსნა">
-<input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="ნავიგაციის მენიუს გახსნა">
-<label for="menu-toggle" class="menu-handle" aria-label="ნავიგაციის მენიუს გახსნა" tabindex="0">
-<div class="menu-icon"><span></span><span></span><span></span></div>
-</label>
-<div class="menu-panel">
-<div class="menu-header">განყოფილებები</div>
-<ul class="menu-list">
-<li><a href="#e1"><span class="menu-num">01</span><span>სტატები სიცრუე</span></a></li><li><a href="#e2"><span class="menu-num">02</span><span>სიჩქარის მანიპულაცია</span></a></li><li><a href="#e3"><span class="menu-num">03</span><span>გათანაბრება</span></a></li><li><a href="#e4"><span class="menu-num">04</span><span>სერვერის კონტროლი</span></a></li><li><a href="#e5"><span class="menu-num">05</span><span>წინასწარ განსაზღვრული დარტყმა</span></a></li><li><a href="#e6"><span class="menu-num">06</span><span>მეკარის დაგვიანება</span></a></li><li><a href="#e7"><span class="menu-num">07</span><span>ჯარიმები</span></a></li><li><a href="#e8"><span class="menu-num">08</span><span>ფარული სირთულე</span></a></li><li><a href="#e9"><span class="menu-num">09</span><span>ფარული სტატები</span></a></li><li><a href="#e10"><span class="menu-num">10</span><span>სერიები</span></a></li><li><a href="#e11"><span class="menu-num">11</span><span>ტელემეტრია</span></a></li><li><a href="#e12"><span class="menu-num">12</span><span>კონტრ-სტრატეგია</span></a></li><li><a href="#e13"><span class="menu-num">13</span><span>საუკეთესო სტილები</span></a></li><li><a href="#verdict"><span class="menu-num">★</span><span>დასკვნა</span></a></li>
-</ul>
-</div>
-</aside>
+</nav>
 
 <header class="hero">
 <div class="hero-inner">
@@ -1186,6 +806,19 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <li>92-რეიტინგიანი playmaker ისე გასცემს პასებს, როგორც 80-რეიტინგიანი — მოკლე პასები აცდება, საჰაერო ბურთები არასწორად ეცემა</li>
 <li>მოთამაშეები 'უმოქმედო' ან 'ნახევრად მძინარე' ჩანან, თუნდაც სრულყოფილ ფორმაში იყვნენ</li>
 </ul>
+<div class="diagram"><svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="სიჩქარე (ქარდი აჩვენებს) vs სიჩქარე (რეალური მატჩში)">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/></marker><marker id="arrow-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cc1f1f"/></marker></defs>
+<text x="20" y="28" class="dia-bar-label">სიჩქარე (ქარდი აჩვენებს)</text>
+<text x="460" y="28" text-anchor="end" class="dia-bar-num">95</text>
+<rect x="20" y="40" width="360" height="20" rx="4" class="dia-track"/>
+<rect x="20" y="40" width="342.0" height="20" rx="4" class="dia-bar-good"/>
+<text x="20" y="78" class="dia-bar-cap"></text>
+<text x="20" y="120" class="dia-bar-label">სიჩქარე (რეალური მატჩში)</text>
+<text x="460" y="120" text-anchor="end" class="dia-bar-num dia-text-bad">72</text>
+<rect x="20" y="132" width="360" height="20" rx="4" class="dia-track"/>
+<rect x="20" y="132" width="259.2" height="20" rx="4" class="dia-bar-bad"/>
+<text x="20" y="170" class="dia-bar-cap"></text>
+</svg><div class="dia-cap">ერთი მოთამაშე, ორი მნიშვნელობა. რეალურად ქვედა მუშაობს.</div></div>
 <details class="proof-details"><summary class="proof-summary"><span class="proof-icon">⌬</span><span class="proof-text">ნახე ბინარული მტკიცებულება</span><span class="proof-count">2/2</span></summary><div class="proof-inner"><div class="sp"><div class="sp-hdr"><code class="ss">"ability_base"</code><span class="bf">ნაპოვნია 1×</span></div><div class="hx-box"><div class="hx-hdr"><span>ოფსეტი: <code>0x0698D430</code></span><span class="hx-meta"><code>ASCII</code></span></div><pre class="hx"><span class="ha">0698D400</span>  5F 72 65 61 73 6F 6E 00  74 65 61 6D 00 00 00 00  <span class="ap">|_reason.team....|</span>
 <span class="ha">0698D410</span>  74 65 61 6D 00 00 00 00  74 65 61 6D 00 00 00 00  <span class="ap">|team....team....|</span>
 <span class="ha">0698D420</span>  74 65 61 6D 00 00 00 00  74 65 61 6D 00 00 00 00  <span class="ap">|team....team....|</span>
@@ -1225,6 +858,19 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <p class="body-text">ეს ხაზი სიტყვასიტყვით ნიშნავს 'სიჩქარის ცვლილებას' — Konami-ს დეველოპერებმა ეს დაწერეს, რომ სისტემაზე შიდა ბილდებში დაკვირვებოდნენ. ის რეალურია, მუშაობს და ყოველ კორექტირებას აღრიცხავს.</p>
 
 <div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">ამიტომაც გრძნობ, რომ შენი გუნდი 10 წუთი 'ნელია', მერე უცებ ისევ 'სწრაფი' ხდება. სისტემა იცვლება — აწესებს შენელებებს და გაძლიერებებს მატჩის მდგომარეობის, ანგარიშის, ბურთის ფლობისა და სხვა ფარული ტრიგერების მიხედვით.</div></div>
+<div class="diagram"><svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="შენი ფორვარდის სიჩქარე (ფული გადახდილი) vs მეტოქის მცველის სიჩქარე (Equalized)">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/></marker><marker id="arrow-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cc1f1f"/></marker></defs>
+<text x="20" y="28" class="dia-bar-label">შენი ფორვარდის სიჩქარე (ფული გადახდილი)</text>
+<text x="460" y="28" text-anchor="end" class="dia-bar-num">92</text>
+<rect x="20" y="40" width="360" height="20" rx="4" class="dia-track"/>
+<rect x="20" y="40" width="331.2" height="20" rx="4" class="dia-bar-good"/>
+<text x="20" y="78" class="dia-bar-cap"></text>
+<text x="20" y="120" class="dia-bar-label">მეტოქის მცველის სიჩქარე (Equalized)</text>
+<text x="460" y="120" text-anchor="end" class="dia-bar-num dia-text-bad">88</text>
+<rect x="20" y="132" width="360" height="20" rx="4" class="dia-track"/>
+<rect x="20" y="132" width="316.8" height="20" rx="4" class="dia-bar-bad"/>
+<text x="20" y="170" class="dia-bar-cap"></text>
+</svg><div class="dia-cap">Equalization-ის აქტიურობისას, განსხვავება თითქმის ქრება.</div></div>
 <details class="proof-details"><summary class="proof-summary"><span class="proof-icon">⌬</span><span class="proof-text">ნახე ბინარული მტკიცებულება</span><span class="proof-count">6/6</span></summary><div class="proof-inner"><div class="sp"><div class="sp-hdr"><code class="ss">"MatchGageAdjustment"</code><span class="bf">ნაპოვნია 1×</span></div><div class="hx-box"><div class="hx-hdr"><span>ოფსეტი: <code>0x06A35968</code></span><span class="hx-meta"><code>ASCII</code></span></div><pre class="hx"><span class="ha">06A35938</span>  4D 61 74 63 68 43 6F 6D  6D 61 6E 64 48 7A 00 00  <span class="ap">|MatchCommandHz..|</span>
 <span class="ha">06A35948</span>  46 6F 72 63 65 53 65 74  4D 61 74 63 68 43 6F 6D  <span class="ap">|ForceSetMatchCom|</span>
 <span class="ha">06A35958</span>  6D 61 6E 64 48 7A 4C 6F  77 4C 69 6D 69 74 00 00  <span class="ap">|mandHzLowLimit..|</span>
@@ -1295,6 +941,10 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <p class="body-text"><code>m_enableEqualization</code> — flag-ია, რომელიც შეიძლება ჩაირთოს ან გამოირთოს. <strong>AI Division-სა და ონლაინ რეჟიმების უმრავლესობაში</strong> ეს flag მუდმივად ჩართულია და მოთამაშეს მისი გამორთვის შესაძლებლობა არ ეძლევა. Custom Match-ისა და Friendly-ის რეჟიმებში flag-ის ცვლილება <em>შესაძლებელია</em> — ანუ Konami-მ იცის, რომ სისტემა მატჩებს ნაკლებად სამართლიანს ხდის, მაგრამ გადაწყვიტა ეს ღილაკი შენთვის გამორთული ჰქონოდა.</p>
 
 <div class="callout"><div class="callout-i">i</div><div class="callout-c">ყველაზე მნიშვნელოვანი თვითონ სიტყვაა — <strong>"Equalization"</strong>. Konami-მ არც კი სცადა, რომ ბუნდოვანი სახელით დაემალა. დაარქვა იმას, რაც სინამდვილეშია: იძულებითი თანასწორობა. ორი გუნდი, რაც არ უნდა განსხვავებული ხარისხის იყოს, ითამაშებს იმაზე უფრო თანაბრად, ვიდრე უნდა ეთამაშათ. 'კარგი vs. ცუდი' შედეგი 'შემთხვევითად' გადაიქცევა.</div></div>
+<div class="diagram"><svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/></marker><marker id="arrow-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cc1f1f"/></marker></defs>
+<rect x="-22.0" y="50" width="110" height="60" rx="8" class="dia-box"/><text x="33.0" y="86" text-anchor="middle" class="dia-text dia-text">შენი მოქმედება</text><rect x="116.0" y="50" width="110" height="60" rx="8" class="dia-box-bad"/><text x="171.0" y="86" text-anchor="middle" class="dia-text dia-text-bad">Konami სერვერი</text><rect x="254.0" y="50" width="110" height="60" rx="8" class="dia-box-bad"/><text x="309.0" y="78" text-anchor="middle" class="dia-text dia-text-bad">შეცვლილი</text><text x="309.0" y="95" text-anchor="middle" class="dia-text dia-text-bad">შედეგი</text><rect x="392.0" y="50" width="110" height="60" rx="8" class="dia-box"/><text x="447.0" y="86" text-anchor="middle" class="dia-text dia-text">შენ ხედავ</text><line x1="92.0" y1="80" x2="112.0" y2="80" class="dia-arrow-bad"/><line x1="230.0" y1="80" x2="250.0" y2="80" class="dia-arrow-bad"/><line x1="368.0" y1="80" x2="388.0" y2="80" class="dia-arrow-bad"/>
+</svg><div class="dia-cap">სერვერი დგას შენსა და შედეგს შორის. მას ყველაფრის შეცვლა შეუძლია.</div></div>
 <details class="proof-details"><summary class="proof-summary"><span class="proof-icon">⌬</span><span class="proof-text">ნახე ბინარული მტკიცებულება</span><span class="proof-count">4/5</span></summary><div class="proof-inner"><div class="sp"><div class="sp-hdr"><code class="ss">"m_enableEqualization"</code><span class="bf">ნაპოვნია 2×</span></div><div class="hx-box"><div class="hx-hdr"><span>ოფსეტი: <code>0x05D638E8</code></span><span class="hx-meta"><code>ASCII</code></span></div><pre class="hx"><span class="ha">05D638B8</span>  52 6F 6F 6D 56 61 63 61  6E 63 79 53 74 61 74 75  <span class="ap">|RoomVacancyStatu|</span>
 <span class="ha">05D638C8</span>  73 00 00 00 00 00 00 00  6D 5F 72 6F 6F 6D 56 61  <span class="ap">|s.......m_roomVa|</span>
 <span class="ha">05D638D8</span>  63 61 6E 63 79 53 74 61  74 75 73 00 00 00 00 00  <span class="ap">|cancyStatus.....|</span>
@@ -1517,6 +1167,19 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <span class="cm">// + OK ვერსია თითოეულისთვის (დაიგვიანა, მაგრამ მაინც დაიჭირა)</span></div>
 
 <div class="callout"><div class="callout-i">!</div><div class="callout-c">როცა 90-რეიტინგიანი მეკარე 'გაუგებრად' ვერ ახერხებს ჩვეულებრივ დარტყმაზე რეაგირებას — სწორედ ეს კოდია მიზეზი. სისტემა ჩუმად გადართავს <code>ActionKeeperBlock</code>-ს <code>ActionKeeperBlockLate</code>-ით — იგივე ანიმაცია, ფრეიმების განსხვავებული დროება, განსხვავებული შედეგი.</div></div>
+<div class="diagram"><svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI მეკარის რეაქცია (ms) vs შენი მეკარის რეაქცია (ms)">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/></marker><marker id="arrow-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cc1f1f"/></marker></defs>
+<text x="20" y="28" class="dia-bar-label">AI მეკარის რეაქცია (ms)</text>
+<text x="460" y="28" text-anchor="end" class="dia-bar-num">180</text>
+<rect x="20" y="40" width="360" height="20" rx="4" class="dia-track"/>
+<rect x="20" y="40" width="108.0" height="20" rx="4" class="dia-bar-good"/>
+<text x="20" y="78" class="dia-bar-cap"></text>
+<text x="20" y="120" class="dia-bar-label">შენი მეკარის რეაქცია (ms)</text>
+<text x="460" y="120" text-anchor="end" class="dia-bar-num dia-text-bad">420</text>
+<rect x="20" y="132" width="360" height="20" rx="4" class="dia-track"/>
+<rect x="20" y="132" width="252.0" height="20" rx="4" class="dia-bar-bad"/>
+<text x="20" y="170" class="dia-bar-cap"></text>
+</svg><div class="dia-cap">რეაქციის დრო თითო დარტყმაზე. დაბალი უკეთესია.</div></div>
 <details class="proof-details"><summary class="proof-summary"><span class="proof-icon">⌬</span><span class="proof-text">ნახე ბინარული მტკიცებულება</span><span class="proof-count">2/5</span></summary><div class="proof-inner"><div class="sp"><div class="sp-hdr"><code class="ss">"ActionKeeperBlockLate"</code><span class="bf">ნაპოვნია 1×</span></div><div class="hx-box"><div class="hx-hdr"><span>ოფსეტი: <code>0x07DB0F14</code></span><span class="hx-meta"><code>ASCII</code></span></div><pre class="hx"><span class="ha">07DB0EE4</span>  65 70 65 72 42 6C 6F 63  6B 40 70 6C 61 79 65 72  <span class="ap">|eperBlock@player|</span>
 <span class="ha">07DB0EF4</span>  40 6D 61 74 63 68 40 40  00 00 00 00 58 3F F6 46  <span class="ap">|@match@@....X?.F|</span>
 <span class="ha">07DB0F04</span>  01 00 00 00 00 00 00 00  00 00 00 00 2E 3F 41 56  <span class="ap">|.............?AV|</span>
@@ -1717,6 +1380,10 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <span class="hl">NUM_MULTIPLE_WIN_STREAK</span>  <span class="cm">// დიდი მოგებების სერია</span></div>
 
 <div class="callout warn"><div class="callout-i">⚠</div><div class="callout-c">ზედიზედ 4-5 მოგების შემდეგ, შემდეგი მატჩი უცებ 'შეუძლებელი' ხდება. შენი მოთამაშეები ნელა მოძრაობენ, AI ყველგან არის, მეკარე ისეთ ბურთებსაც იჭერს, რომელთა დაჭერაც არ უნდა შეძლებოდა. ეს ცუდი იღბალი არ არის — სერიის მთვლელმა ზღვარი გადააჭარბა და Equalization სისტემამ ეს გაიგო.</div></div>
+<div class="diagram"><svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" role="img">
+<line x1="30" y1="130" x2="450" y2="130" stroke="var(--border)" stroke-width="1"/>
+<rect x="32.0" y="90" width="31.0" height="40" rx="3" class="dia-bar-good"/><text x="47.5" y="84" text-anchor="middle" class="dia-text-mono">W</text><rect x="67.0" y="80" width="31.0" height="50" rx="3" class="dia-bar-good"/><text x="82.5" y="74" text-anchor="middle" class="dia-text-mono">W</text><rect x="102.0" y="70" width="31.0" height="60" rx="3" class="dia-bar-good"/><text x="117.5" y="64" text-anchor="middle" class="dia-text-mono">W</text><rect x="137.0" y="60" width="31.0" height="70" rx="3" class="dia-bar-good"/><text x="152.5" y="54" text-anchor="middle" class="dia-text-mono">W</text><rect x="172.0" y="130" width="31.0" height="30" rx="3" class="dia-bar-bad"/><text x="187.5" y="174" text-anchor="middle" class="dia-text-mono">L</text><rect x="207.0" y="130" width="31.0" height="40" rx="3" class="dia-bar-bad"/><text x="222.5" y="184" text-anchor="middle" class="dia-text-mono">L</text><rect x="242.0" y="130" width="31.0" height="50" rx="3" class="dia-bar-bad"/><text x="257.5" y="194" text-anchor="middle" class="dia-text-mono">L</text><rect x="277.0" y="100" width="31.0" height="30" rx="3" class="dia-bar-good"/><text x="292.5" y="94" text-anchor="middle" class="dia-text-mono">W</text><rect x="312.0" y="90" width="31.0" height="40" rx="3" class="dia-bar-good"/><text x="327.5" y="84" text-anchor="middle" class="dia-text-mono">W</text><rect x="347.0" y="130" width="31.0" height="20" rx="3" class="dia-bar-bad"/><text x="362.5" y="164" text-anchor="middle" class="dia-text-mono">L</text><rect x="382.0" y="130" width="31.0" height="30" rx="3" class="dia-bar-bad"/><text x="397.5" y="174" text-anchor="middle" class="dia-text-mono">L</text><rect x="417.0" y="130" width="31.0" height="40" rx="3" class="dia-bar-bad"/><text x="432.5" y="184" text-anchor="middle" class="dia-text-mono">L</text>
+</svg><div class="dia-cap">იძულებითი მოდელი: გრძელი მოგების სერია → ჩართულია წაგების სერია.</div></div>
 <details class="proof-details"><summary class="proof-summary"><span class="proof-icon">⌬</span><span class="proof-text">ნახე ბინარული მტკიცებულება</span><span class="proof-count">7/7</span></summary><div class="proof-inner"><div class="sp"><div class="sp-hdr"><code class="ss">"NUM_WIN_STREAK"</code><span class="bf">ნაპოვნია 1×</span></div><div class="hx-box"><div class="hx-hdr"><span>ოფსეტი: <code>0x06B50C08</code></span><span class="hx-meta"><code>ASCII</code></span></div><pre class="hx"><span class="ha">06B50BD8</span>  45 52 00 00 41 47 45 00  52 41 54 49 4F 5F 57 49  <span class="ap">|ER..AGE.RATIO_WI|</span>
 <span class="ha">06B50BE8</span>  4E 00 00 00 53 49 44 45  5F 4C 00 00 41 4C 4C 00  <span class="ap">|N...SIDE_L..ALL.|</span>
 <span class="ha">06B50BF8</span>  52 41 54 49 4F 5F 4C 4F  53 45 00 00 4E 4F 57 00  <span class="ap">|RATIO_LOSE..NOW.|</span>
@@ -1789,6 +1456,10 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <p class="body-text">ეს path არის ფაილის მისამართი Konami-ს შიდა ბილდის გარემოში. <code>CmdSendAdjustParam.cpp</code> სწორედ <strong>Source_Private</strong>-ში — ე.ი. Konami-მ ეს ფაილი კერძო, დამალული source-ის სახით მონიშნა. კერძო ვისგან? საზოგადოებისგან, რომელმაც, მათი ხედვით, არ უნდა იცოდეს მისი არსებობის შესახებ.</p>
 
 <div class="callout"><div class="callout-i">!</div><div class="callout-c">კომბინაცია გამამხელია: სისტემა, რომელიც შენს მატჩს არეგულირებს (დამტკიცებული); სერვერი, რომელიც მას ააქტიურებს (დამტკიცებული); ტელემეტრია, რომელიც ყოველ აქტივაციას აღრიცხავს (დამტკიცებული); და შიდა დასახელების წესი, რომელიც source-ს 'კერძოდ' ნიშნავს (დამტკიცებული). ასე პატიოსანი თამაში არ მუშაობს.</div></div>
+<div class="diagram"><svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/></marker><marker id="arrow-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cc1f1f"/></marker></defs>
+<rect x="47.0" y="50" width="110" height="60" rx="8" class="dia-box"/><text x="102.0" y="86" text-anchor="middle" class="dia-text dia-text">შენი მატჩი</text><rect x="185.0" y="50" width="110" height="60" rx="8" class="dia-box-bad"/><text x="240.0" y="78" text-anchor="middle" class="dia-text dia-text-bad">2,941 ივენთი</text><text x="240.0" y="95" text-anchor="middle" class="dia-text dia-text-bad">დაჭერილია</text><rect x="323.0" y="50" width="110" height="60" rx="8" class="dia-box-bad"/><text x="378.0" y="78" text-anchor="middle" class="dia-text dia-text-bad">Konami ლოგი</text><text x="378.0" y="95" text-anchor="middle" class="dia-text dia-text-bad">სერვერის</text><line x1="161.0" y1="80" x2="181.0" y2="80" class="dia-arrow-bad"/><line x1="299.0" y1="80" x2="319.0" y2="80" class="dia-arrow-bad"/>
+</svg><div class="dia-cap">ყოველი მოქმედება ლოგირებულია. Konami-მ ზუსტად იცის როდის ჩაირთო მანიპულაცია.</div></div>
 <details class="proof-details"><summary class="proof-summary"><span class="proof-icon">⌬</span><span class="proof-text">ნახე ბინარული მტკიცებულება</span><span class="proof-count">2/4</span></summary><div class="proof-inner"><div class="sp"><div class="sp-hdr"><code class="ss">"MATCH_PLAY_DATA_ADJUST_SYSTEM_ACT"</code><span class="bnf">ვერ მოიძებნა</span></div></div><div class="sp"><div class="sp-hdr"><code class="ss">"MBuild15_eFBDev-530"</code><span class="bnf">ვერ მოიძებნა</span></div></div><div class="sp"><div class="sp-hdr"><code class="ss">"PES22HC"</code><span class="bf">ნაპოვნია 38×</span></div><div class="hx-box"><div class="hx-hdr"><span>ოფსეტი: <code>0x057E6DD3</code></span><span class="hx-meta"><code>ASCII</code></span></div><pre class="hx"><span class="ha">057E6DA3</span>  00 69 00 6D 00 70 00 6C  00 65 00 6D 00 65 00 6E  <span class="ap">|.i.m.p.l.e.m.e.n|</span>
 <span class="ha">057E6DB3</span>  00 74 00 61 00 74 00 69  00 6F 00 6E 00 00 00 00  <span class="ap">|.t.a.t.i.o.n....|</span>
 <span class="ha">057E6DC3</span>  00 00 00 00 00 00 00 00  00 00 00 00 00 47 3A 5C  <span class="ap">|.............G:\|</span>
@@ -2162,264 +1833,14 @@ details[open] .proof-icon { transform: rotate(45deg); }
 <p style="margin-top:10px">2026 · April</p>
 </footer>
 
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, limit } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-
-const firebaseConfig = {"apiKey": "REPLACE_WITH_YOUR_API_KEY", "authDomain": "REPLACE_WITH_YOUR_AUTH_DOMAIN", "projectId": "REPLACE_WITH_YOUR_PROJECT_ID", "storageBucket": "REPLACE_WITH_YOUR_STORAGE_BUCKET", "messagingSenderId": "REPLACE_WITH_YOUR_SENDER_ID", "appId": "REPLACE_WITH_YOUR_APP_ID"};
-
-const I18N = {
-  en: {
-    login: "Sign in", register: "Sign up", logout: "Sign out", locale: "en-US",
-    title: "Comments", empty: "No comments yet — be the first.",
-    placeholder: "Share your thoughts...", send: "Post",
-    lockedMsg: "Sign in to post a comment.",
-    idHint: "ID: 3-30 chars (a-z, 0-9, _)", pwHint: "Password: at least 6 characters",
-    errInUse: "This ID is already taken.",
-    errBadCred: "Wrong ID or password.",
-    errTooMany: "Too many attempts. Try again later.",
-    errGeneric: "Something went wrong. Try again.",
-    errSend: "Couldn't send comment.",
-    errOffline: "Can't connect to Firebase. Check your internet."
-  },
-  ge: {
-    login: "შესვლა", register: "რეგისტრაცია", logout: "გასვლა", locale: "ka-GE",
-    title: "კომენტარები", empty: "კომენტარები ჯერ არ არის — შენ იყავი პირველი.",
-    placeholder: "დაწერე შენი აზრი...", send: "გაგზავნა",
-    lockedMsg: "კომენტარის დასაწერად შედი ან დარეგისტრირდი.",
-    idHint: "ID: 3-30 სიმბოლო (a-z, 0-9, _)", pwHint: "პაროლი: მინ. 6 სიმბოლო",
-    errInUse: "ეს ID უკვე გამოყენებულია.",
-    errBadCred: "ID ან პაროლი არასწორია.",
-    errTooMany: "ბევრი მცდელობა. სცადე ცოტა ხანში.",
-    errGeneric: "შეცდომა. სცადე თავიდან.",
-    errSend: "კომენტარის გაგზავნა ვერ მოხერხდა.",
-    errOffline: "Firebase-თან კავშირი ვერ მოხერხდა. შეამოწმე ინტერნეტი."
-  }
-};
-const T = I18N["ge"];
-
-const validId = (id) => /^[a-z0-9_]{3,30}$/.test(id);
-const idToEmail = (id) => id + "@efootball-evidence.local";
-
-const configValid = !String(firebaseConfig.apiKey || "").startsWith("REPLACE_");
-
-let app, auth, db, currentUser = null;
-if (configValid) {
-  try {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-  } catch (e) {
-    console.error("Firebase init failed:", e);
-  }
-} else {
-  console.warn("Firebase config not set. Auth & comments are disabled until config is added.");
-  const bar = document.querySelector(".auth-bar");
-  if (bar) bar.style.display = "none";
-}
-
-const $ = (id) => document.getElementById(id);
-const modal = $("auth-modal");
-const trigger = $("auth-trigger");
-const btnText = $("auth-btn-text");
-const closeBtn = $("auth-close");
-const tabs = document.querySelectorAll(".auth-tab");
-const form = $("auth-form");
-const idIn = $("auth-id");
-const pwIn = $("auth-pw");
-const submitBtn = $("auth-submit");
-const errorBox = $("auth-error");
-let mode = "login";
-
-function setMode(m) {
-  mode = m;
-  tabs.forEach(t => t.classList.toggle("active", t.dataset.tab === m));
-  submitBtn.textContent = m === "login" ? T.login : T.register;
-  errorBox.classList.remove("show");
-}
-function openModal(m) {
-  setMode(m || "login");
-  modal.classList.add("open");
-  setTimeout(() => idIn.focus(), 50);
-}
-function closeModal() {
-  modal.classList.remove("open");
-  form.reset();
-  errorBox.classList.remove("show");
-}
-function showError(msg) {
-  errorBox.textContent = msg;
-  errorBox.classList.add("show");
-}
-
-if (trigger) {
-  trigger.addEventListener("click", () => {
-    if (!auth) return;
-    if (currentUser) signOut(auth);
-    else openModal("login");
-  });
-}
-if (closeBtn) closeBtn.addEventListener("click", closeModal);
-if (modal) modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-tabs.forEach(t => t.addEventListener("click", () => setMode(t.dataset.tab)));
-document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal && modal.classList.contains("open")) closeModal(); });
-
-if (form) form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  if (!auth) { showError(T.errOffline); return; }
-  const id = idIn.value.trim().toLowerCase();
-  const pw = pwIn.value;
-  if (!validId(id)) { showError(T.idHint); return; }
-  if (pw.length < 6) { showError(T.pwHint); return; }
-  submitBtn.disabled = true;
-  errorBox.classList.remove("show");
-  try {
-    if (mode === "register") {
-      const cred = await createUserWithEmailAndPassword(auth, idToEmail(id), pw);
-      try { await updateProfile(cred.user, { displayName: id }); } catch(_) {}
-    } else {
-      await signInWithEmailAndPassword(auth, idToEmail(id), pw);
-    }
-    closeModal();
-  } catch (err) {
-    const code = err.code || "";
-    let msg = T.errGeneric;
-    if (code === "auth/email-already-in-use") msg = T.errInUse;
-    else if (code === "auth/invalid-credential" || code === "auth/wrong-password" || code === "auth/user-not-found" || code === "auth/invalid-login-credentials") msg = T.errBadCred;
-    else if (code === "auth/weak-password") msg = T.pwHint;
-    else if (code === "auth/too-many-requests") msg = T.errTooMany;
-    else if (code === "auth/network-request-failed") msg = T.errOffline;
-    showError(msg);
-    console.error("auth error:", err);
-  } finally {
-    submitBtn.disabled = false;
-  }
-});
-
-if (auth) onAuthStateChanged(auth, (user) => {
-  currentUser = user;
-  const name = user ? (user.displayName || (user.email ? user.email.split("@")[0] : "?")) : null;
-  if (user) {
-    trigger.classList.add("loggedin");
-    btnText.innerHTML = '<span class="auth-user">@' + escapeHTML(name) + '</span>&nbsp;·&nbsp;' + escapeHTML(T.logout);
-  } else {
-    trigger.classList.remove("loggedin");
-    btnText.textContent = T.login;
-  }
-  refreshAllCommentForms();
-});
-
-// COMMENTS
-function fmtTime(ts) {
-  if (!ts) return "...";
-  const d = ts.toDate ? ts.toDate() : new Date(ts);
-  try {
-    return d.toLocaleString(T.locale, { year:"numeric", month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
-  } catch(_) { return d.toString(); }
-}
-function escapeHTML(s) {
-  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
-}
-function renderCommentForm(container, sectionId) {
-  const formArea = container.querySelector(".comment-form-area");
-  if (!formArea) return;
-  if (currentUser) {
-    formArea.innerHTML =
-      '<form class="comment-form">' +
-        '<textarea class="comment-input" maxlength="1000" placeholder="' + escapeHTML(T.placeholder) + '" required></textarea>' +
-        '<button class="comment-submit" type="submit">' + escapeHTML(T.send) + '</button>' +
-      '</form>';
-    formArea.querySelector("form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const ta = e.target.querySelector("textarea");
-      const btn = e.target.querySelector("button");
-      const text = ta.value.trim();
-      if (!text || !db || !currentUser) return;
-      btn.disabled = true;
-      try {
-        await addDoc(collection(db, "sections", sectionId, "comments"), {
-          userId: currentUser.uid,
-          username: currentUser.displayName || (currentUser.email ? currentUser.email.split("@")[0] : "?"),
-          text: text,
-          timestamp: serverTimestamp()
-        });
-        ta.value = "";
-      } catch (err) {
-        console.error("send error:", err);
-        alert(T.errSend + " " + (err.message || ""));
-      } finally {
-        btn.disabled = false;
-      }
-    });
-  } else {
-    formArea.innerHTML =
-      '<div class="comment-locked">' +
-        '<span>' + escapeHTML(T.lockedMsg) + '</span>' +
-        '<button type="button" class="login-cta">' + escapeHTML(T.login) + '</button>' +
-      '</div>';
-    const cta = formArea.querySelector(".login-cta");
-    if (cta) cta.addEventListener("click", () => openModal("login"));
-  }
-}
-function refreshAllCommentForms() {
-  document.querySelectorAll(".comments").forEach(c => renderCommentForm(c, c.dataset.sid));
-}
-function attachCommentsToSection(section) {
-  const sid = section.id;
-  if (!sid) return;
-  if (section.querySelector(":scope .comments")) return;
-  const evBody = section.querySelector(".ev-body");
-  const target = evBody || section;
-  const wrap = document.createElement("div");
-  wrap.className = "comments";
-  wrap.dataset.sid = sid;
-  wrap.innerHTML =
-    '<div class="comments-h"><span>💬</span><span>' + escapeHTML(T.title) + '</span><span class="cnt" data-cnt>0</span></div>' +
-    '<div class="comment-list" data-list><div class="comment-empty">' + escapeHTML(T.empty) + '</div></div>' +
-    '<div class="comment-form-area"></div>';
-  target.appendChild(wrap);
-  renderCommentForm(wrap, sid);
-  if (db) {
-    const q = query(collection(db, "sections", sid, "comments"), orderBy("timestamp", "desc"), limit(100));
-    onSnapshot(q, (snap) => {
-      const list = wrap.querySelector("[data-list]");
-      const cnt = wrap.querySelector("[data-cnt]");
-      if (snap.empty) {
-        list.innerHTML = '<div class="comment-empty">' + escapeHTML(T.empty) + '</div>';
-        cnt.textContent = "0";
-        return;
-      }
-      cnt.textContent = String(snap.size);
-      list.innerHTML = "";
-      snap.forEach(doc => {
-        const c = doc.data();
-        const item = document.createElement("div");
-        item.className = "comment-item";
-        item.innerHTML =
-          '<div class="comment-meta">' +
-            '<span class="comment-user">@' + escapeHTML(c.username || "?") + '</span>' +
-            '<span class="comment-time">' + escapeHTML(fmtTime(c.timestamp)) + '</span>' +
-          '</div>' +
-          '<div class="comment-text">' + escapeHTML(c.text || "") + '</div>';
-        list.appendChild(item);
-      });
-    }, (err) => { console.error("comments subscribe error:", err); });
-  }
-}
-if (configValid) {
-  document.querySelectorAll("section[id]").forEach(attachCommentsToSection);
-}
-
-// Side menu close on link click
-document.querySelectorAll(".menu-list a").forEach(a => {
-  a.addEventListener("click", () => {
-    const t = $("menu-toggle");
-    if (t) t.checked = false;
+<script>
+// Close TOC on link click
+document.querySelectorAll('.nav-toc-panel a').forEach(a => {
+  a.addEventListener('click', () => {
+    const t = a.closest('.nav-toc');
+    if (t) { t.blur(); document.body.focus(); }
   });
 });
-
 </script>
 
 </body>
